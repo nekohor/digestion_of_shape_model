@@ -98,3 +98,7 @@ lot_chg is related with family change and thk&wid index change.
             this->lot_chg = true;
         }
 ```
+
+## Reset_Verniers
+if if roll chage or product occured reset SAMP verniers
+
