@@ -34,14 +34,14 @@ Determine iteration based on re-drafting permitted indicator.
 `iter` does not mean iteration of shape setup calculation.
 
 ```c++
-if ( redrft_perm )
-{
-    iter = 1;
-}
-else
-{
-    iter = 0;
-}
+    if ( redrft_perm )
+    {
+        iter = 1;
+    }
+    else
+    {
+        iter = 0;
+    }
 ```
 As shown in the code above, `redrft_perm` and `iter` has the same value ( 0 or 1).
 
@@ -57,3 +57,44 @@ changes made through L2_UTY are captured.
 ## Copy_Object_Chain()
 
 Copy FSU object chain data into Shape Object Chain
+
+
+## find last active pointer
+
+Loop thru all Pass objects and find Last Active Pass Pointer
+
+## change indicator
+
+five change indicators for pre-setup of shape model.
+
+- family_chg
+- narrow_to_wide_chg
+- wide_to_narrow_chg
+- prd_chg
+- lot_chg
+
+prd_chg is from union of family_chg, narrow_to_wide_chg, wide_to_narrow_chg.
+```
+    if ( (true == this->family_chg)         || 
+         (true == this->narrow_to_wide_chg) || 
+         (true == this->wide_to_narrow_chg) )
+    {
+        this->prd_chg = true;
+    }
+```
+
+lot_chg is related with family change and thk&wid index change. 
+```
+       if (  // family change
+             ((pcSched->pcFSSched->pcSAMP->state.pr_family > 0) &&
+              (abs(pcSched->pcPDI->state.family - pcSched->pcFSSched->pcSAMP->state.pr_family) > 0)) ||
+             // gauge range table index change
+             ((pcSched->pcFSSched->pcSAMP->state.pr_grt_idx > 0) &&
+              (abs(pcSched->pcPDI->state.grt_idx - pcSched->pcFSSched->pcSAMP->state.pr_grt_idx) > 0)) ||
+             // width range table index change
+             ((pcSched->pcFSSched->pcSAMP->state.pr_wrt_idx > 0) &&
+              (abs(pcSched->pcPDI->state.wrt_idx - pcSched->pcFSSched->pcSAMP->state.pr_wrt_idx) > 0)) )
+        {
+            this->lot_chg = true;
+        }
+```
