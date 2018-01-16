@@ -151,6 +151,6 @@ pcAlcD->pcRollbite->Calculate(     //@S014
 
 注意这里有两个均载辊缝单位凸度，一个是pcLPceD->ufd_pu_prf，另一个是pcAlcD->ufd_pu_prf，这两个ufd_pu_prf是相对的，因为要比较它们之间的偏差。
 
-
+如果下游机架的带钢影响系数为0，则只计算pcAlcD->ufd_pu_prf，不更新
 
 cAlc::actrtyp_bend的条件则进行弯辊力的计算；cAlc::actrtyp_shift的条件则进行窜辊位置的计算。注意这里的cAlc::actrtyp_none，指的是像弯辊和窜辊这样的机构为none，表示预设位。
