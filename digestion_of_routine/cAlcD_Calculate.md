@@ -105,7 +105,7 @@ pcCRLCD->Crns(..)的计算详见CRLC模块说明。
 
 非空过部分的计算持续到start over之前。
 
-### 咬入计算
+### 咬入计算与单位轧制力约束
 
 之后进行带钢的咬入计算，咬入计算的输入量有入口宽度、出入口厚度、出入口张力、轧制速度，计算输出量有单位轧制力、前滑值和接触弧长度。
 
@@ -123,3 +123,34 @@ pcAlcD->pcRollbite->Calculate(     //@S014
                     pcExPceD->tension )                 // IN Exit tension
 ```
 
+为什么把咬入计算放在这里，是因为后面有重分配压下的打算，即redrft_perm为true时，需约束单位轧制力。
+
+```C++
+            if( redrft_perm )
+            {
+                pcAlcD->force_pu_wid = (float) force_pu_wid_buf;
+
+                //----------------------------------------------------------
+                // Restrict the rolling force per unit piece width to within
+                // the rolling force per unit piece width envelope.
+                //----------------------------------------------------------
+                line_num = __LINE__;
+                cAlcD::Eval_Frc_PU_Wid( force_pu_wid_clp,
+                                        pcAlcD->force_pu_wid,
+                                        pcStdD->force_strip / pcStdD->pcEnPceD->width,
+                                        pcPEnvD->force_pu_wid_env,
+                                        pcAlcD->pcRollbite->Precision() );
+            }
+            pcAlcD->flt_ok = true;
+```
+约束完单位轧制力后，设定一个标识浪形是否合格的指示器：pcAlcD->flt_ok，其默认值为true。
+
+### 重头戏：均载辊缝单位凸度的计算
+
+最重要的计算到来了，均载辊缝单位凸度的计算。
+
+注意这里有两个均载辊缝单位凸度，一个是pcLPceD->ufd_pu_prf，另一个是pcAlcD->ufd_pu_prf，这两个ufd_pu_prf是相对的，因为要比较它们之间的偏差。
+
+
+
+cAlc::actrtyp_bend的条件则进行弯辊力的计算；cAlc::actrtyp_shift的条件则进行窜辊位置的计算。注意这里的cAlc::actrtyp_none，指的是像弯辊和窜辊这样的机构为none，表示预设位。
