@@ -42,9 +42,84 @@ Delvry_Pass(..)计算F7或最后一非空过道次的入口和出口有效单位
 
 注意在Delvry_Pass(..)中的均载辊缝凸度只是作为中间计算结果存在，与后面分配阶段的ufd_pu_prf有所区别。
 
-## 空过的分配处理
+## 凸度分配计算的大循环
+
+前期准备工作做完后进入凸度分配计算的大循环。
+
+### 局部指针的引用
+
+在每个循环体开始执行时，先用局部指针指向本次循环要用到的所有相关动态对象。
+
+```C++
+            // create pointers to class objects that are part of this pass
+            pcStdD    = pcFSPassD->pcFSStdD[ iter ];
+            pcCRLCD   = pcStdD->pcCRLCD;
+            pcAlcD    = pcFSPassD->pcAlcD;
+            pcUFDD    = pcStdD->pcUFDD;
+            pcLRGD    = pcStdD->pcLRGD;
+            pcLPceD   = pcFSPassD->pcLPceD;
+            pcPEnvD   = pcFSPassD->pcPEnvD;
+            pcEnPceD  = pcStdD->pcEnPceD;
+            pcExPceD  = pcStdD->pcExPceD;
+            pcPrvAct = pcFSPassD->pcPrvAct; // create a pointer to the previous active pass
+
+```
+
+目的是为提高性能。
+
+### 更新综合辊缝凸度
+
+凸度方面，模型首先更新综合辊缝凸度，保证带钢-工作辊凸度pce_wr_crn和工作辊-支承辊凸度wr_br_crn是当前状态下的最新值。
+
+```C++
+            //---------------------------------------------------------------
+            // Calculate the following composite roll stack crown quantities:
+            //     Piece to work roll stack crown
+            //     Work roll to backup roll stack crown
+            //---------------------------------------------------------------
+            line_num = __LINE__;
+            pcCRLCD->Crns ( pcStdD->wr_shft,
+                            pcStdD->angl_pc,
+                            pce_wr_crn,
+                            wr_br_crn );
+```
+
+pcCRLCD->Crns(..)的计算详见CRLC模块说明。
+
+### 空过的分配处理
 
 分配从F7或末道次机架，从后往前倒者来。
 
-若非末道次的机架空过，则
+若非末道次机架中，若本道次空过，则则传递本道次的出口厚度给上游机架，也就是空过的机架前后带钢厚度不变。并且设定本道次均载辊缝凸度ufd_pu_prf为0。
+
+```C++
+            if( pcStdD->dummied )
+            {
+                //--------------------------------------------------------------
+                // 保存带钢的出口厚度给入口厚度.
+                //--------------------------------------------------------------
+                ( ( cFSPassD* )pcFSPassD->previous_obj )->pcAlcD->thick = pcAlcD->thick;
+                pcAlcD->ufd_pu_prf = 0.0;
+            }
+```
+
+非空过部分的计算持续到start over之前。
+
+### 咬入计算
+
+之后进行带钢的咬入计算，咬入计算的输入量有入口宽度、出入口厚度、出入口张力、轧制速度，计算输出量有单位轧制力、前滑值和接触弧长度。
+
+```c++
+pcAlcD->pcRollbite->Calculate(     //@S014
+                    &rbStatus,                          // OUT status from calculations
+                    &force_pu_wid_buf,                  // OUT rolling force/width
+                    &fwd_slip,                          // OUT exit slip ratio [-]
+                    &arcon,                             // OUT length of arc [minor_length]
+                    ( ( cFSPassD* )pcFSPassD->previous_obj )->pcAlcD->thick,  // IN  entry_thk
+                    pcAlcD->thick,                      // IN  exit_thk
+                    pcEnPceD->width,                    // IN  exit/entry width
+                    pcStdD->speed,                      // IN  roll peripheral speed
+                    pcEnPceD->tension,                  // IN Entry tension
+                    pcExPceD->tension )                 // IN Exit tension
+```
 
