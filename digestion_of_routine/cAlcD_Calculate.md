@@ -62,7 +62,6 @@ Delvry_Pass(..)计算F7或最后一非空过道次的入口和出口有效单位
             pcEnPceD  = pcStdD->pcEnPceD;
             pcExPceD  = pcStdD->pcExPceD;
             pcPrvAct = pcFSPassD->pcPrvAct; // create a pointer to the previous active pass
-
 ```
 
 目的是为提高性能。
@@ -177,7 +176,15 @@ alc_lim = fabs( pcAlcD->ufd_pu_prf - pcLPceD->ufd_pu_prf ) > pcAlcD->pcAlc->ufd_
 
 上一道次的有效单位凸度包络线当然可以约束ef_en_pu_prf_buf。但是这种约束并不准确，因为厚度可能会变，因此约束标准应当有所放宽。所以在程序中用出口有效单位凸度ef_ex_pu_prf来约束。约束后新的入口有效单位凸度设为ef_en_pu_prf。
 
-用新的std_ex_strn
+用新的ef_en_pu_prf求出std_ex_strn和ef_ex_pu_prf。至此，在这个阶段我们获得了可能合适的出入口有效单位凸度。但是别急，还需要判断出口的浪形，才能决定我们目前的分配凸度是否合适。
+
+分配模型中，浪形判别需要区别对待。F1和F6本道次的浪形判别，由本道次的应变差和下一道次应变差是否超死区极限决定。F7道次的浪形判别，仅由本道次F7的应变差是否超限决定。
+
+当浪形判别不通过，或者说flt_ok为假时，可以稍微放宽一点标准，非末道次机架的下一道次应变差如果不超死区极限，那么也算本道次浪形判别通过。
+
+
+
+
 
 
 
