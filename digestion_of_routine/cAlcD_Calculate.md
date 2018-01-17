@@ -4,7 +4,7 @@
 
 ## Delvry_Pass(..)之前
 
-cAlcD::Calculate(..)开始时，首先赋值中间坯的“分配厚度”。中间坯的“分配厚度”实际为F1的入口厚度，即中间坯的实际厚度。之后计算F1到F7的单位轧制力、分配厚度，以及引用轧辊咬入相关的对象。
+cAlcD::Calculate(..)开始时，首先赋值中间坯的“分配厚度”。中间坯的“分配厚度”实际为F1的入口厚度，即中间坯的实际厚度。接着计算F1到F7的单位轧制力、分配厚度，以及引用轧辊咬入相关的对象。
 
 如果可以重新分配压下，那么还会计算轧制力的最大改变量。
 
@@ -103,7 +103,7 @@ pcCRLCD->Crns(..)的计算详见CRLC模块说明。
             }
 ```
 
-非空过部分的计算持续到start over之前。
+非空过部分的计算持续到start_over之前。
 
 ### 咬入计算与单位轧制力约束
 
@@ -145,7 +145,7 @@ pcAlcD->pcRollbite->Calculate(     //@S014
 ```
 约束完单位轧制力后，设定一个标识浪形是否合格的指示器：pcAlcD->flt_ok，其默认值为true。
 
-### 重头戏：均载辊缝单位凸度的计算
+### 均载辊缝单位凸度的计算
 
 最重要的计算到来了，均载辊缝单位凸度的计算。
 
@@ -159,7 +159,7 @@ pcAlcD->pcRollbite->Calculate(     //@S014
 
 在窜辊计算中，用pcUFDD->Bnd_Frc(..)反算弯辊力，注意输出量force_bnd为force_bnd_des限幅后的结果。
 
-设定一个表示目标均载辊缝单位凸度和实际均载辊缝单位凸度偏差的指示器。若偏差大于ufd_pu_prf_tol（目前为0.0001）则设定为true，表示均载辊缝单位凸度偏差超出了容许的范围，引出了后面alc_lim有关的一系列计算。
+设定一个表示目标均载辊缝单位凸度和实际均载辊缝单位凸度偏差的指示器。若偏差大于ufd_pu_prf_tol（目前为0.0001）则设定为true，表示均载辊缝单位凸度偏差超出了容许的范围，引出了后面有关alc_lim缩小偏差的一系列计算。
 
 ```C++
 alc_lim = fabs( pcAlcD->ufd_pu_prf - pcLPceD->ufd_pu_prf ) > pcAlcD->pcAlc->ufd_pu_prf_tol;
@@ -167,6 +167,20 @@ alc_lim = fabs( pcAlcD->ufd_pu_prf - pcLPceD->ufd_pu_prf ) > pcAlcD->pcAlc->ufd_
 
 ### 大循环中redrft_perm相关计算
 
-由于redrft_perm为false，这里的计算内容忽略。
+重算单位轧制力以及更新相关动态参数。由于redrft_perm为false，这里的计算内容忽略。
 
-无非重算单位轧制力以及更新相关动态参数。
+### alc_lim相关计算
+
+首先计算个局部变量的ufd_pu_prf，用pcUFDD->Prf(..)计算，注意若轧制力不允许重新分配，那么这个局部的ufd_pu_prf和pcLPceD->ufd_pu_prf（目标）是一样的。也就是说，若轧制力重新分配，需要使用新的弯辊力和综合凸度去更新ufd_pu_prf。
+
+接着计算新的入口有效单位凸度ef_en_pu_prf_buf。此时旧的入口有效单位凸度为ef_en_pu_prf（old）。
+
+上一道次的有效单位凸度包络线当然可以约束ef_en_pu_prf_buf。但是这种约束并不准确，因为厚度可能会变，因此约束标准应当有所放宽。所以在程序中用出口有效单位凸度ef_ex_pu_prf来约束。约束后新的入口有效单位凸度设为ef_en_pu_prf。
+
+用新的std_ex_strn
+
+
+
+
+
+### 
