@@ -191,9 +191,27 @@ alc_lim = fabs( pcAlcD->ufd_pu_prf - pcLPceD->ufd_pu_prf ) > pcAlcD->pcAlc->ufd_
                         }
 ```
 
-到现在这一步，如果浪形判别还不能通过，那么需要重新设定目标单位凸度。
+到现在这一步，如果浪形判别还不能通过，那么需要重新设定目标单位凸度。先重新设定目标有效单位凸度，用pcTargtD->Pass_Mill_Targ(..)计算获得，变量为ef_pu_prf_alt。再利用F7的istd_ex_strn反推std_ex_strn，结合ef_pu_prf_alt计算出目标单位凸度pu_prf。注意在alc模块中，大循环的这个位置是alc局部pu_prf变量第一次介入的地方，局部pu_prf变量预设为0。之后对pu_prf进行限幅，这样新的目标单位凸度就诞生了。
 
-重新设定目标单位凸度用pcTargtD->Pass_Mill_Targ(..)计算获得。
+接着是一个难点问题。
+
+```C
+pcCritFSPassD = pcFSPassD;
+```
+
+将更新了目标单位凸度的道次地址赋值给pcCritFSPassD指针。这个pcCritFSPassD最开始是指向F7道次的。pcCritFSPassD指针设定的意义在于，浪形判别不合格的相应道次必须比之前更新过目标单位凸度的道次低。
+
+在alc_lim计算过程的最后，若目标单位凸度发生改变，则设定start_over指示器为true，以进行后续start_over的流程。
+
+### 非空过道次的更新
+
+在alc_lim计算之后，更新给定条件下的ufd_pu_prf、ef_pu_prf、strn、prf，注意这些值都属于lpce对象。
+
+### start_over流程
+
+如果目标单位凸度发生改变，则更新目标单位凸度的迭代次数累积加。之后从F7重新开始大循环的计算，从Delivry_Pass(..)起步，并设定F7的单位有效凸度为出口有效凸度。
+
+如果目标单位凸度没有发生改变，说明浪形是符合判别条件的，则在大循环中前移一个道次进行计算。并将入口有效单位凸度保存为出口有效单位凸度，之后限幅。
 
 
 
