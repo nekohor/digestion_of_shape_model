@@ -180,13 +180,20 @@ alc_lim = fabs( pcAlcD->ufd_pu_prf - pcLPceD->ufd_pu_prf ) > pcAlcD->pcAlc->ufd_
 
 分配模型中，浪形判别需要区别对待。F1和F6本道次的浪形判别，由本道次的应变差和下一道次应变差是否超死区极限决定。F7道次的浪形判别，仅由本道次F7的应变差是否超限决定。
 
-当浪形判别不通过，或者说flt_ok为假时，可以稍微放宽一点标准，非末道次机架的下一道次应变差如果不超死区极限，那么也算本道次浪形判别通过。
+当浪形判别不通过，或者说flt_ok为假时，可以稍微放宽一点标准。如果非末道次机架的下道次应变差不超死区极限，那么也算本道次浪形判别通过。
 
+```C++
+                        if ( pcFSPassD != pcLstActFSPassD )
+                        {
+                            pcAlcD->flt_ok =
+                                ( std_ex_strn_dn <= bckl_lim_dn[ we ] ) &&
+                                ( std_ex_strn_dn >= bckl_lim_dn[ cb ] );
+                        }
+```
 
+到现在这一步，如果浪形判别还不能通过，那么需要重新设定目标单位凸度。
 
-
-
-
+重新设定目标单位凸度用pcTargtD->Pass_Mill_Targ(..)计算获得。
 
 
 
