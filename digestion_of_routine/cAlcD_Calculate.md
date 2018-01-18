@@ -172,13 +172,13 @@ alc_lim = fabs( pcAlcD->ufd_pu_prf - pcLPceD->ufd_pu_prf ) > pcAlcD->pcAlc->ufd_
 
 首先计算个局部变量的ufd_pu_prf，用pcUFDD->Prf(..)计算，注意若轧制力不允许重新分配，那么这个局部的ufd_pu_prf和pcLPceD->ufd_pu_prf（目标）是一样的。也就是说，若轧制力重新分配，需要使用新的弯辊力和综合凸度去更新ufd_pu_prf。
 
-接着计算新的入口有效单位凸度ef_en_pu_prf_buf。此时旧的入口有效单位凸度为ef_en_pu_prf（old）。
+接着利用pcLRGD->Ef_En_PU_Prf3(..)计算新的入口有效单位凸度ef_en_pu_prf_buf。此时旧的入口有效单位凸度为ef_en_pu_prf（old）。
 
 上一道次的有效单位凸度包络线当然可以约束ef_en_pu_prf_buf。但是这种约束并不准确，因为厚度可能会变，因此约束标准应当有所放宽。所以在程序中用出口有效单位凸度ef_ex_pu_prf来约束。约束后新的入口有效单位凸度设为ef_en_pu_prf。
 
 用新的ef_en_pu_prf求出std_ex_strn和ef_ex_pu_prf。至此，在这个阶段我们获得了可能合适的出入口有效单位凸度。但是别急，还需要判断出口的浪形，才能决定我们目前的分配凸度是否合适。
 
-分配模型中，浪形判别需要区别对待。F1和F6本道次的浪形判别，由本道次的应变差和下一道次应变差是否超死区极限决定。F7道次的浪形判别，仅由本道次F7的应变差是否超限决定。
+分配模型中，如果进入了alc_lim的计算，在重计算出入口有效单位凸度后必须进行浪形判别。F1和F6本道次的浪形判别，由本道次的应变差和下一道次应变差是否超死区极限决定。F7道次的浪形判别，仅由本道次F7的应变差是否超限决定。
 
 当浪形判别不通过，或者说flt_ok为假时，可以稍微放宽一点标准。如果非末道次机架的下道次应变差不超死区极限，那么也算本道次浪形判别通过。
 
@@ -199,7 +199,7 @@ alc_lim = fabs( pcAlcD->ufd_pu_prf - pcLPceD->ufd_pu_prf ) > pcAlcD->pcAlc->ufd_
 pcCritFSPassD = pcFSPassD;
 ```
 
-将更新了目标单位凸度的道次地址赋值给pcCritFSPassD指针。这个pcCritFSPassD最开始是指向F7道次的。pcCritFSPassD指针设定的意义在于，浪形判别不合格的相应道次必须比之前更新过目标单位凸度的道次低。
+将更新了目标单位凸度的道次地址赋值给pcCritFSPassD指针。这个pcCritFSPassD最开始是指向F7道次的。pcCritFSPassD指针设定的意义在于：在迭代计算的过程中，浪形判别不合格的相应道次必须比之前更新过目标单位凸度的道次低。
 
 在alc_lim计算过程的最后，若目标单位凸度发生改变，则设定start_over指示器为true，以进行后续start_over的流程。
 
@@ -209,10 +209,30 @@ pcCritFSPassD = pcFSPassD;
 
 ### start_over流程
 
-如果目标单位凸度发生改变，则更新目标单位凸度的迭代次数累积加。之后从F7重新开始大循环的计算，从Delivry_Pass(..)起步，并设定F7的单位有效凸度为出口有效凸度。
+如果目标单位凸度发生改变，则更新目标单位凸度的迭代次数累积加。之后从F7重新开始大循环的计算，从Delivry_Pass(..)起步重算出入口有效单位凸度，并设定F7的有效单位凸度为出口有效凸度。
 
-如果目标单位凸度没有发生改变，说明浪形是符合判别条件的，则在大循环中前移一个道次进行计算。并将入口有效单位凸度保存为出口有效单位凸度，之后限幅。
+如果目标单位凸度没有发生改变，说明本道次的浪形是符合判别条件的，不需要更改目标；或者目标均载辊缝凸度达到了实际的均载辊缝凸度。进一步说，有两种情况会进入start_over为假的流程，一种是未进入alc_lim计算的状态，另一种是进入了alc_lim的计算，但是浪形判别合格的状态。则当前道次对象pcFSPassD可以前移一个道次。出入口有效单位凸度现在敲定是合适的。
 
+之后是个小评估过程。如下一段代码需要注意，在理解上可能会出错。
 
+```C
+//-------------------------------------------------------------
+// Save the effective entry per unit profile of the previous
+// pass into the effective exit per unit profile for this pass.
+//-------------------------------------------------------------
+ef_ex_pu_prf = ef_en_pu_prf;
 
-### 
+//----------------------------------------------------------
+// Determine the upstream effective per unit profile to aim
+// towards using the extreme downstream pass where the piece
+// influence coefficient is zero.
+//----------------------------------------------------------
+ef_en_pu_prf = cMathUty::Clamp ( ef_ex_pu_prf,
+    pcPceIZFSPassD->pcPEnvD->ef_pu_prf_env[ minl ],
+    pcPceIZFSPassD->pcPEnvD->ef_pu_prf_env[ maxl ] );
+```
+
+这段代码执行之后，ef_en_pu_prf，虽然之前表示的是这一道次ef_ex_pu_prf保存的是上一道次ef_en_pu_prf的值，而新的ef_en_pu_prf是受到pcPceIZFSPassD道次ef_pu_prf_env的限幅之后的值。
+
+ef_pu_prf_chg[cb/we]并不能直接作为真正的有效单位凸度最大改变量，或真正的约束条件。
+
