@@ -209,13 +209,18 @@ pcCritFSPassD = pcFSPassD;
 
 ### start_over流程
 
-如果目标单位凸度发生改变，则更新目标单位凸度的迭代次数累积加。之后从F7重新开始大循环的计算，从Delivry_Pass(..)起步重算出入口有效单位凸度，并设定F7的有效单位凸度为出口有效凸度。
+如果目标单位凸度发生改变，则更新目标单位凸度的迭代次数（累积加一）。之后从F7重新开始大循环的计算，从Delivry_Pass(..)起步重算出入口有效单位凸度，并设定F7的有效单位凸度为出口有效凸度。
 
 如果目标单位凸度没有发生改变，说明本道次的浪形是符合判别条件的，不需要更改目标；或者目标均载辊缝凸度达到了实际的均载辊缝凸度。进一步说，有两种情况会进入start_over为假的流程，一种是未进入alc_lim计算的状态，另一种是进入了alc_lim的计算，但是浪形判别合格的状态。则当前道次对象pcFSPassD可以前移一个道次。出入口有效单位凸度现在敲定是合适的。
 
-之后是个小评估过程。如下一段代码需要注意，在理解上可能会出错。
+之后是：对不均匀变形道次ef_en_pu_prf修正的过程。在此阶段，如下一段代码需要注意，在理解上可能会出错。
 
 ```C
+//---------------------------------------------------
+// Increment pointer to previous dynamic PASS object.
+//---------------------------------------------------
+pcFSPassD = ( cFSPassD* )pcFSPassD->previous_obj;
+
 //-------------------------------------------------------------
 // Save the effective entry per unit profile of the previous
 // pass into the effective exit per unit profile for this pass.
@@ -232,7 +237,13 @@ ef_en_pu_prf = cMathUty::Clamp ( ef_ex_pu_prf,
     pcPceIZFSPassD->pcPEnvD->ef_pu_prf_env[ maxl ] );
 ```
 
-这段代码执行之后，ef_en_pu_prf，虽然之前表示的是这一道次ef_ex_pu_prf保存的是上一道次ef_en_pu_prf的值，而新的ef_en_pu_prf是受到pcPceIZFSPassD道次ef_pu_prf_env的限幅之后的值。
+这段代码执行之后，ef_ex_pu_prf这个变量的意义已经发生改变，不再代表本道次的出口有效单位凸度。因为前面我们的pcFSPassD道次对象已经前移一个道次，因此程序的设计者为了简练，直接使用局部变量ef_en_pu_prf代表其它含义。
 
-ef_pu_prf_chg[cb/we]并不能直接作为真正的有效单位凸度最大改变量，或真正的约束条件。
+如代码所示，ef_ex_pu_prf保存的是原ef_en_pu_prf的值，而新的ef_en_pu_prf是受到pcPceIZFSPassD道次ef_pu_prf_env包络线限幅之后的值。
+
+没经过浪形判别或经过浪形判别但没有改变目标单位凸度的过程参数ef_en_pu_prf，必须从出现不均匀变形的机架开始，用每个机架的单位凸度最大改变量约束和修正本道次的ef_en_pu_prf。
+
+ef_pu_prf_chg[cb/we]并不能直接作为真正的有效单位凸度最大改变量，或真正的有效凸度改变约束条件。在不均匀变形的机架中，它需要本道次的ef_pu_prf_env和上一道次的ef_pu_prf_env介入，来获得一个更窄的变化区间ef_pu_prf_dlt[minl/maxl]，用所有存在不均匀变形机架的这个区间来修正本道次的ef_en_pu_prf。
+
+ef_en_pu_prf修正过程：从出现不均匀变形的机架开始，
 

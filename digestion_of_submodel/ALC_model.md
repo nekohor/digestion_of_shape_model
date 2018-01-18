@@ -23,6 +23,6 @@ while ( pcFSPassD != NULL )
 }
 ```
 
-首先预设定pcPceIZFSPassD为中间坯道次，即pass0。
+首先预设定pcPceIZFSPassD为pass0。之后一个循环，从F1到F7找到带钢影响系数为非正数的道次，用pcPceIZFSPassD指向这个道次。
 
-之后一个循环，从F1到F7找到带钢影响系数为非正数的道次，用pcPceIZFSPassD指向。
+一般说来，带钢影响系数从F1到F7是逐渐增大的，意味着从F1到F7不均匀变形是逐渐增大逐渐严重的过程（宽厚比增加）。所以设置pcPceIZFSPassD的意义在于：F1到F7若上游机架存在均匀变形，则找到均匀变形的上游机架和不均匀变形的下游机架之间的分界点。那么在`start_over == true`的流程中，ef_en_pu_prf还要受到pcPceIZFSPassD道次的包络线约束。
