@@ -17,7 +17,7 @@ pu_prf_change_sum += pcFSPassDtmp->pcEvlLPceD[ iter ]->strn_rlf_cof
 ```
 或者表示为：
 $$
-pu\_prf\_change\_sum = \sum_{i=1}^{7} (\frac{strn\_rlf\_cof}{pce\_infl\_cof}\cdot elas\_modu)
+pu\_prf\_change\_sum = \sum_{i=1}^{7} (\frac{strn\_rlf\_cof}{pce\_infl\_cof}\cdot Q_{elas\_modu})
 $$
 
 ## Delvry_Pass(..)
@@ -245,5 +245,56 @@ ef_en_pu_prf = cMathUty::Clamp ( ef_ex_pu_prf,
 
 ef_pu_prf_chg[cb/we]并不能直接作为真正的有效单位凸度最大改变量，或真正的有效凸度改变约束条件。在不均匀变形的机架中，它需要本道次的ef_pu_prf_env和上一道次的ef_pu_prf_env介入，来获得一个更窄的变化区间ef_pu_prf_dlt[minl/maxl]，用所有存在不均匀变形机架的这个区间来修正本道次的ef_en_pu_prf。
 
+```C
+//------------------------------------------------------
+// Calculate the delta effective per unit profile change
+// from stand entry to interstand exit.
+//------------------------------------------------------
+
+ef_pu_prf_dlt[ minl ] =
+    cMathUty::Max( pcBufFSPassD->pcFSStdD[ iter]->pcLRGD->ef_pu_prf_chg[ cb ],
+        cMathUty::Max( ef_ex_pu_prf,
+                        pcBufFSPassD->pcPEnvD->ef_pu_prf_env[ minl ] ) -
+        cMathUty::Min( ef_en_pu_prf,
+                    ((cFSPassD*)pcBufFSPassD->previous_obj)->pcPEnvD->ef_pu_prf_env[maxl]));
+
+ef_pu_prf_dlt[ maxl ] =
+    cMathUty::Min( pcBufFSPassD->pcFSStdD[ iter]->pcLRGD->ef_pu_prf_chg[ we ],
+        cMathUty::Min( ef_ex_pu_prf,
+                        pcBufFSPassD->pcPEnvD->ef_pu_prf_env[ maxl ] ) -
+        cMathUty::Max( ef_en_pu_prf,
+                        ((cFSPassD*)pcBufFSPassD->previous_obj)->pcPEnvD->ef_pu_prf_env[minl]));
+
+```
+
+ef_pu_prf_dlt的计算，讲白了就是用本道次机架的有效凸度减前一道次机架的有效凸度，只不过将本道次机架和前道次机架的包络线和ef_ex_pu_prf、ef_en_pu_prf联系起来，用于收窄死区。ef_pu_prf_chg依据于理论计算，第二项的差值依据于本道次和上道次的包络线，若中浪则取最大的，若边浪则取最小的。
+
 先求有效凸度改变的总量。从出现不均匀变形的机架（pcPceIZFSPassD道次的下一道次）开始，如果pcPceIZFSPassD道次包络线限幅后的ef_en_pu_prf小于原值，说明pcPceIZFSPassD道次的包络线区间整体小于原ef_en_pu_prf，那么ef_pu_prf_sum累加ef_pu_prf_dlt[maxl]。反之，若pcPceIZFSPassD道次包络线限幅后的ef_en_pu_prf大于原值，说明pcPceIZFSPassD道次的包络线区间整体小于原ef_en_pu_prf，那么ef_pu_prf_sum累加ef_pu_prf_dlt[minl]。
+
+注意pcFSPassD是本道次的前一道次，而在修正ef_en_pu_prf的循环当中，pcBufFSPassD指向本道次的前一道次时，循环结束。
+
+这时ef_en_pu_prf变量的含义又发生了改变，变回了字面意思，即本道次的入口有效单位凸度。修正是从原始初设定的入口有效单位凸度加上（或减去）与累加有效凸度改变总量成比例的一部分ef_pu_prf_dlt，作为新的入口有效单位凸度存在。
+
+```c
+// 以边浪情形为例
+ef_en_pu_prf =
+    ef_ex_pu_prf - ef_pu_prf_dlt[ maxl ] *
+    ( ef_ex_pu_prf - ef_en_pu_prf ) /
+    ef_pu_prf_sum;
+```
+
+修正结束后，考虑ef_en_pu_prf和ef_ex_pu_prf偏差太大的情况，则计算ef_en_pu_prf_dft作为最终的ef_en_pu_prf。
+
+```c
+float ef_en_pu_prf_dft = ef_ex_pu_prf + (pcTargtD->en_pu_prf - pcTargtD->pu_prf)
+        * pcFSPassD->pcAlcD->pu_prf_change;
+```
+
+最后用pcTargtD->Eval_Ef_En_PU_Prf(..）评估一下ef_en_pu_prf和ef_ex_pu_prf。
+
+### 后续其它计算
+
+若轧制力不重新分配，则预设所有机架force_ssu为0。
+
+
 
