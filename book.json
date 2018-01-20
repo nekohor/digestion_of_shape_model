@@ -17,10 +17,10 @@
     "paperSize": "a4",
     "fontSize":14,
     "margin": {
-      "right": 30,
-      "left": 30,
-      "top": 30,
-      "bottom": 50
+      "right": 600,
+      "left": 300,
+      "top": 500,
+      "bottom": 500
     }
   }
 }

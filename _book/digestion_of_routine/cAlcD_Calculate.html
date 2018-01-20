@@ -17,11 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -70,10 +70,6 @@
     <div class="book-summary">
         
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
             
                 <nav role="navigation">
                 
@@ -213,9 +209,6 @@
                     <div class="page-wrapper" tabindex="-1" role="main">
                         <div class="page-inner">
                             
-<div id="book-search-results">
-    <div class="search-noresults">
-    
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="calcdcalculate">cAlcD::Calculate(..)</h1>
@@ -224,14 +217,15 @@
 <p>cAlcD::Calculate(..)&#x5F00;&#x59CB;&#x65F6;&#xFF0C;&#x9996;&#x5148;&#x8D4B;&#x503C;&#x4E2D;&#x95F4;&#x576F;&#x7684;&#x201C;&#x5206;&#x914D;&#x539A;&#x5EA6;&#x201D;&#x3002;&#x4E2D;&#x95F4;&#x576F;&#x7684;&#x201C;&#x5206;&#x914D;&#x539A;&#x5EA6;&#x201D;&#x5B9E;&#x9645;&#x4E3A;F1&#x7684;&#x5165;&#x53E3;&#x539A;&#x5EA6;&#xFF0C;&#x5373;&#x4E2D;&#x95F4;&#x576F;&#x7684;&#x5B9E;&#x9645;&#x539A;&#x5EA6;&#x3002;&#x63A5;&#x7740;&#x8BA1;&#x7B97;F1&#x5230;F7&#x7684;&#x5355;&#x4F4D;&#x8F67;&#x5236;&#x529B;&#x3001;&#x5206;&#x914D;&#x539A;&#x5EA6;&#xFF0C;&#x4EE5;&#x53CA;&#x5F15;&#x7528;&#x8F67;&#x8F8A;&#x54AC;&#x5165;&#x76F8;&#x5173;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x91CD;&#x65B0;&#x5206;&#x914D;&#x538B;&#x4E0B;&#xFF0C;&#x90A3;&#x4E48;&#x8FD8;&#x4F1A;&#x8BA1;&#x7B97;&#x8F67;&#x5236;&#x529B;&#x7684;&#x6700;&#x5927;&#x6539;&#x53D8;&#x91CF;&#x3002;</p>
 <p>&#x4E4B;&#x540E;&#x8BA1;&#x7B97;&#x603B;&#x7684;&#x5355;&#x4F4D;&#x51F8;&#x5EA6;&#x6539;&#x53D8;&#x91CF;pu_prf_change_sum&#x3002;</p>
-<pre><code class="lang-C++">pu_prf_change_sum += pcFSPassDtmp-&gt;pcEvlLPceD[ iter ]-&gt;strn_rlf_cof
-                  / (pcFSPassDtmp-&gt;pcFSStdD[ iter ]-&gt;pcLRGD-&gt;pce_infl_cof
-                  * pcFSPassDtmp-&gt;pcEvlLPceD[ iter ]-&gt;elas_modu);
+<pre><code class="lang-C++">pu_prf_change_sum += 
+  pcFSPassDtmp-&gt;pcEvlLPceD[ iter ]-&gt;strn_rlf_cof
+  / (pcFSPassDtmp-&gt;pcFSStdD[ iter ]-&gt;pcLRGD-&gt;pce_infl_cof
+  * pcFSPassDtmp-&gt;pcEvlLPceD[ iter ]-&gt;elas_modu);
 </code></pre>
-<p>&#x6216;&#x8005;&#x8868;&#x793A;&#x4E3A;&#xFF1A;</p>
-<p>$$
-pu_prf_change_sum = \sum<em>{i=1}^{7} (\frac{strn_rlf_cof}{pce_infl_cof}\cdot Q</em>{elas_modu})</p>
-<p>$$</p>
+<p>&#x6216;&#x8005;&#x8868;&#x793A;&#x4E3A;&#xFF1A;
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>u</mi><mi mathvariant="normal">_</mi><mi>p</mi><mi>r</mi><mi>f</mi><mi mathvariant="normal">_</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>n</mi><mi>g</mi><mi>e</mi><mi mathvariant="normal">_</mi><mi>s</mi><mi>u</mi><mi>m</mi><mo>=</mo><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mn>7</mn></mrow></msubsup><mo>(</mo><mfrac><mrow><mi>s</mi><mi>t</mi><mi>r</mi><mi>n</mi><mi mathvariant="normal">_</mi><mi>r</mi><mi>l</mi><mi>f</mi><mi mathvariant="normal">_</mi><mi>c</mi><mi>o</mi><mi>f</mi></mrow><mrow><mi>p</mi><mi>c</mi><mi>e</mi><mi mathvariant="normal">_</mi><mi>i</mi><mi>n</mi><mi>f</mi><mi>l</mi><mi mathvariant="normal">_</mi><mi>c</mi><mi>o</mi><mi>f</mi></mrow></mfrac><mo>&#x22C5;</mo><msub><mi>Q</mi><mrow><mi>e</mi><mi>l</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">_</mi><mi>m</mi><mi>o</mi><mi>d</mi><mi>u</mi></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">
+pu\_prf\_change\_sum = \sum_{i=1}^{7} (\frac{strn\_rlf\_cof}{pce\_infl\_cof}\cdot Q_{elas\_modu})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.8011130000000004em;"></span><span class="strut bottom" style="height:3.0787820000000004em;vertical-align:-1.277669em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathit">u</span><span class="mord mathrm" style="margin-right:0.02778em;">_</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathrm" style="margin-right:0.02778em;">_</span><span class="mord mathit">c</span><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">e</span><span class="mord mathrm" style="margin-right:0.02778em;">_</span><span class="mord mathit">s</span><span class="mord mathit">u</span><span class="mord mathit">m</span><span class="mrel">=</span><span class="mop op-limits"><span class="vlist"><span style="top:1.1776689999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.000005000000000143778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="mop op-symbol large-op">&#x2211;</span></span></span><span style="top:-1.2500050000000003em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">7</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.6859999999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">p</span><span class="mord mathit">c</span><span class="mord mathit">e</span><span class="mord mathrm" style="margin-right:0.02778em;">_</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathrm" style="margin-right:0.02778em;">_</span><span class="mord mathit">c</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.7em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">n</span><span class="mord mathrm" style="margin-right:0.02778em;">_</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathrm" style="margin-right:0.02778em;">_</span><span class="mord mathit">c</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mbin">&#x22C5;</span><span class="mord"><span class="mord mathit">Q</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">e</span><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">s</span><span class="mord mathrm mtight" style="margin-right:0.02778em;">_</span><span class="mord mathit mtight">m</span><span class="mord mathit mtight">o</span><span class="mord mathit mtight">d</span><span class="mord mathit mtight">u</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
 <h2 id="delvrypass">Delvry_Pass(..)</h2>
 <p>Delvry_Pass(..)&#x8BA1;&#x7B97;F7&#x6216;&#x6700;&#x540E;&#x4E00;&#x975E;&#x7A7A;&#x8FC7;&#x9053;&#x6B21;&#x7684;&#x5165;&#x53E3;&#x548C;&#x51FA;&#x53E3;&#x6709;&#x6548;&#x5355;&#x4F4D;&#x51F8;&#x5EA6;&#xFF0C;&#x4EE5;&#x53CA;&#x51FA;&#x53E3;istd&#x5E94;&#x53D8;&#x5DEE;&#x3002;</p>
 <p>&#x8BA1;&#x7B97;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x3002;</p>
@@ -247,31 +241,32 @@ pu_prf_change_sum = \sum<em>{i=1}^{7} (\frac{strn_rlf_cof}{pce_infl_cof}\cdot Q<
 <p>&#x524D;&#x671F;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x505A;&#x5B8C;&#x540E;&#x8FDB;&#x5165;&#x51F8;&#x5EA6;&#x5206;&#x914D;&#x8BA1;&#x7B97;&#x7684;&#x5927;&#x5FAA;&#x73AF;&#x3002;</p>
 <h3 id="&#x5C40;&#x90E8;&#x6307;&#x9488;&#x7684;&#x5F15;&#x7528;">&#x5C40;&#x90E8;&#x6307;&#x9488;&#x7684;&#x5F15;&#x7528;</h3>
 <p>&#x5728;&#x6BCF;&#x4E2A;&#x5FAA;&#x73AF;&#x4F53;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x5148;&#x7528;&#x5C40;&#x90E8;&#x6307;&#x9488;&#x6307;&#x5411;&#x672C;&#x6B21;&#x5FAA;&#x73AF;&#x8981;&#x7528;&#x5230;&#x7684;&#x6240;&#x6709;&#x76F8;&#x5173;&#x52A8;&#x6001;&#x5BF9;&#x8C61;&#x3002;</p>
-<pre><code class="lang-C++">            <span class="hljs-comment">// create pointers to class objects that are part of this pass</span>
-            pcStdD    = pcFSPassD-&gt;pcFSStdD[ iter ];
-            pcCRLCD   = pcStdD-&gt;pcCRLCD;
-            pcAlcD    = pcFSPassD-&gt;pcAlcD;
-            pcUFDD    = pcStdD-&gt;pcUFDD;
-            pcLRGD    = pcStdD-&gt;pcLRGD;
-            pcLPceD   = pcFSPassD-&gt;pcLPceD;
-            pcPEnvD   = pcFSPassD-&gt;pcPEnvD;
-            pcEnPceD  = pcStdD-&gt;pcEnPceD;
-            pcExPceD  = pcStdD-&gt;pcExPceD;
-            pcPrvAct = pcFSPassD-&gt;pcPrvAct; <span class="hljs-comment">// create a pointer to the previous active pass</span>
+<pre><code class="lang-C++"><span class="hljs-comment">// create pointers to class objects that are part of this pass</span>
+pcStdD    = pcFSPassD-&gt;pcFSStdD[ iter ];
+pcCRLCD   = pcStdD-&gt;pcCRLCD;
+pcAlcD    = pcFSPassD-&gt;pcAlcD;
+pcUFDD    = pcStdD-&gt;pcUFDD;
+pcLRGD    = pcStdD-&gt;pcLRGD;
+pcLPceD   = pcFSPassD-&gt;pcLPceD;
+pcPEnvD   = pcFSPassD-&gt;pcPEnvD;
+pcEnPceD  = pcStdD-&gt;pcEnPceD;
+pcExPceD  = pcStdD-&gt;pcExPceD;
+<span class="hljs-comment">// create a pointer to the previous active pass</span>
+pcPrvAct = pcFSPassD-&gt;pcPrvAct;
 </code></pre>
 <p>&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x3002;</p>
 <h3 id="&#x66F4;&#x65B0;&#x7EFC;&#x5408;&#x8F8A;&#x7F1D;&#x51F8;&#x5EA6;">&#x66F4;&#x65B0;&#x7EFC;&#x5408;&#x8F8A;&#x7F1D;&#x51F8;&#x5EA6;</h3>
 <p>&#x51F8;&#x5EA6;&#x65B9;&#x9762;&#xFF0C;&#x6A21;&#x578B;&#x9996;&#x5148;&#x66F4;&#x65B0;&#x7EFC;&#x5408;&#x8F8A;&#x7F1D;&#x51F8;&#x5EA6;&#xFF0C;&#x4FDD;&#x8BC1;&#x5E26;&#x94A2;-&#x5DE5;&#x4F5C;&#x8F8A;&#x51F8;&#x5EA6;pce_wr_crn&#x548C;&#x5DE5;&#x4F5C;&#x8F8A;-&#x652F;&#x627F;&#x8F8A;&#x51F8;&#x5EA6;wr_br_crn&#x662F;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x4E0B;&#x7684;&#x6700;&#x65B0;&#x503C;&#x3002;</p>
-<pre><code class="lang-C++">            <span class="hljs-comment">//---------------------------------------------------------------</span>
-            <span class="hljs-comment">// Calculate the following composite roll stack crown quantities:</span>
-            <span class="hljs-comment">//     Piece to work roll stack crown</span>
-            <span class="hljs-comment">//     Work roll to backup roll stack crown</span>
-            <span class="hljs-comment">//---------------------------------------------------------------</span>
-            line_num = __LINE__;
-            pcCRLCD-&gt;Crns ( pcStdD-&gt;wr_shft,
-                            pcStdD-&gt;angl_pc,
-                            pce_wr_crn,
-                            wr_br_crn );
+<pre><code class="lang-C++"><span class="hljs-comment">//---------------------------------------------------------------</span>
+<span class="hljs-comment">// Calculate the following composite roll stack crown quantities:</span>
+<span class="hljs-comment">//     Piece to work roll stack crown</span>
+<span class="hljs-comment">//     Work roll to backup roll stack crown</span>
+<span class="hljs-comment">//---------------------------------------------------------------</span>
+line_num = __LINE__;
+pcCRLCD-&gt;Crns ( pcStdD-&gt;wr_shft,
+               pcStdD-&gt;angl_pc,
+               pce_wr_crn,
+               wr_br_crn );
 </code></pre>
 <p>pcCRLCD-&gt;Crns(..)&#x7684;&#x8BA1;&#x7B97;&#x8BE6;&#x89C1;CRLC&#x6A21;&#x5757;&#x8BF4;&#x660E;&#x3002;</p>
 <h3 id="&#x7A7A;&#x8FC7;&#x7684;&#x5206;&#x914D;&#x5904;&#x7406;">&#x7A7A;&#x8FC7;&#x7684;&#x5206;&#x914D;&#x5904;&#x7406;</h3>
@@ -422,22 +417,6 @@ ef_en_pu_prf =
                                 
                                 </section>
                             
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
-
                         </div>
                     </div>
                 
@@ -461,7 +440,7 @@ ef_en_pu_prf =
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"分配计算","level":"1.2.1","depth":2,"next":{"title":"SSU日志验算","level":"1.3","depth":1,"path":"digestion_of_parameters/ssu_log_checking_calculation.md","ref":"digestion_of_parameters/ssu_log_checking_calculation.md","articles":[]},"previous":{"title":"板形主流程","level":"1.2","depth":1,"path":"digestion_of_routine/cShapeSetupD_Main.md","ref":"digestion_of_routine/cShapeSetupD_Main.md","articles":[{"title":"分配计算","level":"1.2.1","depth":2,"path":"digestion_of_routine/cAlcD_Calculate.md","ref":"digestion_of_routine/cAlcD_Calculate.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"digestion_of_routine/cAlcD_Calculate.md","mtime":"2018-01-20T01:47:03.503Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-01-20T12:57:34.941Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"分配计算","level":"1.2.1","depth":2,"next":{"title":"SSU日志验算","level":"1.3","depth":1,"path":"digestion_of_parameters/ssu_log_checking_calculation.md","ref":"digestion_of_parameters/ssu_log_checking_calculation.md","articles":[]},"previous":{"title":"板形主流程","level":"1.2","depth":1,"path":"digestion_of_routine/cShapeSetupD_Main.md","ref":"digestion_of_routine/cShapeSetupD_Main.md","articles":[{"title":"分配计算","level":"1.2.1","depth":2,"path":"digestion_of_routine/cAlcD_Calculate.md","ref":"digestion_of_routine/cAlcD_Calculate.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex","-search","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"livereload":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":14,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":30,"left":30,"top":30,"bottom":50}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"gitbook":"*"},"file":{"path":"digestion_of_routine/cAlcD_Calculate.md","mtime":"2018-01-20T13:28:47.508Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-01-20T13:30:41.852Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -472,14 +451,6 @@ ef_en_pu_prf =
     
         
         <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
         
     
         

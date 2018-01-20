@@ -11,9 +11,10 @@ cAlcD::Calculate(..)开始时，首先赋值中间坯的“分配厚度”。中
 之后计算总的单位凸度改变量pu_prf_change_sum。
 
 ```C++
-pu_prf_change_sum += pcFSPassDtmp->pcEvlLPceD[ iter ]->strn_rlf_cof
-                  / (pcFSPassDtmp->pcFSStdD[ iter ]->pcLRGD->pce_infl_cof
-                  * pcFSPassDtmp->pcEvlLPceD[ iter ]->elas_modu);
+pu_prf_change_sum += 
+  pcFSPassDtmp->pcEvlLPceD[ iter ]->strn_rlf_cof
+  / (pcFSPassDtmp->pcFSStdD[ iter ]->pcLRGD->pce_infl_cof
+  * pcFSPassDtmp->pcEvlLPceD[ iter ]->elas_modu);
 ```
 或者表示为：
 $$
@@ -51,17 +52,18 @@ Delvry_Pass(..)计算F7或最后一非空过道次的入口和出口有效单位
 在每个循环体开始执行时，先用局部指针指向本次循环要用到的所有相关动态对象。
 
 ```C++
-            // create pointers to class objects that are part of this pass
-            pcStdD    = pcFSPassD->pcFSStdD[ iter ];
-            pcCRLCD   = pcStdD->pcCRLCD;
-            pcAlcD    = pcFSPassD->pcAlcD;
-            pcUFDD    = pcStdD->pcUFDD;
-            pcLRGD    = pcStdD->pcLRGD;
-            pcLPceD   = pcFSPassD->pcLPceD;
-            pcPEnvD   = pcFSPassD->pcPEnvD;
-            pcEnPceD  = pcStdD->pcEnPceD;
-            pcExPceD  = pcStdD->pcExPceD;
-            pcPrvAct = pcFSPassD->pcPrvAct; // create a pointer to the previous active pass
+// create pointers to class objects that are part of this pass
+pcStdD    = pcFSPassD->pcFSStdD[ iter ];
+pcCRLCD   = pcStdD->pcCRLCD;
+pcAlcD    = pcFSPassD->pcAlcD;
+pcUFDD    = pcStdD->pcUFDD;
+pcLRGD    = pcStdD->pcLRGD;
+pcLPceD   = pcFSPassD->pcLPceD;
+pcPEnvD   = pcFSPassD->pcPEnvD;
+pcEnPceD  = pcStdD->pcEnPceD;
+pcExPceD  = pcStdD->pcExPceD;
+// create a pointer to the previous active pass
+pcPrvAct = pcFSPassD->pcPrvAct; 
 ```
 
 目的是为提高性能。
@@ -71,16 +73,16 @@ Delvry_Pass(..)计算F7或最后一非空过道次的入口和出口有效单位
 凸度方面，模型首先更新综合辊缝凸度，保证带钢-工作辊凸度pce_wr_crn和工作辊-支承辊凸度wr_br_crn是当前状态下的最新值。
 
 ```C++
-            //---------------------------------------------------------------
-            // Calculate the following composite roll stack crown quantities:
-            //     Piece to work roll stack crown
-            //     Work roll to backup roll stack crown
-            //---------------------------------------------------------------
-            line_num = __LINE__;
-            pcCRLCD->Crns ( pcStdD->wr_shft,
-                            pcStdD->angl_pc,
-                            pce_wr_crn,
-                            wr_br_crn );
+//---------------------------------------------------------------
+// Calculate the following composite roll stack crown quantities:
+//     Piece to work roll stack crown
+//     Work roll to backup roll stack crown
+//---------------------------------------------------------------
+line_num = __LINE__;
+pcCRLCD->Crns ( pcStdD->wr_shft,
+               pcStdD->angl_pc,
+               pce_wr_crn,
+               wr_br_crn );
 ```
 
 pcCRLCD->Crns(..)的计算详见CRLC模块说明。
