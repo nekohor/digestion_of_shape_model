@@ -108,11 +108,9 @@ if (  // family change
 
 ## cShapeSetupD::Init(..)
 
-cShapeSetupD::Init(..)初始化了动态的SHAPESETUP对象以及其它相关的动态对象，比如：LPCE, LRG, UFD, and TARGT。
+cShapeSetupD::Init(..)初始化了动态的SHAPESETUP对象以及其它相关的动态对象，比如：LPCE, LRG, UFD, and TARGT。除此之外，这个函数还计算了执行机构的软极限，同时复制外部的数据给合适的动态对象。
 
-除此之外，这个函数还计算了执行机构的软极限，同时复制外部的数据给合适的动态对象。
-
-初始化之后，最初的哪两个状态布尔值更新为true。
+cShapeSetupD::Init(..)初始化之后，最初的哪两个状态布尔值更新为true。
 
 ```C++
     this->ok     = true;
@@ -122,7 +120,7 @@ cShapeSetupD::Init(..)的实现在shapesetup_req.cxx文件中。
 
 ### 长短期自学习初始化
 
-
+模型用prf_vrn_sel_flag和flt_vrn_sel_flag这两个参数来标识
 
 ## cShapeSetupD::References(..)
 
