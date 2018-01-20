@@ -1,0 +1,402 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>CFG模型参数的梳理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="ssu_log_FAQ.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../digestion_of_routine/cShapeSetupD_Main.html">
+            
+                <a href="../digestion_of_routine/cShapeSetupD_Main.html">
+            
+                    
+                    板形主流程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../digestion_of_routine/cAlcD_Calculate.html">
+            
+                <a href="../digestion_of_routine/cAlcD_Calculate.html">
+            
+                    
+                    分配计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ssu_log_checking_calculation.html">
+            
+                <a href="ssu_log_checking_calculation.html">
+            
+                    
+                    SSU日志验算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ssu_log_FAQ.html">
+            
+                <a href="ssu_log_FAQ.html">
+            
+                    
+                    SSU日志FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="cfg_parameters.html">
+            
+                <a href="cfg_parameters.html">
+            
+                    
+                    CFG模型参数的梳理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >CFG模型参数的梳理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="cfg&#x53C2;&#x6570;&#x6574;&#x7406;">CFG&#x53C2;&#x6570;&#x6574;&#x7406;</h1>
+<h2 id="targt">TARGT</h2>
+<pre><code class="lang-go">class = cTargt;
+
+   cTargt = targt;
+
+       flt_err_lim     = <span class="hljs-number">2</span>,                    ! [kN] flatness errorlimits
+
+                          <span class="hljs-number">-250.</span>,                !    minimum
+
+                           <span class="hljs-number">250.</span>;                !    maximum
+    <span class="hljs-comment">// &#x5E73;&#x76F4;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;&#x5F53;&#x4E2D;&#x7684;&#x5E73;&#x76F4;&#x5EA6;&#x504F;&#x5DEE;&#x6781;&#x9650;&#x8303;&#x56F4;</span>
+
+       flt_vrn_bled    = <span class="hljs-number">0.9</span>;                  ! [-] target flatness vernierbleed-off
+    <span class="hljs-comment">// &#x5E73;&#x76F4;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;&#x8870;&#x51CF;&#x7CFB;&#x6570;</span>
+
+       flt_vrn_lim     = <span class="hljs-number">2</span>,                    ! [kN] target flatnessvernier limits
+
+                          <span class="hljs-number">-800.0</span>,               !    minimum
+
+                           <span class="hljs-number">800.0</span>;               !    maximum
+
+    <span class="hljs-comment">// &#x5E73;&#x76F4;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;&#x6781;&#x9650;&#x8303;&#x56F4;</span>
+      flt_vrn_i_gn    = <span class="hljs-number">0.6</span>;                  ! [-] target flatness controlloop integral gain
+
+       flt_vrn_p_gn    = <span class="hljs-number">0.3</span>;                  ! [-] target flatness controlloop proportional gain
+    <span class="hljs-comment">// &#x5E73;&#x76F4;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;PI&#x63A7;&#x5236;&#x7CFB;&#x6570;</span>
+
+       prf_dev_lim     = <span class="hljs-number">0.010</span>;                ! [mm] target profile deviationlimit
+    <span class="hljs-comment">// &#x51F8;&#x5EA6;&#x6CE2;&#x52A8;&#x6781;&#x9650;</span>
+
+       prf_err_lim     = <span class="hljs-number">2</span>,                    ! [mm] profile error limits
+
+                          <span class="hljs-number">-0.100</span>,               !    minimum
+
+                           <span class="hljs-number">0.100</span>;               !    maximum
+    <span class="hljs-comment">// &#x51F8;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;&#x504F;&#x5DEE;&#x6781;&#x9650;</span>
+
+       prf_lim         = <span class="hljs-number">2</span>,                    ! [mm] absolute limits
+
+                          <span class="hljs-number">0.000</span>,                !    minimum
+
+                          <span class="hljs-number">0.250</span>;                !    maximum
+    <span class="hljs-comment">// &#x51F8;&#x5EA6;&#x6700;&#x5927;&#x8303;&#x56F4;</span>
+
+       prf_tol         = <span class="hljs-number">2</span>,                    ! [mm] target profiletolerances
+
+                          <span class="hljs-number">-0.050</span>,               !    minimum
+
+                           <span class="hljs-number">0.050</span>;               !    maximum
+    <span class="hljs-comment">// &#x51F8;&#x5EA6;&#x7CBE;&#x5EA6;&#x8981;&#x6C42;</span>
+
+       prf_vrn_bled    = <span class="hljs-number">0.9</span>;                  ! [-] target profile vernier (re-predicted -setup) bleed-off
+    <span class="hljs-comment">// &#x51F8;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;&#x8870;&#x51CF;&#x7CFB;&#x6570;</span>
+
+       prf_vrn_lim     = <span class="hljs-number">2</span>,                    ! [mm] target profilevernier limits
+
+                          <span class="hljs-number">-0.070</span>,               !    minimum
+
+                           <span class="hljs-number">0.070</span>;               !   maximum
+    <span class="hljs-comment">// &#x51F8;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;&#x6781;&#x9650;</span>
+
+       prf_vrn_rm_i_gn = <span class="hljs-number">0.4</span>;                 ! [-] target profile vernier (re-predicted - measured) control loop
+
+                                               !    integral gain
+
+       prf_vrn_rm_p_gn = <span class="hljs-number">0.2</span>;                 ! [-] target profile vernier (re-predicted - measured) control loop
+    <span class="hljs-comment">// &#x51F8;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;rm&#x7684;PI&#x63A7;&#x5236;&#x7CFB;&#x6570;</span>
+                                               !    proportional gain
+
+       prf_vrn_rs_i_gn = <span class="hljs-number">0.2</span>;                 ! [-] target profile vernier (re-predicted - setup) control loop
+    <span class="hljs-comment">// &#x51F8;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;rs&#x7684;PI&#x63A7;&#x5236;&#x7CFB;&#x6570;</span>
+                                               !    integral gain
+
+       flt_err_thrshld  = <span class="hljs-number">100</span>;                 ! [kN] Flatness errorthreshold minimum <span class="hljs-keyword">for</span> flatness feedback
+    <span class="hljs-comment">// &#x5E73;&#x76F4;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;&#xFF0C;&#x5B66;&#x4E60;&#x7684;&#x4E34;&#x754C;&#x70B9;</span>
+       opr_mx_wrng_corr = <span class="hljs-number">100</span>;                ! [kN] Maximum operator correction in WRONG direction and still doflatness feedback
+    <span class="hljs-comment">// &#x64CD;&#x4F5C;&#x5DE5;&#x5982;&#x679C;&#x8C03;&#x6574;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x4ECD;&#x7136;&#x8FDB;&#x884C;&#x81EA;&#x5B66;&#x4E60;&#x7684;&#x5F2F;&#x8F8A;&#x529B;&#x4E34;&#x754C;&#x70B9;</span>
+       apc_start_std    = <span class="hljs-number">1</span>;                   ! [-] APC Correction startstand
+    <span class="hljs-comment">// APC&#x4FEE;&#x6B63;&#x5F00;&#x59CB;&#x7684;&#x673A;&#x67B6;</span>
+       en_ex_strn_calc = <span class="hljs-literal">true</span>;                ! [-] Enable exit strain calculation
+    <span class="hljs-comment">// &#x662F;&#x5426;&#x5141;&#x8BB8;&#x8BA1;&#x7B97;&#x51FA;&#x53E3;&#x5E94;&#x53D8;&#x5DEE;</span>
+       ex_strn_thk = <span class="hljs-number">10.00</span>;                    ! [mm] Exit strain match forthinkness less than or equal to.
+    <span class="hljs-comment">// &#x51FA;&#x53E3;&#x5E94;&#x53D8;&#x5DEE;&#x5BF9;&#x5E94;&#x7684;&#x6700;&#x5927;&#x539A;&#x5EA6;</span>
+       exclude_stainless = <span class="hljs-literal">false</span>;             ! [-] Exclude stainless steel
+    <span class="hljs-comment">// &#x662F;&#x5426;&#x6392;&#x9664;&#x4E0D;&#x9508;&#x94A2;&#x94A2;&#x79CD;</span>
+!@(CC087) start
+
+       prf_vrn_sel_flag  = <span class="hljs-literal">true</span>;               ! [-] Vernier selection flag(<span class="hljs-literal">false</span>=samp, <span class="hljs-literal">true</span>=slfg)
+    <span class="hljs-comment">// &#x51F8;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;&#xFF0C;&#x957F;&#x77ED;&#x671F;&#x4EE5;&#x54EA;&#x4E2A;&#x4E3A;&#x4E3B;&#x7684;&#x6807;&#x8BC6;&#xFF0C;&#x9ED8;&#x8BA4;&#x957F;&#x671F;&#x81EA;&#x5B66;&#x4E60;</span>
+       flt_vrn_sel_flag  = <span class="hljs-literal">true</span>;               ! [-] Vernier selection flag(<span class="hljs-literal">false</span>=samp, <span class="hljs-literal">true</span>=slfg)
+    <span class="hljs-comment">// &#x5E73;&#x76F4;&#x5EA6;&#x81EA;&#x5B66;&#x4E60;&#xFF0C;&#x957F;&#x77ED;&#x671F;&#x4EE5;&#x54EA;&#x4E2A;&#x4E3A;&#x4E3B;&#x7684;&#x6807;&#x8BC6;&#xFF0C;&#x9ED8;&#x8BA4;&#x957F;&#x671F;&#x81EA;&#x5B66;&#x4E60;</span>
+!@(CC087) end        
+
+!@<span class="hljs-number">2</span>ND(LC060) start
+
+       wr_crn_off_sel_flag = <span class="hljs-literal">true</span>;           ! [-] Work roll offset selection flat (<span class="hljs-literal">false</span>= slfg, <span class="hljs-literal">true</span> = slfg+sprp)
+    <span class="hljs-comment">// &#x5DE5;&#x4F5C;&#x8F8A;&#x51F8;&#x5EA6;&#x8865;&#x507F;&#xFF0C;&#x6807;&#x8BC6;&#x662F;&#x5426;&#x4F7F;&#x7528;sprp&#x6570;&#x636E;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x957F;&#x671F;&#x81EA;&#x5B66;&#x4E60;&#x548C;sprp</span>
+!@<span class="hljs-number">2</span>ND(LC061) end
+
+   end;
+
+end;
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ssu_log_FAQ.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: SSU日志FAQ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"CFG模型参数的梳理","level":"1.5","depth":1,"previous":{"title":"SSU日志FAQ","level":"1.4","depth":1,"path":"digestion_of_parameters/ssu_log_FAQ.md","ref":"digestion_of_parameters/ssu_log_FAQ.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"digestion_of_parameters/cfg_parameters.md","mtime":"2018-01-20T01:27:42.127Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-01-20T01:45:32.981Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
