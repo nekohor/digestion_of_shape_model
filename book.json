@@ -4,6 +4,13 @@
       "katex",
       "-search"
   ],
+  "pluginsConfig": {
+    "fontSettings": {
+      "theme": "white",
+      "family": "msyh",
+      "size": 1
+    }
+  },
   "links": {
     "gitbook": false,
     "sharing": {
