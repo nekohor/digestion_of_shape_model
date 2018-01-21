@@ -1,8 +1,18 @@
 {
   "plugins": [
-      "katex",
-      "-search"
+    "-hightlight",
+    "prism",
+    "prism-themes",
+    "katex",
+    "-search"
   ],
+  "pluginsConfig": {
+    "prism": {
+      "css": [
+        "prism-themes/themes/prism-base16-ateliersulphurpool.light.css"
+      ]
+    }
+  },
   "links": {
     "gitbook": false,
     "sharing": {
@@ -14,8 +24,9 @@
   },
   "pdf": {
     "pageNumbers": true,
-    "paperSize": "a4",
-    "fontSize":14,
+    "paperSize": "b5",
+    "fontSize": 19,
+    "fontFamily":"方正宋刻本秀楷简体",
     "margin": {
       "right": 30,
       "left": 30,

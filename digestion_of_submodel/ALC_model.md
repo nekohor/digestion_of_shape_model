@@ -6,7 +6,7 @@
 
 pcPceIZFSPassD是板形模型中用来标识带钢影响系数为0的道次的指针。
 
-```C++
+```c
 pcPceIZFSPassD = ( cFSPassD* )pcFstFSPassD->previous_obj;
 
 const cFSPassD* pcFSPassD = pcFstFSPassD;
@@ -35,3 +35,4 @@ while ( pcFSPassD != NULL )
 - 各个机架的包络线区间富余量足够大，能够包含死区极限。
 
 那么整个凸度分配的
+

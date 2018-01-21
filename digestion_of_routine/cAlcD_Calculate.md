@@ -10,7 +10,7 @@ cAlcD::Calculate(..)开始时，首先赋值中间坯的“分配厚度”。中
 
 之后计算总的单位凸度改变量pu_prf_change_sum。
 
-```C++
+```c
 pu_prf_change_sum += 
   pcFSPassDtmp->pcEvlLPceD[ iter ]->strn_rlf_cof
   / (pcFSPassDtmp->pcFSStdD[ iter ]->pcLRGD->pce_infl_cof
@@ -51,7 +51,7 @@ Delvry_Pass(..)计算F7或最后一非空过道次的入口和出口有效单位
 
 在每个循环体开始执行时，先用局部指针指向本次循环要用到的所有相关动态对象。
 
-```C++
+```c
 // create pointers to class objects that are part of this pass
 pcStdD    = pcFSPassD->pcFSStdD[ iter ];
 pcCRLCD   = pcStdD->pcCRLCD;
@@ -72,7 +72,7 @@ pcPrvAct = pcFSPassD->pcPrvAct;
 
 凸度方面，模型首先更新综合辊缝凸度，保证带钢-工作辊凸度pce_wr_crn和工作辊-支承辊凸度wr_br_crn是当前状态下的最新值。
 
-```C++
+```c
 //---------------------------------------------------------------
 // Calculate the following composite roll stack crown quantities:
 //     Piece to work roll stack crown
@@ -93,7 +93,7 @@ pcCRLCD->Crns(..)的计算详见CRLC模块说明。
 
 若非末道次机架中，若本道次空过，则则传递本道次的出口厚度给上游机架，也就是空过的机架前后带钢厚度不变。并且设定本道次均载辊缝凸度ufd_pu_prf为0。
 
-```C++
+```c
             if( pcStdD->dummied )
             {
                 //--------------------------------------------------------------
@@ -110,7 +110,7 @@ pcCRLCD->Crns(..)的计算详见CRLC模块说明。
 
 之后进行带钢的咬入计算，咬入计算的输入量有入口宽度、出入口厚度、出入口张力、轧制速度，计算输出量有单位轧制力、前滑值和接触弧长度。
 
-```c++
+```c
 pcAlcD->pcRollbite->Calculate(     //@S014
                     &rbStatus,                          // OUT status from calculations
                     &force_pu_wid_buf,                  // OUT rolling force/width
@@ -126,7 +126,7 @@ pcAlcD->pcRollbite->Calculate(     //@S014
 
 为什么把咬入计算放在这里，是因为后面有重分配压下的打算，即redrft_perm为true时，需约束单位轧制力。
 
-```C++
+```c
             if( redrft_perm )
             {
                 pcAlcD->force_pu_wid = (float) force_pu_wid_buf;
@@ -162,7 +162,7 @@ pcAlcD->pcRollbite->Calculate(     //@S014
 
 设定一个表示目标均载辊缝单位凸度和实际均载辊缝单位凸度偏差的指示器。若偏差大于ufd_pu_prf_tol（目前为0.0001）则设定为true，表示均载辊缝单位凸度偏差超出了容许的范围，引出了后面有关alc_lim缩小偏差的一系列计算。
 
-```C++
+```c
 alc_lim = fabs( pcAlcD->ufd_pu_prf - pcLPceD->ufd_pu_prf ) > pcAlcD->pcAlc->ufd_pu_prf_tol;
 ```
 
@@ -184,20 +184,20 @@ alc_lim = fabs( pcAlcD->ufd_pu_prf - pcLPceD->ufd_pu_prf ) > pcAlcD->pcAlc->ufd_
 
 当浪形判别不通过，或者说flt_ok为假时，可以稍微放宽一点标准。如果非末道次机架的下道次应变差不超死区极限，那么也算本道次浪形判别通过。
 
-```C++
-                        if ( pcFSPassD != pcLstActFSPassD )
-                        {
-                            pcAlcD->flt_ok =
-                                ( std_ex_strn_dn <= bckl_lim_dn[ we ] ) &&
-                                ( std_ex_strn_dn >= bckl_lim_dn[ cb ] );
-                        }
+```c
+if ( pcFSPassD != pcLstActFSPassD )
+{
+  pcAlcD->flt_ok =
+    ( std_ex_strn_dn <= bckl_lim_dn[ we ] ) &&
+    ( std_ex_strn_dn >= bckl_lim_dn[ cb ] );
+}
 ```
 
 到现在这一步，如果浪形判别还不能通过，那么需要重新设定目标单位凸度。先重新设定目标有效单位凸度，用pcTargtD->Pass_Mill_Targ(..)计算获得，变量为ef_pu_prf_alt。再利用F7的istd_ex_strn反推std_ex_strn，结合ef_pu_prf_alt计算出目标单位凸度pu_prf。注意在alc模块中，大循环的这个位置是alc局部pu_prf变量第一次介入的地方，局部pu_prf变量预设为0。之后对pu_prf进行限幅，这样新的目标单位凸度就诞生了。
 
 接着是一个难点问题。
 
-```C
+```c
 pcCritFSPassD = pcFSPassD;
 ```
 
@@ -217,7 +217,7 @@ pcCritFSPassD = pcFSPassD;
 
 之后是：对不均匀变形道次ef_en_pu_prf修正的过程。在此阶段，如下一段代码需要注意，在理解上可能会出错。
 
-```C++
+```c
 //---------------------------------------------------
 // Increment pointer to previous dynamic PASS object.
 //---------------------------------------------------
@@ -247,7 +247,7 @@ ef_en_pu_prf = cMathUty::Clamp ( ef_ex_pu_prf,
 
 ef_pu_prf_chg[cb/we]并不能直接作为真正的有效单位凸度最大改变量，或真正的有效凸度改变约束条件。在不均匀变形的机架中，它需要本道次的ef_pu_prf_env和上一道次的ef_pu_prf_env介入，来获得一个更窄的变化区间ef_pu_prf_dlt[minl/maxl]，用所有存在不均匀变形机架的这个区间来修正本道次的ef_en_pu_prf。
 
-```C
+```c
 //------------------------------------------------------
 // Calculate the delta effective per unit profile change
 // from stand entry to interstand exit.
@@ -266,7 +266,6 @@ ef_pu_prf_dlt[ maxl ] =
                         pcBufFSPassD->pcPEnvD->ef_pu_prf_env[ maxl ] ) -
         cMathUty::Max( ef_en_pu_prf,
                         ((cFSPassD*)pcBufFSPassD->previous_obj)->pcPEnvD->ef_pu_prf_env[minl]));
-
 ```
 
 ef_pu_prf_dlt的计算，讲白了就是用本道次机架的有效凸度减前一道次机架的有效凸度，只不过将本道次机架和前道次机架的包络线和ef_ex_pu_prf、ef_en_pu_prf联系起来，用于收窄死区。ef_pu_prf_chg依据于理论计算，第二项的差值依据于本道次和上道次的包络线，若中浪则取最大的，若边浪则取最小的。

@@ -6,7 +6,7 @@
 
 --- Profile ---这一栏当中的 “H w” 指的是加了凸度自学习量的目标凸度。Int H w为初始的prf，Int H w为最终的prf。Int H w的计算过程如下所示。
 
-```C++
+```C
 prf_int = (pdi_prf + prf_op_off) * matl_exp_cof + prf_vrn;
 ```
 
