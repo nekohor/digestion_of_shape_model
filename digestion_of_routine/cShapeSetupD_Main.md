@@ -160,8 +160,93 @@ else
 }
 ```
 
+初始化分配和评估的横向带钢对象，利用pcFSPassD->pcAlcLPceD[ iter ]->Init(..)和pcFSPassD->pcEvlLPceD[ iter ]->Init(..)进行初始化。
 
+之后初始化和STD对象相关的参数。
+
+- 窜辊和弯辊能否使用的标识shft_enab和bnd_enab。
+- op弯辊力补偿op_bnd_off。
+- 弯辊力pcFSStdDloc->force_bnd。
+- 初始化窜辊位置。
+- 计算窜辊的软极限。
+- 计算弯辊的软极限。
+- 插值计算中间坯凸度prf_pass0和中间坯单位凸度pu_prf_pass0。
+- 利用长期平直度自学习值修正末道次F7的弯辊力极限force_bnd_lim。
+
+同样在STD初始化过程中有这几点需要注意。
+
+第一，注意GSM_RB_OFS_BLEEDOFF这个宏在ssu_features.hxx中定义为（1）。
+
+```c
+#define GSM_RB_OFS_BLEEDOFF        (1)          // [-] GSM Operator RB offsets bleed off enabled
+```
+
+如果GSM_RB_OFS_BLEEDOFF为真或为1，需要用短期自学习的弯辊补偿bending_ofs修正op弯辊力补偿op_bnd_off。
+
+第二，如果bnd_enab为true，并且轧辊辊形是平辊，则不用平目标直度自学习量flt_vrn修正（从中减去）初始的弯辊力force_bnd_nom。
+
+```c
+if ( pcFSStdDloc == pcLstFSPassD->pcFSStdD[ iter ]
+&& pcFSStdDloc->pcStdRollPrD->getProf(op_work) != rp_parab )
+{
+//----------------------------------------------------------
+// If last stand and the roll is not parabolic it SHOULD be CVC
+//----------------------------------------------------------
+    pcFSStdDloc->force_bnd = pcFSStdDloc->pcFSStd->force_bnd_nom
+    - pcTargtD->flt_vrn;
+}
+else
+{
+    pcFSStdDloc->force_bnd = pcFSStdDloc->pcFSStd->force_bnd_nom;
+}
+```
+
+第三，设定了一个level_std标识，当换辊开轧后用于锁定窜辊，以便操作工进行调平。
+
+```c
+if ( pcShapeSetup->num_coils_to_lvl >= 
+    pcFSStdDloc->pcStdRollPrD->getNBarRolled(rpos_top, op_work) )
+{
+    level_std = true;
+}
+```
+
+对于平辊，在轧制用于调平的带钢时，相应机架的窜辊位置为零位。
+
+```c
+// these are parabolic rolls
+// use SCF function references
+if ( level_std )
+	pcFSStdDloc->wr_shft = 0.0F;
+else
+	pcFSStdDloc->wr_shft = psSSys->targ_pos_shft[ passIdx ];
+```
+
+在确定窜辊软极限过程中，如果窜辊被操作工锁定了，那么窜弯辊的软极限就是当前窜辊值。
+
+在确定窜辊软极限过程中，需要先根据窜辊的速度计算最大的窜辊位置变化量。如果是平辊的话直接选取SCF中的设定。
+
+在中间坯凸度和单位凸度的计算中，如果有中间坯测量的凸度则用中间坯测量的凸度，如果没有则插值计算。中间坯或0道次的单位凸度和单位有效凸度包络线最大最小值均为中间坯单位凸度的计算值。同时pcTargtD->en_pu_prf等于pu_prf_pass0。代码中pcFSPassD为中间坯道次。
+
+```c
+for ( int i = minl; i <= maxl; i++ )
+{
+    pcFSPassD->pcVecPEnvD[ iter ]->pu_prf_env[ i ]    =
+      pu_prf_pass0;
+    pcFSPassD->pcVecPEnvD[ iter ]->ef_pu_prf_env[ i ] =
+      pu_prf_pass0;
+}
+
+//------------------------------------------------------------------
+// Initialize mill entry per unit profile
+//------------------------------------------------------------------
+pcTargtD->en_pu_prf = pu_prf_pass0;
+```
+
+注意pcTargtD->flt_vrn和psSLFG->flt_vrn、psSAMP->flt_vrn之间的区别。
 
 ## cShapeSetupD::References(..)
 
 cShapeSetupD::References(..)计算了凸度与平直度控制目标下的相关设定值，必要情况下重新分配轧制力或压下。
+
+首先
