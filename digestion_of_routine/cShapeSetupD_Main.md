@@ -1,8 +1,6 @@
 # cShapeSetupD::Main(..)
 
 
-
-
 cShapeSetupD对象有一个status状态量，显示当前板形设定的状态（红灯或绿灯），以及判断是否合法的指示器ok。初始默认情况下status设为红灯，ok设为false。
 ```c
 this->status = cMdlparam::cs_red;
@@ -249,4 +247,18 @@ pcTargtD->en_pu_prf = pu_prf_pass0;
 
 cShapeSetupD::References(..)计算了凸度与平直度控制目标下的相关设定值，必要情况下重新分配轧制力或压下。
 
-首先
+首从F1到F7更新动态LPCE对象和LRG对象。
+
+进行包络线计算cPEnvD::Calculate(..)和分配计算cAlcD::Calculate(..)，之后从F1到F7对板形设定进行评估。
+
+注意在每一道次评估前需要用op弯辊力补偿修正弯辊力。
+
+```c
+force_bnd =
+    pcFSPassD->pcFSStdD[ iter ]->force_bnd +
+    pcFSPassD->pcFSStdD[ iter ]->op_bnd_off;
+```
+
+如果可以重新分配压下，或者平直度不满足条件，则需要重新进行板形分配计算和再一次的评估。
+
+最后计算传递给一级的增益，以及用pcTargtD->Eval_Delvry_Pass(..)评估末道次。
