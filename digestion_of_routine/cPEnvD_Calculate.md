@@ -167,7 +167,7 @@ for ( i = minl; i <= maxl; i++ )
 
 ### 确定包络线最小值组份
 
-move_prv用来指示道次是否前移。
+move_prv用来指示道次是否前移。是否前移，说明上一机架的有效单位凸度包络线是否存在调整变化的空间。
 
 利用pcLRGD->Ef_Ex_PU_Prf3(..)计算，将上一道次的有效单位凸度包络线下限和本道次的ufd有效凸度包络线代入，获得本道次出口的有效单位凸度包络线下限pcFSPassD->pcPEnvD->ef_pu_prf_env[ minl ]。
 
