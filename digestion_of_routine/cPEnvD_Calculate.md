@@ -216,3 +216,58 @@ pcFSPassD->pcPrvAct->pcPEnvD->ef_pu_prf_lim[ minl ] = ef_en_pu_prf_buf;
                     }
 ```
 
+之后用新的ef_en_pu_prf_buf值和ef_ex_pu_prf值，更新ufd有效单位凸度ufd_pu_prf，涉及的函数是pcLRGD->UFD_PU_Prf3(..)。并利用新的ufd单位凸度ufd_pu_prf、弯辊力和窜辊包络线的下限，计算变化后的辊系凸度pce_wr_crn和wr_br_crn。
+
+再用pcCRLCD->Shft_Pos(..)更新窜辊位置包络线的下限。之后再次重计算（re-calculate）辊系凸度。接着考虑弯辊力包络线下限force_bnd_env_min，重计算（re-calculate）辊系凸度。
+
+```c
+                //------------------------------------------------------------------
+                // Re-calculate the following composite roll stack crown quantities:
+                //     Piece to work roll stack crown
+                //     Work roll to backup roll stack crown
+                //------------------------------------------------------------------
+                line_num = __LINE__;
+                pcFSPassD->pcFSStdD[ iter ]->pcCRLCD->Crns( 
+                          pcFSPassD->pcPEnvD->pos_shft_env  [ minl ],
+                          pcFSPassD->pcPEnvD->angl_pc_env   [ minl ],
+                          pcFSPassD->pcPEnvD->pce_wr_crn_env[ minl ],
+                          pcFSPassD->pcPEnvD->wr_br_crn_env [ minl ] );
+```
+
+在弯窜辊都修正辊系凸度后，确定合适的弯辊力force_bnd_des，设定force_bnd_clmp指示器。
+
+```c
+                force_bnd_clmp =
+                    force_bnd_des != pcFSPassD->pcPEnvD->force_bnd_env[ minl ];
+```
+
+最终更新ufd有效单位凸度包络线的下限ufd_pu_prf_env_min。
+
+如果force_bnd_des不等于弯辊力包络线的下限值，那么还需要调整。重新更新ef_en_pu_prf_buf以及更新上一道次或入口有效单位凸度极限的最小值。
+
+如果未前移，则进行如下计算，从1190到1599行。如果出口应变差std_ex_strn超出出口应变差的极限范围，则进行一系列修正，目前这段修正在模型中被禁止执行。这样设置的原因是避免单位轧制力包络线和辊系凸度做大规模的修改和变化影响生产稳定性，出点浪形问题也是可以接受的。
+
+```c
+                // was profile reduced too much
+                //if ( std_ex_strn < pcFSPassD->pcPEnvD->std_ex_strn_lim[ cb ] )
+                if ( 1 < 0 )
+                {..}  
+                // strain too high (due to low entry profile)
+                //if ( std_ex_strn > pcFSPassD->pcPEnvD->std_ex_strn_lim[ we ] &&
+                if ( 0 > 1 &&
+                     pcFSPassD->pcFSStdD[ iter ]->pcLRGD->pce_infl_cof >
+                         pcFSPassD->pcPEnvD->pcPEnv->pce_infl_cof_mn )
+                {..}
+                // 1 < 0 和 0 > 1说明这两段调整永远不会执行
+```
+
+最后再更新一次本道次的出口有效单位凸度包络线下限。
+
+```c
+            pcFSPassD->pcPEnvD->ef_pu_prf_env[ minl ] = 
+                pcFSPassD->pcFSStdD[ iter ]->pcLRGD->Ef_Ex_PU_Prf3( 
+                           pcFSPassD->pcLPceD->strn_rlf_cof,
+                           pcFSPassD->pcPrvAct->pcPEnvD->ef_pu_prf_env[ minl ],
+                           pcFSPassD->pcPEnvD->ufd_pu_prf_env         [ minl ] );
+```
+
