@@ -2,11 +2,25 @@
 
 
 
+注意设定弯辊力不是单力。
+
+```c
+sup_bend = (float) num_chocks * pcSched->pcFSSched->pcSPassRef[ps-1]->state.force_bnd_org;
+```
 
 
-## cShapeFeedbackD::Init(..)
 
-cShapeFeedbackD::Init(..)函数位于shapefeedback_req.cxx文件中。
+## cShapeFeedbackD::Pass(..)
+
+cShapeFeedbackD::Pass(..)主要分为以下三个部分：
+
+- cShapeFeedbackD::Init(..)
+- cShapeFeedbackD::Evaluate(..)
+- cShapeFeedbackD::OprBnd(..)
+
+### cShapeFeedbackD::Init(..)
+
+cShapeFeedbackD::Init(..)函数位于shapefeedback_req.cxx文件中，并于cShapeFeedbackD::Pass(..)函数中执行。
 
 inhb_t_w_calc为指示计算辊系热胀和磨损计算的布尔值，默认为false。
 
@@ -57,3 +71,27 @@ if ( pcTargtD->pcTargt->wr_crn_off_sel_flag )
 ```
 
 之后用cLRGD::Init(..)初始化LRG动态对象。
+
+### cShapeFeedbackD::Evaluate(..)
+
+评估。
+
+### cShapeFeedbackD::OprBnd(..)
+
+cShapeFeedbackD::OprBnd(..)是对操作工弯辊力调整的自适应，自学习值从。内部主要调用的函数为cCRLCD::Opr_Bnd_Frc_Adpt(..)。
+
+操作工对工作辊弯辊力的补偿wr_bnd_off先转化成等效的辊系凸度修正值stk_bnd_err。将 pcCRLCD->wr_cr_vrn赋值给stk_vrn_bnd。以stk_bnd_err和stk_vrn_bnd为实参，代入cCRLCD::Opr_Bnd_Frc_Adpt(..)计算。自学习计算采用积分控制，积分系数为wr_crn_cor_i_gn。wr_crn_cor_i_gn的配置在配置文件cfg_fpass.txt当中按机架划分。
+
+## cShapeFeedbackD::Mill(..)
+
+cShapeFeedbackD::Mill(..)函数的作用是根据实际测量的带钢凸度和平直度，计算辊系凸度自学习量。
+
+### 逆序循环
+
+从profile/flatness sensor中获得凸度和平直度的测量值meas_prf和meas_flt。
+
+meas_flt直接作为出口应变差std_ex_strn，如果检测有误，则直接用std_ex_strn的计算值。
+
+用出口检测到的meas_prf和std_ex_strn，代入pcLRGD->Ef_Ex_PU_Prf0(..)，重新计算ef_ex_pu_prf。
+
+利用以上现有参数，结合pcSFBObsD[seg]->RepMill(..)重计算有效入口单位凸度ef_en_pu_prf。

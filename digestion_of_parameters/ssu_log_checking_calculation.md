@@ -2,6 +2,8 @@
 
 日志验算和说明。
 
+## 开头
+
 ### Int H w和Fin H w
 
 --- Profile ---这一栏当中的 “H w” 指的是加了凸度自学习量的目标凸度。Int H w为初始的prf，Int H w为最终的prf。Int H w的计算过程如下所示。
@@ -18,7 +20,31 @@ prf_int = (pdi_prf + prf_op_off) * matl_exp_cof + prf_vrn;
 
 ### 中间坯凸度插值计算
 
-中间坯的凸度，在模型计算中不是
+中间坯的凸度，在模型计算中为插值计算。
+
+## 辊系凸度
+
+### 工作辊辊系凸度pce_wr_cr的验算
+
+工作辊辊系凸度pce_wr_cr在日志中的标识为Pce WR Gap，如下图所示。
+
+![pce_wr_cr](ssu_log_checking_calculation/pce_wr_cr.png)
+
+pce_wr_cr由五部分组成，分别是
+
+- 带钢-工作辊磨损pce_wr_w_cr
+- 带钢-工作辊热胀pce_wr_t_cr
+- 工作辊辊形等效凸度wr_grn_cr
+- 工作辊凸度自学习wr_cr_vrn
+- 工作辊凸度补偿wr_cr_off
+
+把这五部分加起来就是pce_wr_cr的值。
+
+### 工作辊凸度补偿的验算
+
+用长期遗传的工作辊凸度补偿cSLFG_wr_crn_off（对应日志中的SLFG WR Offs）和SPRP中的工作辊凸度补偿系数cSPRP_wr_crn_off_adj相加，即可获得工作辊凸度补偿wr_cr_off。
+
+![wr_cr_off](ssu_log_checking_calculation/wr_cr_off.png)
 
 ### 中间坯有效单位凸度
 
@@ -56,3 +82,19 @@ prf_int = (pdi_prf + prf_op_off) * matl_exp_cof + prf_vrn;
 |          1500          |        27067         |
 
 带钢弹性模量的插值向量从27067到138269MPa，与温度的插值相比已经不在一个数量级。温度一单位改变会造成弹性模量更大的变动，因此出现100MPa以内的波动很正常。
+
+
+
+## Adaptation Results
+
+在Adaptation Results这一栏中，注意开头的几个参数。
+
+![AdaptationResultsFirstPart](ssu_log_checking_calculation/AdaptationResultsFirstPart.png)
+
+- Bnd Crn Err对应代码中的stk_bnd_err。
+- Bnd Crn Vrn对应代码中的stk_vrn_bnd。（本质就是wr_cr_vrn）
+- Pce WrR Gap Err对应代码中的stk_rep_err。
+- WR Crn Vrn对应代码中的stk_crn_vrn。
+- WR Crn Off对应代码中的stk_crn_off
+
+这些参数均属于pcSFBObsD指向的对象。
