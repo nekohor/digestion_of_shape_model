@@ -2,8 +2,8 @@
 
 * [GSM总览](doc/anatomy/gsm_anatomy.md)
 
-<!-- * [1 SSU板形设定模型](doc/ssu/ssu_overview.md) -->
-    <!-- * [1.1 板形模型初始化](doc/ssu/ssu_init.md) -->
+* [1 SSU板形设定模型](doc/ssu/ssu_overview.md)
+    <!-- * [1.1 板形模型初始化](doc/ssu/112358) -->
     <!-- * [1.2 包络线计算](doc/ssu/ssu_env.md) -->
     <!-- * [1.3 凸度分配计算](doc/ssu/ssu_alc.md) -->
     <!-- * [1.4 板形评估](doc/ssu/ssu_elv.md) -->
@@ -28,12 +28,13 @@
     <!-- * [3.6 TARGT模块](doc/submodel/TARGT_model.md) -->
     <!-- * [3.7 ALC模块](doc/submodel/ALC_model.md) -->
     <!-- * [3.8 CRLC模块](doc/submodel/CRLC_model.md) -->
+    <!-- * [3.9 CVC辊形设计](doc/submodel/cvc_roll_design.md) -->
 
 <!-- * [4 SMLC板形自学习模型](doc/smlc/smlc_overview.md) -->
     <!-- * [4.1 自学习策略](doc/smlc/adapt_strategy.md) -->
     <!-- * [4.2 辊系凸度补偿](doc/smlc/wr_crn_off.md) -->
     <!-- * [4.3 凸度自学习](doc/smlc/profile_adapt.md) -->
-    <!-- * [4.4 平直度自学习](doc/smlc/flatness_adapt.md) -->
+    * [4.4 平直度自学习](doc/smlc/flatness_adapt.md)
     <!-- * [4.5 有效单位凸度自学习](doc/smlc/eff_pu_profile_adapt.md) -->
 
 <!-- * [5 ROP轧辊模型](doc/rop/rop_overview.md) -->
@@ -54,7 +55,9 @@
     <!-- * [8.1 SSU日志验算](doc/parameters/ssu_log_checking_calculation.md) -->
     <!-- * [8.2 SSU日志FAQ](doc/parameters/ssu_log_FAQ.md) -->
     <!-- * [8.3 CFG模型参数梳理](doc/parameters/cfg_parameters.md) -->
-    <!-- * [8.4 CTool参数梳理](doc/parameters/ctool.md) -->
+    * [8.4 CTool参数梳理](doc/parameters/ctool_gsm.md)
 
 * [9 板形模型实战](actual_combat/actual_combat_overview.md)
     * [9.1 目标凸度变化影响板形模型设定](actual_combat/目标凸度变化影响板形模型设定.md)
+    <!-- * [9.2 板形能力校核](actual_combat/板形能力校核.md) -->
+

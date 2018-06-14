@@ -36,7 +36,7 @@ digraph G{
 
     GSM[label="GSM板形模型" shape="oval" fontcolor="white" fillcolor="#34495D"];
 
-    SSU[label="SSU板形设定模型" fillcolor="#FCB738"];
+    SSU[label="SSU板形设定模型" fillcolor="#FCB738" fillcolor="#DA5A62"];
     SSU_init[label="板形模型初始化"];
     SSU_env[label="包络线计算"];
     SSU_alc[label="凸度分配计算"];
