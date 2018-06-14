@@ -41,35 +41,35 @@ for ( i = minl; i <= maxl; i++ )
 计算pcFSPassD->pcPEnvD->dprf_dfrcw，这里的偏导数dprf_dfrcw是用来判断force_pu_wid_lim给force_pu_wid_env赋值的方向。
 
 ```c
-                //----------------------------------------------------------------
-                // Calculate the UFD roll roll gap profile derivative with respect
-                // rolling force per unit piece width.
-                //----------------------------------------------------------------
-                pcFSPassD->pcPEnvD->dprf_dfrcw = 
-                    pcFSPassD->pcFSStdD[ iter ]->pcUFDD->Dprf_Dfrcw ( 
-                                pcFSPassD->pcPEnvD->force_pu_wid,
-                                pcFSPassD->pcFSStdD[ iter ]->pcFSStd->force_bnd_nom,
-                                pce_wr_crn,
-                                wr_br_crn                           );
+//----------------------------------------------------------------
+// Calculate the UFD roll roll gap profile derivative with respect
+// rolling force per unit piece width.
+//----------------------------------------------------------------
+pcFSPassD->pcPEnvD->dprf_dfrcw = 
+    pcFSPassD->pcFSStdD[ iter ]->pcUFDD->Dprf_Dfrcw ( 
+                pcFSPassD->pcPEnvD->force_pu_wid,
+                pcFSPassD->pcFSStdD[ iter ]->pcFSStd->force_bnd_nom,
+                pce_wr_crn,
+                wr_br_crn                           );
 
-                //-----------------------------------------------------------------
-                // Initialize the rolling force per unit width piece envelope.
-                // Note: The UFD roll gap profile derivative is used for direction.
-                //-----------------------------------------------------------------
-                if ( 0.0 <= pcFSPassD->pcPEnvD->dprf_dfrcw )
-                {
-                    pcFSPassD->pcPEnvD->force_pu_wid_env[ minl ] =
-                        pcFSPassD->pcPEnvD->force_pu_wid_lim[ minl ];
-                    pcFSPassD->pcPEnvD->force_pu_wid_env[ maxl ] =
-                        pcFSPassD->pcPEnvD->force_pu_wid_lim[ maxl ];
-                }
-                else
-                {
-                    pcFSPassD->pcPEnvD->force_pu_wid_env[ minl ] =
-                        pcFSPassD->pcPEnvD->force_pu_wid_lim[ maxl ];
-                    pcFSPassD->pcPEnvD->force_pu_wid_env[ maxl ] =
-                        pcFSPassD->pcPEnvD->force_pu_wid_lim[ minl ];
-                }
+//-----------------------------------------------------------------
+// Initialize the rolling force per unit width piece envelope.
+// Note: The UFD roll gap profile derivative is used for direction.
+//-----------------------------------------------------------------
+if ( 0.0 <= pcFSPassD->pcPEnvD->dprf_dfrcw )
+{
+    pcFSPassD->pcPEnvD->force_pu_wid_env[ minl ] =
+        pcFSPassD->pcPEnvD->force_pu_wid_lim[ minl ];
+    pcFSPassD->pcPEnvD->force_pu_wid_env[ maxl ] =
+        pcFSPassD->pcPEnvD->force_pu_wid_lim[ maxl ];
+}
+else
+{
+    pcFSPassD->pcPEnvD->force_pu_wid_env[ minl ] =
+        pcFSPassD->pcPEnvD->force_pu_wid_lim[ maxl ];
+    pcFSPassD->pcPEnvD->force_pu_wid_env[ maxl ] =
+        pcFSPassD->pcPEnvD->force_pu_wid_lim[ minl ];
+}
 ```
 
 辊系凸度的极限值赋值给辊系凸度的包络线最大最小值。注意这里，极限值的最小值对应包络线的最大值，极限值的最大值对应包络线的最小值。

@@ -1,0 +1,59 @@
+{
+  "title": "宇阳的板形模型私房菜",
+  "author": "王宇阳",
+  "plugins": [
+    "prism",
+    "prism-themes",
+    "katex",
+    "-search",
+    "-hightlight"
+  ],
+  "pluginsConfig": {
+    "prism": {
+      "css": [
+        "prism-themes/themes/prism-base16-ateliersulphurpool.light.css"
+      ],
+      "lang": {
+        "flow": "c"
+    }
+    },
+    "autocover": {
+        "font": {
+            "size": null,
+            "family": "方正清刻本悦宋简体",
+            "color": "#FFF"
+        },
+        "size": {
+            "w": 1800,
+            "h": 2360
+        },
+        "background": {
+            "color": "#09F"
+        }
+    },
+    "theme-default": {
+      "showLevel": true
+    }
+  },
+  "links": {
+    "gitbook": false,
+    "sharing": {
+      "google": false,
+      "facebook": false,
+      "twitter": false,
+      "all": false
+    }
+  },
+  "pdf": {
+    "pageNumbers": true,
+    "paperSize": "b5",
+    "fontSize": 19,
+    "fontFamily":"方正清刻本悦宋简体",
+    "margin": {
+      "right": 30,
+      "left": 30,
+      "top": 50,
+      "bottom": 50
+    }
+  }
+}
