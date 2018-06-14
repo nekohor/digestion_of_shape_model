@@ -1,6 +1,6 @@
 # 板形模型消化
 
-* [GSM总览](README.md)
+* [GSM总览](doc/anatomy/gsm_anatomy.md)
 
 * [1 SSU板形设定模型](doc/ssu/ssu_overview.md)
     * [1.1 板形模型初始化](doc/ssu/ssu_init.md)
@@ -19,7 +19,7 @@
     * [2.6 弯辊设定计算](doc/allocation/bend_frc_actuator.md)
     * [2.7 凸度分配迭代计算](doc/allocation/alc_cycle_calc.md)
 
-* [3 板形重难点模型与模块](doc/submodel/submodel_overview.md)
+* [3 重难点模型与模块](doc/submodel/submodel_overview.md)
     * [3.1 空载辊缝模型](doc/submodel/unloaded_roll_gap_model.md)
     * [3.2 有载辊缝模型](doc/submodel/loaded_roll_gap_model.md)
     * [3.3 LPCE横向带钢模型](doc/submodel/LPCE.md)
@@ -30,11 +30,11 @@
     * [3.8 CRLC模块](doc/submodel/CRLC.md)
 
 * [4 SMLC板形自学习模型](doc/smlc/smlc_overview.md)
-    * [4.1 自学习策略](doc/ssu/adapt_strategy.md)
-    * [4.2 辊系凸度补偿](doc/ssu/wr_crn_off.md)
-    * [4.3 凸度自学习](doc/ssu/profile_adapt.md)
-    * [4.4 平直度自学习](doc/ssu/flatness_adapt.md)
-    * [4.5 有效单位凸度自学习](doc/ssu/eff_pu_profile_adapt.md)
+    * [4.1 自学习策略](doc/smlc/adapt_strategy.md)
+    * [4.2 辊系凸度补偿](doc/smlc/wr_crn_off.md)
+    * [4.3 凸度自学习](doc/smlc/profile_adapt.md)
+    * [4.4 平直度自学习](doc/smlc/flatness_adapt.md)
+    * [4.5 有效单位凸度自学习](doc/smlc/eff_pu_profile_adapt.md)
 
 * [5 ROP轧辊模型](doc/rop/rop_overview.md)
     * [5.1 ROP磨损](doc/rop/rop_wear.md)
@@ -44,11 +44,17 @@
     * [6.1 常规辊形窜辊](doc/scf/scf_normal.md)
     * [6.2 正弦异步窜辊](doc/scf/scf_sin.md)
 
-* [7 参数和日志](parameters/parameters_overview.md)
-    * [7.1 SSU日志验算](doc/parameters/ssu_log_checking_calculation.md)
-    * [7.2 SSU日志FAQ](doc/parameters/ssu_log_FAQ.md)
-    * [7.3 CFG模型参数梳理](doc/parameters/cfg_parameters.md)
-    * [7.4 CTool参数梳理](doc/parameters/ctool.md)
+* [7 板形动态控制](doc/dynamic_control/dynamic_control_overview.md)
+    * [7.1 ASPC凸度反馈控制](doc/dynamic_control/aspc.md)
+    * [7.2 ASFC浪形反馈控制](doc/dynamic_control/asfc.md)
+    * [7.3 FFC轧制力跟随控制](doc/dynamic_control/ffc.md)
+    * [7.4 TCFC热胀跟随控制](doc/dynamic_control/tcfc.md)
 
-* [7 板形模型实战](actual_combat/actual_combat_overview.md)
-    * [7 板形模型实战](actual_combat/actual_combat_overview.md)
+* [8 参数和日志](parameters/parameters_overview.md)
+    * [8.1 SSU日志验算](doc/parameters/ssu_log_checking_calculation.md)
+    * [8.2 SSU日志FAQ](doc/parameters/ssu_log_FAQ.md)
+    * [8.3 CFG模型参数梳理](doc/parameters/cfg_parameters.md)
+    * [8.4 CTool参数梳理](doc/parameters/ctool.md)
+
+* [9 板形模型实战](actual_combat/actual_combat_overview.md)
+    * [9.1 目标凸度变化影响板形模型设定](actual_combat/目标凸度变化影响板形模型设定.md)

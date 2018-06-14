@@ -12,7 +12,7 @@ digraph G{
         //splines = spline,
         //ranksep = 1.0,
         //nodesep = 0.9
-        //fillcolor="#DA5A62"
+        //fillcolor="#DA5A62"  // 红色
     //];
     //compound=true;
     node [style="filled";
@@ -107,7 +107,7 @@ digraph G{
     ASPC[label="ASPC凸度反馈控制"];
     ASFC[label="ASFC平直度反馈控制"];
     FFC[label="FFC轧制力跟随控制"];
-    TCFC[label="TCFC热胀跟随控制" fillcolor="#DA5A62"];
+    TCFC[label="TCFC热胀跟随控制"];
 
     // global
     GSM->{SSU SMLC ROP SCF SMDC}

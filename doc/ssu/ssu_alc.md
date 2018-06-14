@@ -27,7 +27,7 @@ Delvry_Pass(..)计算F7或最后一非空过道次的入口和出口有效单位
 
 计算流程如下图所示。
 
-![Delvry_Pass_Diagram](cAlcD_Calculate/Delvry_Pass_Diagram.png)
+![Delvry_Pass_Diagram](ssu_alc/Delvry_Pass_Diagram.png)
 
 基础量是加了操作工补偿和凸度自学习的单位凸度pu_prf。由pu_prf_env限幅。
 
