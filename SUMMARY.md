@@ -2,28 +2,28 @@
 
 * [GSM总览](doc/anatomy/gsm_anatomy.md)
 
-* [1 SSU板形设定模型](doc/ssu/ssu_overview.md)
-    <!-- * [1.1 板形模型初始化](doc/ssu/112358) -->
-    <!-- * [1.2 包络线计算](doc/ssu/ssu_env.md) -->
-    <!-- * [1.3 凸度分配计算](doc/ssu/ssu_alc.md) -->
-    <!-- * [1.4 板形评估](doc/ssu/ssu_elv.md) -->
-    <!-- * [1.5 板形物理模型](doc/ssu/ssu_physical_model.md) -->
-    <!-- * [1.6 偏导数参数或转换函数](doc/ssu/ssu_xfer_func.md) -->
+* [SSU板形设定模型](doc/ssu/ssu_overview.md)
+    * [板形模型初始化](doc/ssu/ssu_init.md)
+    * [包络线计算](doc/ssu/ssu_env.md)
+    * [凸度分配计算](doc/ssu/ssu_alc.md)
+    * [板形评估](doc/ssu/ssu_elv.md)
+    * [板形物理模型](doc/ssu/ssu_physical_model.md)
+    * [偏导数参数或增益](doc/ssu/ssu_xfer_func.md)
 
-<!-- * [2 凸度分配](doc/allocation/allocation_overview.md) -->
+* [凸度分配](doc/allocation/allocation_overview.md)
     <!-- * [2.1 道次出口目标计算](doc/allocation/delivery_pass_targets.md) -->
-    * [2.2 辊系凸度计算](doc/allocation/roll_stack_crowns.md)
+    * [辊系凸度计算](doc/allocation/roll_stack_crowns.md)
     <!-- * [2.3 UFD均载辊缝凸度计算](doc/allocation/UFD_calc.md) -->
     <!-- * [2.4 CVC等效凸度计算](doc/allocation/roll_grnd_calc.md) -->
     <!-- * [2.5 窜辊设定计算](doc/allocation/pos_shft_actuator.md) -->
     <!-- * [2.6 弯辊设定计算](doc/allocation/bend_frc_actuator.md) -->
     <!-- * [2.7 凸度分配迭代计算](doc/allocation/alc_cycle_calc.md) -->
 
-<!-- * [3 重难点模型与模块](doc/submodel/submodel_overview.md) -->
+<!-- * [3 重难点模块与问题](doc/submodel/submodel_overview.md) -->
     <!-- * [3.1 空载辊缝模型](doc/submodel/unloaded_roll_gap_model.md) -->
     <!-- * [3.2 有载辊缝模型](doc/submodel/loaded_roll_gap_model.md) -->
-    * [3.3 LPCE横向带钢模型](doc/submodel/LPCE_model.md)
-    <!-- * [3.4 LRG横向辊缝模型](doc/submodel/LRG_model.md) -->
+    * [LPCE横向带钢模型](doc/submodel/LPCE_model.md)
+    * [LRG横向辊缝模型](doc/submodel/LRG_model.md)
     <!-- * [3.5 临界浪形模型](doc/submodel/critical_buckling_model.md) -->
     <!-- * [3.6 TARGT模块](doc/submodel/TARGT_model.md) -->
     <!-- * [3.7 ALC模块](doc/submodel/ALC_model.md) -->
@@ -34,7 +34,7 @@
     <!-- * [4.1 自学习策略](doc/smlc/adapt_strategy.md) -->
     <!-- * [4.2 辊系凸度补偿](doc/smlc/wr_crn_off.md) -->
     <!-- * [4.3 凸度自学习](doc/smlc/profile_adapt.md) -->
-    * [4.4 平直度自学习](doc/smlc/flatness_adapt.md)
+    * [平直度自学习](doc/smlc/flatness_adapt.md)
     <!-- * [4.5 有效单位凸度自学习](doc/smlc/eff_pu_profile_adapt.md) -->
 
 <!-- * [5 ROP轧辊模型](doc/rop/rop_overview.md) -->
@@ -51,13 +51,15 @@
     <!-- * [7.3 FFC轧制力跟随控制](doc/dynamic_control/ffc.md) -->
     <!-- * [7.4 TCFC热胀跟随控制](doc/dynamic_control/tcfc.md) -->
 
-<!-- * [8 参数和日志](parameters/parameters_overview.md) -->
-    <!-- * [8.1 SSU日志验算](doc/parameters/ssu_log_checking_calculation.md) -->
-    <!-- * [8.2 SSU日志FAQ](doc/parameters/ssu_log_FAQ.md) -->
-    <!-- * [8.3 CFG模型参数梳理](doc/parameters/cfg_parameters.md) -->
-    * [8.4 CTool参数梳理](doc/parameters/ctool_gsm.md)
+* [参数和日志](parameters/parameters_overview.md)
+    * [SSU参数日志验算](doc/parameters/ssu_log_checking_calculation.md)
+    * [SSU参数日志FAQ](doc/parameters/ssu_log_FAQ.md)
+    * [CFG模型参数梳理](doc/parameters/cfg_parameters.md)
+    * [CTool参数梳理](doc/parameters/ctool_gsm.md)
 
-* [9 板形模型实战](actual_combat/actual_combat_overview.md)
-    * [9.1 目标凸度变化影响板形模型设定](actual_combat/目标凸度变化影响板形模型设定.md)
-    <!-- * [9.2 板形能力校核](actual_combat/板形能力校核.md) -->
+* [板形模型实战](doc/actual_combat/actual_combat_overview.md)
+    * [目标凸度变化影响板形模型设定](doc/actual_combat/目标凸度变化影响板形模型设定.md)
+    <!-- * [9.2 板形能力校核](doc/actual_combat/板形能力校核.md) -->
+    <!-- * [9.3 正弦异步窜辊策略的调整](doc/actual_combat/正弦异步窜辊策略的调整.md) -->
+    <!-- * [9.4 热轧目标凸度对硅钢同板差的影响](doc/actual_combat/热轧目标凸度对硅钢同板差的影响.md) -->
 

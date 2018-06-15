@@ -1,4 +1,8 @@
-# cShapeSetupD::Main(..)
+# 板形模型初始化
+
+板形模型初始化主要包含在cShapeSetupD::Main(..)函数中。
+
+## 状态量的建立
 
 
 cShapeSetupD对象有一个status状态量，显示当前板形设定的状态（红灯或绿灯），以及判断是否合法的指示器ok。初始默认情况下status设为红灯，ok设为false。

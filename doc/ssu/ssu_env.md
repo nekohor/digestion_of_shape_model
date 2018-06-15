@@ -1,6 +1,6 @@
-# cPEnvD::Calculate(..)
+# 板形包络线计算
 
-这个函数中主要计算包络线。
+在cPEnvD::Calculate(..)这个函数中计算包络线。
 
 ## F1到F7包络线初始化
 

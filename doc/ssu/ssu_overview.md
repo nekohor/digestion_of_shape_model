@@ -41,7 +41,7 @@ $$
 Cp_{ufd}|_{min} = func(F_{b}(max),Sp(min),\theta_{pc}(min))
 $$
 
-公式中，$F_{b}$为弯辊力，$Sp$为窜辊位置，$\theta_{pc}$为PC角角度。
+公式中，$$F_{b}$$为弯辊力，$$Sp$$为窜辊位置，$$\theta_{pc}$$为PC角角度。
 
 根据最大最小UFD均载辊缝凸度可以确定最大最小的入口有效单位凸度。
 $$
@@ -56,7 +56,7 @@ $$
 
 ![浪形判别](ssu_overview/浪形判别.png)
 
-每个机架的最大的双边浪改变量$\Delta Cp_{we}$和最大的中浪改变量$\Delta Cp_{cb}$构成了各个机架的板形调整能力。
+每个机架的最大的双边浪改变量$$\Delta Cp_{we}$$和最大的中浪改变量$$\Delta Cp_{cb}$$构成了各个机架的板形调整能力。
 $$
 \Delta Cp_{we} = \epsilon_{we} \cdot \frac{1-K_{pce\_infl} \cdot (1-(1-f_{prf\_rlf} ) \cdot f_{strn\_rlf})}{K_{pce\_infl}}
 $$

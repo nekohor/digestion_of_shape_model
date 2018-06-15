@@ -1,4 +1,4 @@
-# cAlcD::Calculate(..)
+# 凸度分配计算
 
 凸度分配计算主要在cAlcD::Calculate(..)函数中执行。
 

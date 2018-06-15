@@ -33,21 +33,25 @@ Prf_Chng_Attn_Fac( pce_wid,
 ```
 
 
-### 流变应力
-流变应力的单位是MPa。
-流变应力的维基解释如下：
-Flow stress is defined as the instantaneous value of stress required to continue plastically deforming the material - to keep the metal flowing. 
-It is the middle value between yield strength and ultimate strength of the metal as a function of strain, which can be expressed:[1]
-Yf = Kε^n [1]
-Yf = Flow stress, MPa
-ε = True strain
-K = Strength Coefficient, MPa
-n = Strain hardening exponent
-Hence, Flow stress can also be defined as the stress required to sustain plastic deformation at a particular strain.
+### 流变应力（Flow Stress）
+凸度改变削弱因子的影响因素中，流变应力是一个较难理解的概念。流变应力指的是材料继续进行塑性变形所需的瞬时应力值，简而言之，流变应力是驱动金属流动的力， 流变应力的单位是MPa。
+流变应力的值介于屈服强度和抗拉强度之间，是关于塑性应变的函数，它可以表示如下，单位均为MPa。
 
-The flow stress is a function of plastic strain.
+$$
+Y_{f} = Kε^n
+$$
 
-The following properties have an effect on flow stress: chemical composition, purity, crystal structure, phase constitution, exit microstructure, grain size, and heat treatment.
+其中$Y_{f}$为流变应力，单位是MPa。$\epsilon$是真实应变。$K$为延伸系数，单位是MPa。$n$为加工硬化指数。
+因此，流变应力同样可以表示为在特定应变条件下保持塑性变形的应力。
+以下因素对流变应力有影响。
 
-The flow stress is an important parameter in the fatigue failure of ductile materials. Fatigue failure is caused by crack propagation in materials under a varying load, typically a cyclically varying load. The rate of crack propagation is inversely proportional to the flow stress of the material.
+- 化学成分
+- 纯净度
+- 晶体结构
+- 金相组成
+- 出口组织
+- 晶粒组织
+- 热处理
+
+流变应力是韧性材料疲劳失效的一个重要参数。在变化的载荷作用下，裂纹的传播扩展导致金属的疲劳失效，尤其是周期变化的载荷作用影响更甚。金属流变应力和裂纹的传播速度成反比例关系。
 
