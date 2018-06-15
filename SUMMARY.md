@@ -11,7 +11,7 @@
     * [偏导数参数或增益](doc/ssu/ssu_xfer_func.md)
 
 * [凸度分配](doc/allocation/allocation_overview.md)
-    <!-- * [2.1 道次出口目标计算](doc/allocation/delivery_pass_targets.md) -->
+    <!-- * [道次出口目标计算](doc/allocation/delivery_pass_targets.md) -->
     * [辊系凸度计算](doc/allocation/roll_stack_crowns.md)
     <!-- * [2.3 UFD均载辊缝凸度计算](doc/allocation/UFD_calc.md) -->
     <!-- * [2.4 CVC等效凸度计算](doc/allocation/roll_grnd_calc.md) -->

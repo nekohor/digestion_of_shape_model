@@ -1,4 +1,5 @@
 {
+  "gitbook": "3.x.x",
   "title": "宇阳的板形模型私房菜",
   "author": "王宇阳",
   "styles": {
@@ -54,13 +55,13 @@
   "pdf": {
     "pageNumbers": true,
     "paperSize": "b5",
-    "fontSize": 19,
+    "fontSize": 16,
     "fontFamily":"方正清刻本悦宋简体",
     "margin": {
       "right": 30,
       "left": 30,
-      "top": 30,
-      "bottom": 30
+      "top": 40,
+      "bottom": 40
     }
   }
 }
