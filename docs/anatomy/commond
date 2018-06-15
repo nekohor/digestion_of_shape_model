@@ -1,0 +1,1 @@
+dot -Tpng c:\digestion\digestion_of_shape_model\docs\anatomy\anatomy_gsm.dot -o docs\anatomy\anatomy_xxxxx.png
