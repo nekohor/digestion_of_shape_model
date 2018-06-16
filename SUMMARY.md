@@ -4,7 +4,7 @@
 
 ## SSU板形设定模型
 
-* [SSU板形设定模型](docs/ssu/ssu_overview.md)
+* [SSU板形设定模型总览](docs/ssu/ssu_overview.md)
     * [板形模型初始化](docs/ssu/ssu_init.md)
     * [包络线计算](docs/ssu/ssu_env.md)
     * [凸度分配计算](docs/ssu/ssu_alc.md)

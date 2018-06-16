@@ -6,10 +6,10 @@
 
 GSM的C-TOOL表中的参数如下表所示。
 
-| **参数名**      | 所在CTOOL的表（忽略前缀）                 | **初始参数变量名**          |
-| ------------ | ------------------------------- | -------------------- |
-| UFD调节值       | UFD_Stand(Tuning)Multplier.xlsb | psSPRP->ufd_mult     |
-| 初始弯辊力        | NormalBendForce.xlsb            | psSPRP->bend_nom     |
+| **参数名**              | 所在CTOOL的表（忽略前缀）                 | **初始参数变量名**          |
+| ------------           | ------------------------------- | -------------------- |
+| UFD调节值              | UFD_Stand(Tuning)Multplier.xlsb | psSPRP->ufd_mult     |
+| 初始弯辊力              | NormalBendForce.xlsb            | psSPRP->bend_nom     |
 | 窜辊机构最小软极限调节值 | ShiftActuatorLimit.xlsb         | psSPRP->min_accu_lmt |
 | 窜辊机构最大软极限调节值 | ShiftActuatorLimit.xlsb         | psSPRP->max_accu_lmt |
 | 弯辊机构最小软极限调节值 | BendingActuatorLimit.xlsb       | psSPRP->min_bend_lmt |
