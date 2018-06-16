@@ -1,0 +1,1390 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="热轧板形模型的整体消化">
+      
+      
+        <link rel="canonical" href="https://nekohor.github.io/shape_model_cuisine/actual_combat/target_crown_change_has_influence_on_shape_model_references/">
+      
+      
+        <meta name="author" content="王宇阳">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.0">
+    
+    
+      
+        <title>目标凸度变化影响板形模型设定 - 宇阳的板形模型私房菜</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.4f4f49e8.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://nekohor.github.io/shape_model_cuisine" title="宇阳的板形模型私房菜" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/favicon.ico" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                宇阳的板形模型私房菜
+              </span>
+              <span class="md-header-nav__topic">
+                目标凸度变化影响板形模型设定
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="主页" class="md-tabs__link">
+        主页
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../ssu/ssu_overview/" title="板形设定模型" class="md-tabs__link">
+          板形设定模型
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../allocation/allocation_overview/" title="凸度分配" class="md-tabs__link">
+          凸度分配
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../submodel/LPCE_model/" title="重难点模块与问题" class="md-tabs__link">
+          重难点模块与问题
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../smlc/smlc_overview/" title="板形自学习" class="md-tabs__link">
+          板形自学习
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../dynamic_control/dynamic_control_overview/" title="板形动态控制" class="md-tabs__link">
+          板形动态控制
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../parameters/parameters_overview/" title="参数和日志" class="md-tabs__link">
+          参数和日志
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../actual_combat_overview/" title="板形实战" class="md-tabs__link md-tabs__link--active">
+          板形实战
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../img/favicon.ico" width="48" height="48">
+      
+    </span>
+    宇阳的板形模型私房菜
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      板形设定模型
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        板形设定模型
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_overview/" title="板形设定模型总览" class="md-nav__link">
+      板形设定模型总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_init/" title="板形模型初始化" class="md-nav__link">
+      板形模型初始化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_env/" title="包络线计算" class="md-nav__link">
+      包络线计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_alc/" title="凸度分配计算" class="md-nav__link">
+      凸度分配计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_elv/" title="板形评估" class="md-nav__link">
+      板形评估
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_physical_model/" title="板形物理模型" class="md-nav__link">
+      板形物理模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_xfer_func/" title="偏导数参数或增益" class="md-nav__link">
+      偏导数参数或增益
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      凸度分配
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        凸度分配
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/allocation_overview/" title="凸度分配和浪形的关系" class="md-nav__link">
+      凸度分配和浪形的关系
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/delivery_pass_targets/" title="道次出口目标计算" class="md-nav__link">
+      道次出口目标计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/roll_stack_crowns/" title="辊系凸度计算" class="md-nav__link">
+      辊系凸度计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/UFD_calc/" title="UFD均载辊缝凸度计算" class="md-nav__link">
+      UFD均载辊缝凸度计算
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      重难点模块与问题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        重难点模块与问题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/LPCE_model/" title="LPCE横向带钢模型" class="md-nav__link">
+      LPCE横向带钢模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/LRG_model/" title="LRG横向辊缝模型" class="md-nav__link">
+      LRG横向辊缝模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/ALC_model/" title="ALC模块" class="md-nav__link">
+      ALC模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/CRLC_model/" title="CRLC模块" class="md-nav__link">
+      CRLC模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/cvc_roll_design/" title="CVC辊形设计" class="md-nav__link">
+      CVC辊形设计
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      板形自学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        板形自学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../smlc/smlc_overview/" title="SMLC板形自学习模型" class="md-nav__link">
+      SMLC板形自学习模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../smlc/flatness_adapt/" title="平直度自学习" class="md-nav__link">
+      平直度自学习
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      板形动态控制
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        板形动态控制
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dynamic_control/dynamic_control_overview/" title="板形动态控制总览" class="md-nav__link">
+      板形动态控制总览
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      参数和日志
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        参数和日志
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/parameters_overview/" title="参数和日志总览" class="md-nav__link">
+      参数和日志总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/ssu_log_checking_calculation/" title="SSU参数日志验算" class="md-nav__link">
+      SSU参数日志验算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/ssu_log_FAQ/" title="SSU参数日志FAQ" class="md-nav__link">
+      SSU参数日志FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/cfg_parameters/" title="CFG模型参数梳理" class="md-nav__link">
+      CFG模型参数梳理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/ctool_gsm/" title="CTool参数梳理" class="md-nav__link">
+      CTool参数梳理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+    
+    <label class="md-nav__link" for="nav-8">
+      板形实战
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        板形实战
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../actual_combat_overview/" title="实战！" class="md-nav__link">
+      实战！
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        目标凸度变化影响板形模型设定
+      </label>
+    
+    <a href="./" title="目标凸度变化影响板形模型设定" class="md-nav__link md-nav__link--active">
+      目标凸度变化影响板形模型设定
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="事件经过" class="md-nav__link">
+    事件经过
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="轧制力分析" class="md-nav__link">
+    轧制力分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="窜辊和板形所受影响" class="md-nav__link">
+    窜辊和板形所受影响
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="解决措施" class="md-nav__link">
+    解决措施
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="关于" class="md-nav__link">
+      关于
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="事件经过" class="md-nav__link">
+    事件经过
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="轧制力分析" class="md-nav__link">
+    轧制力分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="窜辊和板形所受影响" class="md-nav__link">
+    窜辊和板形所受影响
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="解决措施" class="md-nav__link">
+    解决措施
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">目标凸度变化影响板形模型设定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">事件经过<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>2018年5月15日，15:15，丙（白）班，MRTLA42005钢种，卷号M18057558H，规格3.2*1172mm。带钢穿带过程中F1-F4机架跑偏操作侧严重，带钢头部至F6-7机架时瞬间跑偏传动侧，操作侧起浪，操作调整F6-7调平，随即带钢反向跑偏后起套堆钢。</p>
+<p>从视频回放来看，存在两方面原因：第一，F1-F7机架跑偏严重；第二，F6-7出现反向跑偏。带钢跑偏严重主要是由于窜辊量变化较大引起。窜辊变化的原因主要为目标凸度剧变造成整个板形模型凸度分配异常，具体影响过程详见下文。</p>
+<h2 id="_3">轧制力分析<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>轧制力方面如下。</p>
+<table>
+<thead>
+<tr>
+<th>机架</th>
+<th>FBK/KN</th>
+<th>MEAS/KN</th>
+<th>偏差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1</td>
+<td>25292</td>
+<td>22984</td>
+<td>-9.13%</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>21368</td>
+<td>21824</td>
+<td>2.13%</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>19981</td>
+<td>19268</td>
+<td>-3.57%</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>17007</td>
+<td>17273</td>
+<td>1.56%</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>15672</td>
+<td>15443</td>
+<td>-1.46%</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>12749</td>
+<td>12483</td>
+<td>-2.09%</td>
+</tr>
+<tr>
+<td>F7</td>
+<td>13318</td>
+<td>13300</td>
+<td>-0.14%</td>
+</tr>
+</tbody>
+</table>
+<p>F1轧制力预报出现偏差，但是在10%以内，属于正常范围，其余预报正常；但是F7轧制力大于F6轧制力，属于异常情况，查询发现F7压下率锁在13%。按照轧制力分配原则，F5-F7机架轧制力应按照等比例分配，保证板形稳定，但是F7轧制力分配明显异常。</p>
+<h2 id="_4">窜辊和板形所受影响<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>从开轧至堆钢的窜辊情况如下。</p>
+<table>
+<thead>
+<tr>
+<th>卷号</th>
+<th>F1</th>
+<th>F2</th>
+<th>F3</th>
+<th>F4</th>
+<th>F5</th>
+<th>F6</th>
+<th>F7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M18057536H</td>
+<td>36.6</td>
+<td>10.2</td>
+<td>-6.3</td>
+<td>-2.3</td>
+<td>-30.0</td>
+<td>-0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>M18057537C</td>
+<td>28.7</td>
+<td>0.3</td>
+<td>-12.5</td>
+<td>-7.3</td>
+<td>-60.0</td>
+<td>-0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>M18057538C</td>
+<td>13.2</td>
+<td>-10.8</td>
+<td>-29.3</td>
+<td>-20.6</td>
+<td>-90.0</td>
+<td>0.0</td>
+<td>24.3</td>
+</tr>
+<tr>
+<td>M18057539C</td>
+<td>12.4</td>
+<td>-12.9</td>
+<td>-30.8</td>
+<td>-21.3</td>
+<td>-120.0</td>
+<td>0.0</td>
+<td>55.5</td>
+</tr>
+<tr>
+<td>M18057540C</td>
+<td>14.4</td>
+<td>-9.3</td>
+<td>-29.0</td>
+<td>-21.4</td>
+<td>-133.1</td>
+<td>0.0</td>
+<td>83.9</td>
+</tr>
+<tr>
+<td>M18057541C</td>
+<td>15.2</td>
+<td>-8.8</td>
+<td>-29.8</td>
+<td>-21.7</td>
+<td>-131.1</td>
+<td>24.3</td>
+<td>108.1</td>
+</tr>
+<tr>
+<td>M18057542C</td>
+<td>14.9</td>
+<td>-10.1</td>
+<td>-30.3</td>
+<td>-23.6</td>
+<td>-133.3</td>
+<td>55.5</td>
+<td>126.9</td>
+</tr>
+<tr>
+<td>M18057543C</td>
+<td>14.3</td>
+<td>-9.7</td>
+<td>-31.5</td>
+<td>-25.2</td>
+<td>-133.4</td>
+<td>83.9</td>
+<td>139.3</td>
+</tr>
+<tr>
+<td>M18057544C</td>
+<td>31.8</td>
+<td>-0.0</td>
+<td>0.0</td>
+<td>-0.0</td>
+<td>-0.0</td>
+<td>-0.0</td>
+<td>-0.0</td>
+</tr>
+<tr>
+<td>M18057545M</td>
+<td>79.5</td>
+<td>41.8</td>
+<td>33.8</td>
+<td>30.0</td>
+<td>-7.4</td>
+<td>126.9</td>
+<td>140.0</td>
+</tr>
+<tr>
+<td>M18057546M</td>
+<td>63.6</td>
+<td>23.4</td>
+<td>19.8</td>
+<td>38.6</td>
+<td>-25.2</td>
+<td>139.3</td>
+<td>134.0</td>
+</tr>
+<tr>
+<td>M18057547C</td>
+<td>49.3</td>
+<td>11.2</td>
+<td>9.9</td>
+<td>29.7</td>
+<td>-38.1</td>
+<td>140.0</td>
+<td>94.7</td>
+</tr>
+<tr>
+<td>M18057548C</td>
+<td>81.3</td>
+<td>32.4</td>
+<td>22.3</td>
+<td>9.8</td>
+<td>-31.2</td>
+<td>140.0</td>
+<td>77.4</td>
+</tr>
+<tr>
+<td>M18057549C</td>
+<td>61.3</td>
+<td>15.8</td>
+<td>11.7</td>
+<td>1.2</td>
+<td>-38.4</td>
+<td>134.0</td>
+<td>56.2</td>
+</tr>
+<tr>
+<td>M18057550C</td>
+<td>41.1</td>
+<td>-1.5</td>
+<td>-2.3</td>
+<td>-9.6</td>
+<td>-53.8</td>
+<td>94.7</td>
+<td>32.3</td>
+</tr>
+<tr>
+<td>M18057551C</td>
+<td>25.5</td>
+<td>-10.3</td>
+<td>-5.7</td>
+<td>-9.9</td>
+<td>-48.5</td>
+<td>77.4</td>
+<td>6.7</td>
+</tr>
+<tr>
+<td>M18057552C</td>
+<td>50.4</td>
+<td>13.0</td>
+<td>2.4</td>
+<td>-4.1</td>
+<td>-37.2</td>
+<td>56.2</td>
+<td>-19.2</td>
+</tr>
+<tr>
+<td>M18057553H</td>
+<td>25.3</td>
+<td>5.8</td>
+<td>-9.6</td>
+<td>-9.5</td>
+<td>-69.2</td>
+<td>32.3</td>
+<td>-44.2</td>
+</tr>
+<tr>
+<td>M18057554H</td>
+<td>-4.5</td>
+<td>-12.4</td>
+<td>-22.9</td>
+<td>-21.0</td>
+<td>-92.7</td>
+<td>6.7</td>
+<td>-67.0</td>
+</tr>
+<tr>
+<td>M18057555P</td>
+<td>-25.7</td>
+<td>-37.4</td>
+<td>-35.1</td>
+<td>1.4</td>
+<td>-57.3</td>
+<td>-19.2</td>
+<td>-86.3</td>
+</tr>
+<tr>
+<td>M18057556P</td>
+<td>-32.8</td>
+<td>-47.1</td>
+<td>-41.6</td>
+<td>-3.2</td>
+<td>-50.5</td>
+<td>-44.2</td>
+<td>-101.4</td>
+</tr>
+<tr>
+<td>M18057557H</td>
+<td>-87.1</td>
+<td>-83.4</td>
+<td>-65.7</td>
+<td>-48.8</td>
+<td>-109.6</td>
+<td>-66.9</td>
+<td>-111.4</td>
+</tr>
+<tr>
+<td>M18057558H]</td>
+<td>13.1</td>
+<td>-15.4</td>
+<td>-22.7</td>
+<td>10.0</td>
+<td>-38.7</td>
+<td>-86.3</td>
+<td>-115.8</td>
+</tr>
+</tbody>
+</table>
+<p>M18057557H到M18057558H窜辊变化剧烈。
+M18057558H窜辊剧烈变化的原因如下： M18057558H这卷带钢的CVC设定值达到窜辊设定软极限，如下图所示。</p>
+<p><img alt="wr_shft_max" src="../target_crown_change_has_influence_on_shape_model_references/wr_shft_max.png" /></p>
+<p>以F1为例，M18057557H带钢F1的CVC窜辊为-87.1mm，根据窜辊限幅的计算，F1机架的窜辊最大步长为100mm，因此下一卷带钢M18057558H的窜辊限幅的最大值为+13.1mm。但是，实际需要的窜辊变化量比窜辊限幅最大值还要大，因此在计算板形设定时，窜辊值被限制在软极限。
+造成实际窜辊变化量远超窜辊限幅最大值的原因，是因为凸度分配计算中，同规格同钢种的各个机架出出入口有效单位凸度变化大。</p>
+<p><img alt="有效单位凸度分配变化" src="../target_crown_change_has_influence_on_shape_model_references/pu_prf_draft_change.png" /></p>
+<p>有效单位凸度在分配计算中是从F7往前计算，F7出口依赖目标凸度作为输入，M18057557H目标凸度为50μm，M18057558H目标凸度为30μm，同钢种同规格，50μm到30μm为一个天一个地。因此造成板形模型分配计算中，从F7到F1推算过程中，F7的初始计算存在较大偏差。M18057557H的F7出口有效单位凸度为0.024μm/mm，而M18057558H的F7出口有效单位凸度为0.0174 μm/mm，相差较大。</p>
+<p>有效单位凸度偏差较大，导致计算的<a href="">所需的带钢</a>-工作辊凸度偏差也较大，变化量能达到50%以上。</p>
+<p><img alt="需要的带钢工作辊凸度" src="../target_crown_change_has_influence_on_shape_model_references/needed_pce_wr_stack_crown.png" /></p>
+<table>
+<thead>
+<tr>
+<th>卷号</th>
+<th>F1</th>
+<th>F2</th>
+<th>F3</th>
+<th>F4</th>
+<th>F5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M18057556P</td>
+<td>-0.74584</td>
+<td>-0.52818</td>
+<td>-0.27803</td>
+<td>-0.13864</td>
+<td>-0.155366</td>
+</tr>
+<tr>
+<td>M18057557H</td>
+<td>-0.85769</td>
+<td>-0.62475</td>
+<td>-0.33696</td>
+<td>-0.17793</td>
+<td>-0.182116</td>
+</tr>
+<tr>
+<td>M18057558H</td>
+<td>-0.51785</td>
+<td>-0.35594</td>
+<td>-0.15402</td>
+<td>-0.04754</td>
+<td>-0.0495497</td>
+</tr>
+</tbody>
+</table>
+<p>所需的带钢-工作辊凸度是窜辊迭代计算的直接输入量，M18057558H和M18057557H相比，所需的带钢-工作辊凸度减小1倍以上，所分配设定的窜辊值必然向正方向移动明显。以上解释了为什么目标凸度的变化影响了整个板形模型分配的计算。</p>
+<h2 id="_5">解决措施<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>解决措施很简单，梳理各钢种PDI目标凸度，规范同钢种凸度目标值设定。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../actual_combat_overview/" title="实战！" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                实战！
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../about/" title="关于" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                关于
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 - 2018 王宇阳
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.a59e2a89.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+        <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

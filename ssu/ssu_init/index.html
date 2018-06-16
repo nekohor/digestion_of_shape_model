@@ -1,0 +1,1417 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="热轧板形模型的整体消化">
+      
+      
+        <link rel="canonical" href="https://nekohor.github.io/shape_model_cuisine/ssu/ssu_init/">
+      
+      
+        <meta name="author" content="王宇阳">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.0">
+    
+    
+      
+        <title>板形模型初始化 - 宇阳的板形模型私房菜</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.4f4f49e8.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://nekohor.github.io/shape_model_cuisine" title="宇阳的板形模型私房菜" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/favicon.ico" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                宇阳的板形模型私房菜
+              </span>
+              <span class="md-header-nav__topic">
+                板形模型初始化
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="主页" class="md-tabs__link">
+        主页
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../ssu_overview/" title="板形设定模型" class="md-tabs__link md-tabs__link--active">
+          板形设定模型
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../allocation/allocation_overview/" title="凸度分配" class="md-tabs__link">
+          凸度分配
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../submodel/LPCE_model/" title="重难点模块与问题" class="md-tabs__link">
+          重难点模块与问题
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../smlc/smlc_overview/" title="板形自学习" class="md-tabs__link">
+          板形自学习
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../dynamic_control/dynamic_control_overview/" title="板形动态控制" class="md-tabs__link">
+          板形动态控制
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../parameters/parameters_overview/" title="参数和日志" class="md-tabs__link">
+          参数和日志
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../actual_combat/actual_combat_overview/" title="板形实战" class="md-tabs__link">
+          板形实战
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../img/favicon.ico" width="48" height="48">
+      
+    </span>
+    宇阳的板形模型私房菜
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      板形设定模型
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        板形设定模型
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_overview/" title="板形设定模型总览" class="md-nav__link">
+      板形设定模型总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        板形模型初始化
+      </label>
+    
+    <a href="./" title="板形模型初始化" class="md-nav__link md-nav__link--active">
+      板形模型初始化
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="状态量的建立" class="md-nav__link">
+    状态量的建立
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="短期自学习设定" class="md-nav__link">
+    短期自学习设定
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="跳档" class="md-nav__link">
+    跳档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csampreset_verniers" title="短期自学习预设定CSAMP::Reset_Verniers(..)" class="md-nav__link">
+    短期自学习预设定CSAMP::Reset_Verniers(..)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cshapesetupdinit" title="cShapeSetupD::Init(..)" class="md-nav__link">
+    cShapeSetupD::Init(..)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="长短期自学习初始化" class="md-nav__link">
+    长短期自学习初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctargtdinit" title="cTargtD::Init(..)" class="md-nav__link">
+    cTargtD::Init(..)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="初始化的大循环" class="md-nav__link">
+    初始化的大循环
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cshapesetupdreferences" title="cShapeSetupD::References(..)" class="md-nav__link">
+    cShapeSetupD::References(..)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_env/" title="包络线计算" class="md-nav__link">
+      包络线计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_alc/" title="凸度分配计算" class="md-nav__link">
+      凸度分配计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_elv/" title="板形评估" class="md-nav__link">
+      板形评估
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_physical_model/" title="板形物理模型" class="md-nav__link">
+      板形物理模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_xfer_func/" title="偏导数参数或增益" class="md-nav__link">
+      偏导数参数或增益
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      凸度分配
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        凸度分配
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/allocation_overview/" title="凸度分配和浪形的关系" class="md-nav__link">
+      凸度分配和浪形的关系
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/delivery_pass_targets/" title="道次出口目标计算" class="md-nav__link">
+      道次出口目标计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/roll_stack_crowns/" title="辊系凸度计算" class="md-nav__link">
+      辊系凸度计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/UFD_calc/" title="UFD均载辊缝凸度计算" class="md-nav__link">
+      UFD均载辊缝凸度计算
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      重难点模块与问题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        重难点模块与问题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/LPCE_model/" title="LPCE横向带钢模型" class="md-nav__link">
+      LPCE横向带钢模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/LRG_model/" title="LRG横向辊缝模型" class="md-nav__link">
+      LRG横向辊缝模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/ALC_model/" title="ALC模块" class="md-nav__link">
+      ALC模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/CRLC_model/" title="CRLC模块" class="md-nav__link">
+      CRLC模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/cvc_roll_design/" title="CVC辊形设计" class="md-nav__link">
+      CVC辊形设计
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      板形自学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        板形自学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../smlc/smlc_overview/" title="SMLC板形自学习模型" class="md-nav__link">
+      SMLC板形自学习模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../smlc/flatness_adapt/" title="平直度自学习" class="md-nav__link">
+      平直度自学习
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      板形动态控制
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        板形动态控制
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dynamic_control/dynamic_control_overview/" title="板形动态控制总览" class="md-nav__link">
+      板形动态控制总览
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      参数和日志
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        参数和日志
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/parameters_overview/" title="参数和日志总览" class="md-nav__link">
+      参数和日志总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/ssu_log_checking_calculation/" title="SSU参数日志验算" class="md-nav__link">
+      SSU参数日志验算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/ssu_log_FAQ/" title="SSU参数日志FAQ" class="md-nav__link">
+      SSU参数日志FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/cfg_parameters/" title="CFG模型参数梳理" class="md-nav__link">
+      CFG模型参数梳理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/ctool_gsm/" title="CTool参数梳理" class="md-nav__link">
+      CTool参数梳理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      板形实战
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        板形实战
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actual_combat/actual_combat_overview/" title="实战！" class="md-nav__link">
+      实战！
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actual_combat/target_crown_change_has_influence_on_shape_model_references/" title="目标凸度变化影响板形模型设定" class="md-nav__link">
+      目标凸度变化影响板形模型设定
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="关于" class="md-nav__link">
+      关于
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="状态量的建立" class="md-nav__link">
+    状态量的建立
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="短期自学习设定" class="md-nav__link">
+    短期自学习设定
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="跳档" class="md-nav__link">
+    跳档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csampreset_verniers" title="短期自学习预设定CSAMP::Reset_Verniers(..)" class="md-nav__link">
+    短期自学习预设定CSAMP::Reset_Verniers(..)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cshapesetupdinit" title="cShapeSetupD::Init(..)" class="md-nav__link">
+    cShapeSetupD::Init(..)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="长短期自学习初始化" class="md-nav__link">
+    长短期自学习初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctargtdinit" title="cTargtD::Init(..)" class="md-nav__link">
+    cTargtD::Init(..)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="初始化的大循环" class="md-nav__link">
+    初始化的大循环
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cshapesetupdreferences" title="cShapeSetupD::References(..)" class="md-nav__link">
+    cShapeSetupD::References(..)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">板形模型初始化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>板形模型初始化主要包含在cShapeSetupD::Main(..)函数中。</p>
+<h2 id="_2">状态量的建立<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>cShapeSetupD对象有一个status状态量，显示当前板形设定的状态（红灯或绿灯），以及判断是否合法的指示器ok。初始默认情况下status设为红灯，ok设为false。
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">this</span><span class="o">-&gt;</span><span class="n">status</span> <span class="o">=</span> <span class="n">cMdlparam</span><span class="o">::</span><span class="n">cs_red</span><span class="p">;</span>
+<span class="n">this</span><span class="o">-&gt;</span><span class="n">ok</span>     <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+roll_change_count是判断是否换辊的计数器。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">roll_change_count</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>  
+</pre></div>
+</td></tr></table>
+
+<p>redrft_perm用于判断是否可以重新分配各机架厚度或者重新分配压下。初始情况下redrft_perm设为false。</p>
+<p>后根据如下条件更新redrft_perm的值。ssu_load_enab一般为false。ssu_granted一般为true。s_CalId指的是FCD对象中的Calculation ID，最小为1，最大为2。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">redrft_perm</span> <span class="o">=</span>   <span class="p">(</span> <span class="nb">true</span>  <span class="o">==</span> <span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcSetupD</span><span class="o">-&gt;</span><span class="n">pcSetup</span><span class="o">-&gt;</span><span class="n">ssu_load_enab</span> <span class="p">)</span> <span class="o">&amp;&amp;</span>
+  <span class="p">(</span> <span class="nb">true</span>  <span class="o">==</span> <span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcFSSched</span><span class="o">-&gt;</span><span class="n">pcSSys</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">ssu_granted</span> <span class="p">)</span> <span class="o">&amp;&amp;</span>
+  <span class="p">(</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcFCD</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">s_CalId</span> <span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<p>redrft_perm的值与iter相同。</p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">if</span> <span class="p">(</span> <span class="n">redrft_perm</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">iter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+</td></tr></table>
+在日志中的1st.iter与源码中此处iter并不完全一样。</p>
+<h2 id="_3">短期自学习设定<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>短期自学习的设定受到换辊和钢种、规格跳档的影响。</p>
+<h3 id="_4">跳档<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>针对钢种和规格的跳档，模型考虑了以下五种情况。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">this</span><span class="o">-&gt;</span><span class="n">family_chg</span>         <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">this</span><span class="o">-&gt;</span><span class="n">narrow_to_wide_chg</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">this</span><span class="o">-&gt;</span><span class="n">wide_to_narrow_chg</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">this</span><span class="o">-&gt;</span><span class="n">prd_chg</span>            <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="n">this</span><span class="o">-&gt;</span><span class="n">lot_chg</span>            <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>钢种族跳档、宽度由窄变宽、宽度由宽变窄，这些都好理解。</p>
+<p>而prd_chg指的是：钢种族跳档、宽度由窄变宽、宽度由宽变窄这三种情况至少有一种出现。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="nb">true</span> <span class="o">==</span> <span class="n">this</span><span class="o">-&gt;</span><span class="n">family_chg</span><span class="p">)</span>         <span class="o">||</span> 
+    <span class="p">(</span><span class="nb">true</span> <span class="o">==</span> <span class="n">this</span><span class="o">-&gt;</span><span class="n">narrow_to_wide_chg</span><span class="p">)</span> <span class="o">||</span> 
+    <span class="p">(</span><span class="nb">true</span> <span class="o">==</span> <span class="n">this</span><span class="o">-&gt;</span><span class="n">wide_to_narrow_chg</span><span class="p">)</span> <span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">this</span><span class="o">-&gt;</span><span class="n">prd_chg</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>lot_chg指的是和前一块带钢相比，钢种族、厚度索引、宽度索引其中至少一者发生改变，则称为lot_chg。用于弯辊力干预自适应的计算。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span>  <span class="c1">// family change</span>
+    <span class="p">((</span><span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcFSSched</span><span class="o">-&gt;</span><span class="n">pcSAMP</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">pr_family</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcPDI</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">family</span> <span class="o">-</span> <span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcFSSched</span><span class="o">-&gt;</span><span class="n">pcSAMP</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">pr_family</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="o">||</span>
+    <span class="c1">// gauge range table index change</span>
+    <span class="p">((</span><span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcFSSched</span><span class="o">-&gt;</span><span class="n">pcSAMP</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">pr_grt_idx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcPDI</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">grt_idx</span> <span class="o">-</span> <span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcFSSched</span><span class="o">-&gt;</span><span class="n">pcSAMP</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">pr_grt_idx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="o">||</span>
+    <span class="c1">// width range table index change</span>
+    <span class="p">((</span><span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcFSSched</span><span class="o">-&gt;</span><span class="n">pcSAMP</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">pr_wrt_idx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcPDI</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">wrt_idx</span> <span class="o">-</span> <span class="n">pcSched</span><span class="o">-&gt;</span><span class="n">pcFSSched</span><span class="o">-&gt;</span><span class="n">pcSAMP</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">.</span><span class="n">pr_wrt_idx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">this</span><span class="o">-&gt;</span><span class="n">lot_chg</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="csampreset_verniers">短期自学习预设定CSAMP::Reset_Verniers(..)<a class="headerlink" href="#csampreset_verniers" title="Permanent link">&para;</a></h3>
+<p>根据是否跳档以及换辊，短期自学习在开始进行设定设定计算前，更新凸度和平直度的自学习。所谓的预设定其实是在不同的条件下清零自学习。</p>
+<ul>
+<li>当有机架换辊，则累积增加相应机架的换辊次数num_rolls_chgd。</li>
+<li>若超过两个机架换辊，则清零凸度自学习与平直度自学习（vrn和err），并初始化设定辊形自学习，设定last_pos_shft为0。</li>
+<li>当出现lot_chg或开轧，清零弯辊力补偿以及bnd_ofs_counter。</li>
+<li>当出现钢种族跳档，则凸度自学习（vrn和err）衰减后继承，衰减系数目前0.99。</li>
+<li>如果出现窄到宽的跳档，同时周期内轧制块数超过30块，并且存在中浪趋势，则清零平直度自学习（vrn和err），若末机架工作辊辊形自学习也小于零，则清零末机架工作辊辊形自学习wr_crn_vrn。</li>
+<li>若出现宽到窄的跳档，不做任何设定修改。</li>
+</ul>
+<p>更新完短期自学习表之后，并且当前计算阶段处于course-2之后，则put短期自学习表到模型数据库（models database）。</p>
+<h2 id="cshapesetupdinit">cShapeSetupD::Init(..)<a class="headerlink" href="#cshapesetupdinit" title="Permanent link">&para;</a></h2>
+<p>cShapeSetupD::Init(..)初始化了动态的SHAPESETUP对象以及其它相关的动态对象，比如：LPCE、LRG、UFD和TARGT。除此之外，这个函数还计算了执行机构的软极限，同时复制外部的数据给合适的动态对象。</p>
+<p>cShapeSetupD::Init(..)初始化之后，最初的哪两个状态布尔值更新为true。</p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">this</span><span class="o">-&gt;</span><span class="n">ok</span>     <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">this</span><span class="o">-&gt;</span><span class="n">status</span> <span class="o">=</span> <span class="n">cMdlparam</span><span class="o">::</span><span class="n">cs_green</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+cShapeSetupD::Init(..)的实现在shapesetup_req.cxx文件中。</p>
+<h3 id="_5">长短期自学习初始化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>首先初始化凸度和平直度的目标tgt_profile和tgt_flatness。这两个目标一开始是PDI目标加上操作工的补偿。</p>
+<p>模型用prf_vrn_sel_flag和flt_vrn_sel_flag这两个参数来标识长短期自学习的选择，默认以长期自学习为主。</p>
+<p>自学习值包括凸度自学习prf_vrn_rm_tmp和prf_vrn_rs_tmp，以及平直度自学习flt_vrn_tmp，初始的凸度或平直度自学习为长期自学习。当这一块带钢和上一块带钢相比，出现钢种或规格跳档，则将长期自学习加上上一块增益后的短期自学习，作为新的自学习值（注意这个功能凸度自学习已经取消增益，仅长期自学习值加上短期自学习）。</p>
+<h3 id="ctargtdinit">cTargtD::Init(..)<a class="headerlink" href="#ctargtdinit" title="Permanent link">&para;</a></h3>
+<p>在cTargtD::Init(..)中主要确定初始的凸度以及目标有效凸度的极限。prf_vrn是prf_vrn_rm_tmp和prf_vrn_rs_tmp的差，flt_vrn就是flt_vrn_tmp。</p>
+<p>目标flt为pdi平直度目标加上平直度的操作工补偿。</p>
+<p>初始目标凸度与平直度稍有差别。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> <span class="n">prf_int</span> <span class="o">=</span> <span class="p">(</span><span class="n">pdi_prf</span> <span class="o">+</span> <span class="n">prf_op_off</span><span class="p">)</span> <span class="o">*</span> <span class="n">matl_exp_cof</span> <span class="o">+</span> <span class="n">prf_vrn</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>prf_int为pdi凸度加上操作工补偿后的热态凸度，再加上凸度自学习量。也就是说，凸度自学习量是补偿热态下的凸度。</p>
+<p>之后用凸度的容许偏差计算单位凸度的上下极限。</p>
+<h3 id="_6">初始化的大循环<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>pcTargtD-&gt;Init(..)执行完之后，从首道次机架从前往后进行一系列的初始化工作，将近700行代码。</p>
+<p>首先将sprp的相关调整系数初始化到相应的对象中（pcFSStdD），供后续板形计算使用，如ufd_mult和force_bnd_nom。</p>
+<p>对非空道次计算出入口厚度对轧制力的偏导数或增益DForce_DEnthick、DForce_DExthick。之后初始化板形相关的动态对象，按先后顺序分别为UFD对象、CRLC对象和LRG对象。</p>
+<p>注意在CRLC对象的初始化中，SPRP中的工作辊凸度补偿f_wr_crn_off_adj需要加到长期自学习工作辊凸度补偿psSLFG-&gt;wr_crn_off上。</p>
+<p>f_wr_crn_off_adj的设定根据出口凸度分为三档。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">float</span> <span class="n">f_wr_crn_off_adj</span> <span class="o">=</span> <span class="mf">0.0F</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span> <span class="n">pcTargtD</span><span class="o">-&gt;</span><span class="n">prf_del</span> <span class="o">&lt;</span> <span class="mf">0.045F</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">f_wr_crn_off_adj</span> <span class="o">=</span> <span class="n">psSPRP</span><span class="o">-&gt;</span><span class="n">wr_crn_off_adj</span> <span class="p">[</span> <span class="n">passIdx</span> <span class="p">]</span> <span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">pcTargtD</span><span class="o">-&gt;</span><span class="n">prf_del</span> <span class="o">&lt;</span> <span class="mf">0.065F</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">f_wr_crn_off_adj</span> <span class="o">=</span> <span class="n">psSPRP</span><span class="o">-&gt;</span><span class="n">wr_crn_off_adj2</span> <span class="p">[</span> <span class="n">passIdx</span> <span class="p">];</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">f_wr_crn_off_adj</span> <span class="o">=</span> <span class="n">psSPRP</span><span class="o">-&gt;</span><span class="n">wr_crn_off_adj3</span> <span class="p">[</span> <span class="n">passIdx</span> <span class="p">]</span> <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>初始化分配和评估的横向带钢对象，利用pcFSPassD-&gt;pcAlcLPceD[ iter ]-&gt;Init(..)和pcFSPassD-&gt;pcEvlLPceD[ iter ]-&gt;Init(..)进行初始化。</p>
+<p>之后初始化和STD对象相关的参数。</p>
+<ul>
+<li>窜辊和弯辊能否使用的标识shft_enab和bnd_enab。</li>
+<li>op弯辊力补偿op_bnd_off。</li>
+<li>弯辊力pcFSStdDloc-&gt;force_bnd。</li>
+<li>初始化窜辊位置。</li>
+<li>计算窜辊的软极限。</li>
+<li>计算弯辊的软极限。</li>
+<li>插值计算中间坯凸度prf_pass0和中间坯单位凸度pu_prf_pass0。</li>
+<li>利用长期平直度自学习值修正末道次F7的弯辊力极限force_bnd_lim。</li>
+</ul>
+<p>同样在STD初始化过程中有这几点需要注意。</p>
+<p>第一，注意GSM_RB_OFS_BLEEDOFF这个宏在ssu_features.hxx中定义为（1）。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define GSM_RB_OFS_BLEEDOFF        (1)          </span><span class="c1">// [-] GSM Operator RB offsets bleed off enabled</span>
+</pre></div>
+</td></tr></table>
+
+<p>如果GSM_RB_OFS_BLEEDOFF为真或为1，需要用短期自学习的弯辊补偿bending_ofs修正op弯辊力补偿op_bnd_off。</p>
+<p>第二，如果bnd_enab为true，并且轧辊辊形是平辊，则不用目标平直度自学习量flt_vrn修正（从中减去）初始的弯辊力force_bnd_nom；如果轧辊不是平辊，则用目标平直度自学习量flt_vrn修正（从中减去）初始的弯辊力force_bnd_nom。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">pcFSStdDloc</span> <span class="o">==</span> <span class="n">pcLstFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSStdD</span><span class="p">[</span> <span class="n">iter</span> <span class="p">]</span>
+<span class="o">&amp;&amp;</span> <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">pcStdRollPrD</span><span class="o">-&gt;</span><span class="n">getProf</span><span class="p">(</span><span class="n">op_work</span><span class="p">)</span> <span class="o">!=</span> <span class="n">rp_parab</span> <span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">//----------------------------------------------------------</span>
+<span class="c1">// If last stand and the roll is not parabolic it SHOULD be CVC</span>
+<span class="c1">//----------------------------------------------------------</span>
+    <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">force_bnd</span> <span class="o">=</span> <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">pcFSStd</span><span class="o">-&gt;</span><span class="n">force_bnd_nom</span>
+    <span class="o">-</span> <span class="n">pcTargtD</span><span class="o">-&gt;</span><span class="n">flt_vrn</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">force_bnd</span> <span class="o">=</span> <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">pcFSStd</span><span class="o">-&gt;</span><span class="n">force_bnd_nom</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>force_bnd的值和从属的对象必须从日志中理清楚。如psSSys-&gt;force_bnd和pcFSStdDloc-&gt;force_bnd。</p>
+<p>第三，设定了一个level_std标识，当换辊开轧后用于锁定窜辊，以便操作工进行调平。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">pcShapeSetup</span><span class="o">-&gt;</span><span class="n">num_coils_to_lvl</span> <span class="o">&gt;=</span> 
+    <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">pcStdRollPrD</span><span class="o">-&gt;</span><span class="n">getNBarRolled</span><span class="p">(</span><span class="n">rpos_top</span><span class="p">,</span> <span class="n">op_work</span><span class="p">)</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">level_std</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>对于平辊，在轧制用于调平的带钢时，相应机架的窜辊位置为零位。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// these are parabolic rolls</span>
+<span class="c1">// use SCF function references</span>
+<span class="k">if</span> <span class="p">(</span> <span class="n">level_std</span> <span class="p">)</span>
+    <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">wr_shft</span> <span class="o">=</span> <span class="mf">0.0F</span><span class="p">;</span>
+<span class="k">else</span>
+    <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">wr_shft</span> <span class="o">=</span> <span class="n">psSSys</span><span class="o">-&gt;</span><span class="n">targ_pos_shft</span><span class="p">[</span> <span class="n">passIdx</span> <span class="p">];</span>
+</pre></div>
+</td></tr></table>
+
+<p>在确定窜辊软极限过程中，如果窜辊被操作工锁定了，那么窜弯辊的软极限就是当前窜辊值。</p>
+<p>在确定窜辊软极限过程中，需要先根据窜辊的速度计算最大的窜辊位置变化量。如果是平辊的话直接选取SCF中的设定。</p>
+<p>在中间坯凸度和单位凸度的计算中，如果有中间坯测量的凸度则用中间坯测量的凸度，如果没有则插值计算。中间坯或0道次的单位凸度和单位有效凸度包络线最大最小值均为中间坯单位凸度的计算值。同时pcTargtD-&gt;en_pu_prf等于pu_prf_pass0。代码中pcFSPassD为中间坯道次。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">minl</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">maxl</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcVecPEnvD</span><span class="p">[</span> <span class="n">iter</span> <span class="p">]</span><span class="o">-&gt;</span><span class="n">pu_prf_env</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span>    <span class="o">=</span>
+      <span class="n">pu_prf_pass0</span><span class="p">;</span>
+    <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcVecPEnvD</span><span class="p">[</span> <span class="n">iter</span> <span class="p">]</span><span class="o">-&gt;</span><span class="n">ef_pu_prf_env</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="o">=</span>
+      <span class="n">pu_prf_pass0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//------------------------------------------------------------------</span>
+<span class="c1">// Initialize mill entry per unit profile</span>
+<span class="c1">//------------------------------------------------------------------</span>
+<span class="n">pcTargtD</span><span class="o">-&gt;</span><span class="n">en_pu_prf</span> <span class="o">=</span> <span class="n">pu_prf_pass0</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>注意pcTargtD-&gt;flt_vrn和psSLFG-&gt;flt_vrn、psSAMP-&gt;flt_vrn之间的区别。</p>
+<h2 id="cshapesetupdreferences">cShapeSetupD::References(..)<a class="headerlink" href="#cshapesetupdreferences" title="Permanent link">&para;</a></h2>
+<p>cShapeSetupD::References(..)计算了凸度与平直度控制目标下的相关设定值，必要情况下重新分配轧制力或压下。</p>
+<p>首从F1到F7更新动态LPCE对象和LRG对象。</p>
+<p>进行包络线计算cPEnvD::Calculate(..)和分配计算cAlcD::Calculate(..)，之后从F1到F7对板形设定进行评估。</p>
+<p>注意在每一道次评估前需要用op弯辊力补偿修正弯辊力。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">force_bnd</span> <span class="o">=</span>
+    <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSStdD</span><span class="p">[</span> <span class="n">iter</span> <span class="p">]</span><span class="o">-&gt;</span><span class="n">force_bnd</span> <span class="o">+</span>
+    <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSStdD</span><span class="p">[</span> <span class="n">iter</span> <span class="p">]</span><span class="o">-&gt;</span><span class="n">op_bnd_off</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>如果可以重新分配压下，或者平直度不满足条件，则需要重新进行板形分配计算和再一次的评估。</p>
+<p>最后计算传递给一级的增益，以及用pcTargtD-&gt;Eval_Delvry_Pass(..)评估末道次。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ssu_overview/" title="板形设定模型总览" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                板形设定模型总览
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ssu_env/" title="包络线计算" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                包络线计算
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 - 2018 王宇阳
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.a59e2a89.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+        <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

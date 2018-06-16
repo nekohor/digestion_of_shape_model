@@ -1,0 +1,1926 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="热轧板形模型的整体消化">
+      
+      
+        <link rel="canonical" href="https://nekohor.github.io/shape_model_cuisine/parameters/ctool_gsm/">
+      
+      
+        <meta name="author" content="王宇阳">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.0">
+    
+    
+      
+        <title>CTool参数梳理 - 宇阳的板形模型私房菜</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.4f4f49e8.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#c-tool-gsm" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://nekohor.github.io/shape_model_cuisine" title="宇阳的板形模型私房菜" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/favicon.ico" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                宇阳的板形模型私房菜
+              </span>
+              <span class="md-header-nav__topic">
+                CTool参数梳理
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="主页" class="md-tabs__link">
+        主页
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../ssu/ssu_overview/" title="板形设定模型" class="md-tabs__link">
+          板形设定模型
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../allocation/allocation_overview/" title="凸度分配" class="md-tabs__link">
+          凸度分配
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../submodel/LPCE_model/" title="重难点模块与问题" class="md-tabs__link">
+          重难点模块与问题
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../smlc/smlc_overview/" title="板形自学习" class="md-tabs__link">
+          板形自学习
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../dynamic_control/dynamic_control_overview/" title="板形动态控制" class="md-tabs__link">
+          板形动态控制
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../parameters_overview/" title="参数和日志" class="md-tabs__link md-tabs__link--active">
+          参数和日志
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../actual_combat/actual_combat_overview/" title="板形实战" class="md-tabs__link">
+          板形实战
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../img/favicon.ico" width="48" height="48">
+      
+    </span>
+    宇阳的板形模型私房菜
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      板形设定模型
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        板形设定模型
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_overview/" title="板形设定模型总览" class="md-nav__link">
+      板形设定模型总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_init/" title="板形模型初始化" class="md-nav__link">
+      板形模型初始化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_env/" title="包络线计算" class="md-nav__link">
+      包络线计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_alc/" title="凸度分配计算" class="md-nav__link">
+      凸度分配计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_elv/" title="板形评估" class="md-nav__link">
+      板形评估
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_physical_model/" title="板形物理模型" class="md-nav__link">
+      板形物理模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ssu/ssu_xfer_func/" title="偏导数参数或增益" class="md-nav__link">
+      偏导数参数或增益
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      凸度分配
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        凸度分配
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/allocation_overview/" title="凸度分配和浪形的关系" class="md-nav__link">
+      凸度分配和浪形的关系
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/delivery_pass_targets/" title="道次出口目标计算" class="md-nav__link">
+      道次出口目标计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/roll_stack_crowns/" title="辊系凸度计算" class="md-nav__link">
+      辊系凸度计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/UFD_calc/" title="UFD均载辊缝凸度计算" class="md-nav__link">
+      UFD均载辊缝凸度计算
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      重难点模块与问题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        重难点模块与问题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/LPCE_model/" title="LPCE横向带钢模型" class="md-nav__link">
+      LPCE横向带钢模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/LRG_model/" title="LRG横向辊缝模型" class="md-nav__link">
+      LRG横向辊缝模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/ALC_model/" title="ALC模块" class="md-nav__link">
+      ALC模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/CRLC_model/" title="CRLC模块" class="md-nav__link">
+      CRLC模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/cvc_roll_design/" title="CVC辊形设计" class="md-nav__link">
+      CVC辊形设计
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      板形自学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        板形自学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../smlc/smlc_overview/" title="SMLC板形自学习模型" class="md-nav__link">
+      SMLC板形自学习模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../smlc/flatness_adapt/" title="平直度自学习" class="md-nav__link">
+      平直度自学习
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      板形动态控制
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        板形动态控制
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dynamic_control/dynamic_control_overview/" title="板形动态控制总览" class="md-nav__link">
+      板形动态控制总览
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      参数和日志
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        参数和日志
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../parameters_overview/" title="参数和日志总览" class="md-nav__link">
+      参数和日志总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_log_checking_calculation/" title="SSU参数日志验算" class="md-nav__link">
+      SSU参数日志验算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_log_FAQ/" title="SSU参数日志FAQ" class="md-nav__link">
+      SSU参数日志FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cfg_parameters/" title="CFG模型参数梳理" class="md-nav__link">
+      CFG模型参数梳理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        CTool参数梳理
+      </label>
+    
+    <a href="./" title="CTool参数梳理" class="md-nav__link md-nav__link--active">
+      CTool参数梳理
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gsm" title="GSM调节参数总览" class="md-nav__link">
+    GSM调节参数总览
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ufd-multiplier" title="UFD multiplier调节值" class="md-nav__link">
+    UFD multiplier调节值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="调节参数在表中的位置" class="md-nav__link">
+    调节参数在表中的位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufd" title="UFD调节参数的作用" class="md-nav__link">
+    UFD调节参数的作用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufd_1" title="UFD调节参数参与的过程" class="md-nav__link">
+    UFD调节参数参与的过程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="初始化" class="md-nav__link">
+    初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufd_2" title="UFD调节参数参与的函数总览" class="md-nav__link">
+    UFD调节参数参与的函数总览
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddprf" title="cUFDD::Prf" class="md-nav__link">
+    cUFDD::Prf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddbnd_frc" title="cUFDD::Bnd_Frc" class="md-nav__link">
+    cUFDD::Bnd_Frc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddfrc_pu_wid" title="cUFDD::Frc_PU_Wid" class="md-nav__link">
+    cUFDD::Frc_PU_Wid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddpce_wr_crn" title="cUFDD::Pce_WR_Crn" class="md-nav__link">
+    cUFDD::Pce_WR_Crn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddcrns" title="cUFDD::Crns" class="md-nav__link">
+    cUFDD::Crns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="初始弯辊力" class="md-nav__link">
+    初始弯辊力
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="初始弯辊力在表中的位置" class="md-nav__link">
+    初始弯辊力在表中的位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="初始弯辊力的初始化" class="md-nav__link">
+    初始弯辊力的初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="初始弯辊力的作用" class="md-nav__link">
+    初始弯辊力的作用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penv" title="PENV" class="md-nav__link">
+    PENV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="分配计算" class="md-nav__link">
+    分配计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="窜辊机构软极限调节值" class="md-nav__link">
+    窜辊机构软极限调节值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="调节值位置" class="md-nav__link">
+    调节值位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="窜辊机构软极限调节值的作用" class="md-nav__link">
+    窜辊机构软极限调节值的作用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="窜辊调节值参与过程" class="md-nav__link">
+    窜辊调节值参与过程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="弯辊机构软极限调节值" class="md-nav__link">
+    弯辊机构软极限调节值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="调节值位置" class="md-nav__link">
+    调节值位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="调节值作用" class="md-nav__link">
+    调节值作用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#centerbuckletuningwavinesstuning" title="CenterBuckleTuning和WavinessTuning" class="md-nav__link">
+    CenterBuckleTuning和WavinessTuning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="工作辊综合凸度补偿" class="md-nav__link">
+    工作辊综合凸度补偿
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      板形实战
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        板形实战
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actual_combat/actual_combat_overview/" title="实战！" class="md-nav__link">
+      实战！
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actual_combat/target_crown_change_has_influence_on_shape_model_references/" title="目标凸度变化影响板形模型设定" class="md-nav__link">
+      目标凸度变化影响板形模型设定
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="关于" class="md-nav__link">
+      关于
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gsm" title="GSM调节参数总览" class="md-nav__link">
+    GSM调节参数总览
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ufd-multiplier" title="UFD multiplier调节值" class="md-nav__link">
+    UFD multiplier调节值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="调节参数在表中的位置" class="md-nav__link">
+    调节参数在表中的位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufd" title="UFD调节参数的作用" class="md-nav__link">
+    UFD调节参数的作用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufd_1" title="UFD调节参数参与的过程" class="md-nav__link">
+    UFD调节参数参与的过程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="初始化" class="md-nav__link">
+    初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufd_2" title="UFD调节参数参与的函数总览" class="md-nav__link">
+    UFD调节参数参与的函数总览
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddprf" title="cUFDD::Prf" class="md-nav__link">
+    cUFDD::Prf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddbnd_frc" title="cUFDD::Bnd_Frc" class="md-nav__link">
+    cUFDD::Bnd_Frc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddfrc_pu_wid" title="cUFDD::Frc_PU_Wid" class="md-nav__link">
+    cUFDD::Frc_PU_Wid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddpce_wr_crn" title="cUFDD::Pce_WR_Crn" class="md-nav__link">
+    cUFDD::Pce_WR_Crn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cufddcrns" title="cUFDD::Crns" class="md-nav__link">
+    cUFDD::Crns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="初始弯辊力" class="md-nav__link">
+    初始弯辊力
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="初始弯辊力在表中的位置" class="md-nav__link">
+    初始弯辊力在表中的位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="初始弯辊力的初始化" class="md-nav__link">
+    初始弯辊力的初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="初始弯辊力的作用" class="md-nav__link">
+    初始弯辊力的作用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penv" title="PENV" class="md-nav__link">
+    PENV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="分配计算" class="md-nav__link">
+    分配计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="窜辊机构软极限调节值" class="md-nav__link">
+    窜辊机构软极限调节值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="调节值位置" class="md-nav__link">
+    调节值位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="窜辊机构软极限调节值的作用" class="md-nav__link">
+    窜辊机构软极限调节值的作用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="窜辊调节值参与过程" class="md-nav__link">
+    窜辊调节值参与过程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="弯辊机构软极限调节值" class="md-nav__link">
+    弯辊机构软极限调节值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="调节值位置" class="md-nav__link">
+    调节值位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="调节值作用" class="md-nav__link">
+    调节值作用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#centerbuckletuningwavinesstuning" title="CenterBuckleTuning和WavinessTuning" class="md-nav__link">
+    CenterBuckleTuning和WavinessTuning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="工作辊综合凸度补偿" class="md-nav__link">
+    工作辊综合凸度补偿
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="c-tool-gsm">C-Tool 板形GSM<a class="headerlink" href="#c-tool-gsm" title="Permanent link">&para;</a></h1>
+<p>和板形控制有关的C-Tool参数。</p>
+<h2 id="gsm">GSM调节参数总览<a class="headerlink" href="#gsm" title="Permanent link">&para;</a></h2>
+<p>GSM的C-TOOL表中的参数如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数名</strong></th>
+<th>所在CTOOL的表（忽略前缀）</th>
+<th><strong>初始参数变量名</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UFD调节值</td>
+<td>UFD_Stand(Tuning)Multplier.xlsb</td>
+<td>psSPRP-&gt;ufd_mult</td>
+</tr>
+<tr>
+<td>初始弯辊力</td>
+<td>NormalBendForce.xlsb</td>
+<td>psSPRP-&gt;bend_nom</td>
+</tr>
+<tr>
+<td>窜辊机构最小软极限调节值</td>
+<td>ShiftActuatorLimit.xlsb</td>
+<td>psSPRP-&gt;min_accu_lmt</td>
+</tr>
+<tr>
+<td>窜辊机构最大软极限调节值</td>
+<td>ShiftActuatorLimit.xlsb</td>
+<td>psSPRP-&gt;max_accu_lmt</td>
+</tr>
+<tr>
+<td>弯辊机构最小软极限调节值</td>
+<td>BendingActuatorLimit.xlsb</td>
+<td>psSPRP-&gt;min_bend_lmt</td>
+</tr>
+<tr>
+<td>弯辊机构最大软极限调节值</td>
+<td>BendingActuatorLimit.xlsb</td>
+<td>psSPRP-&gt;max_bend_lmt</td>
+</tr>
+<tr>
+<td>边浪调节因子</td>
+<td>WavinessTuning.xlsb</td>
+<td>psSPRP-&gt;wav_mult</td>
+</tr>
+<tr>
+<td>边浪补偿值</td>
+<td>WavinessTuning.xlsb</td>
+<td>psSPRP-&gt;wav_ofs</td>
+</tr>
+<tr>
+<td>中浪调节因子</td>
+<td>CenterBuckleTuning.xlsb</td>
+<td>psSPRP-&gt;cb_mult</td>
+</tr>
+<tr>
+<td>中浪补偿值</td>
+<td>CenterBuckleTuning.xlsb</td>
+<td>psSPRP-&gt;cb_ofs</td>
+</tr>
+<tr>
+<td>综合凸度补偿系数</td>
+<td>WorkCrownOffsetTuning.xlsb</td>
+<td>psSLFG-&gt;wr_crn_off</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ufd-multiplier">UFD multiplier调节值<a class="headerlink" href="#ufd-multiplier" title="Permanent link">&para;</a></h2>
+<h3 id="_1">调节参数在表中的位置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>UFD凸度multiplier调节值位于GSM的UFD_Stand(Tuning)Multplier.xlsb当中。按钢种组分类，针对每个宽度区间和厚度区间、每个机架，有一个UFD凸度multiplier调节值，供工艺人员进行调节。</p>
+<p>如下图所示。</p>
+<p><img alt="ufd_mult" src="../ctool_gsm/ufd_mult.jpg" /></p>
+<h3 id="ufd">UFD调节参数的作用<a class="headerlink" href="#ufd" title="Permanent link">&para;</a></h3>
+<p>这个参数的作用是对UFD凸度的计算进行补偿和修正。同时影响到其它所有涉及到UFD凸度的工艺量计算，或者说影响到其它以UFD凸度为参数的函数，如单位宽度轧制力、弯辊力、带钢-工作辊凸度的计算等。</p>
+<h3 id="ufd_1">UFD调节参数参与的过程<a class="headerlink" href="#ufd_1" title="Permanent link">&para;</a></h3>
+<h4 id="_2">初始化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>首先在cShapeSetupD::Init()的初始化过程，从sSPRP结构中将此参数映射的变量ufd_mult赋值给pcFSStdD对象中的变量ufd_mult（两者同名）。</p>
+<p>在cShapeSetupD::Init()初始化过程中，有一个cUFDD::Init()函数，pcFSStdD对象的ufd_mult作为最后一个参数变量传入，对相关的cUFDD对象进行了初始化。pcFSStdD对象的ufd_mult被赋值给了cUFDD对象的ufd_modifier。ufd_modifier是cUFDD对象的一个属性。之后的各种计算，此参数均以ufd_modifier的变量形式进行参与。</p>
+<h4 id="ufd_2">UFD调节参数参与的函数总览<a class="headerlink" href="#ufd_2" title="Permanent link">&para;</a></h4>
+<p>cUFDD::Init()初始化之后，ufd_modifier参与计算的函数如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>受参数影响的函数</th>
+<th>函数作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cUFDD::Prf</td>
+<td>计算辊缝凸度</td>
+</tr>
+<tr>
+<td>cUFDD::Bnd_Frc</td>
+<td>计算弯辊力</td>
+</tr>
+<tr>
+<td>cUFDD::Frc_PU_Wid</td>
+<td>计算单位宽度轧制力</td>
+</tr>
+<tr>
+<td>cUFDD::Pce_WR_Crn</td>
+<td>单独计算带钢-工作辊凸度</td>
+</tr>
+<tr>
+<td>cUFDD::Crns</td>
+<td>计算综合轧辊凸度</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cufddprf">cUFDD::Prf<a class="headerlink" href="#cufddprf" title="Permanent link">&para;</a></h4>
+<p>cUFDD::Prf此函数是用来计算UFD辊缝凸度的函数，输入量为单位宽度轧制力、弯辊力、带钢-工作辊凸度、工作辊-支撑辊凸度。在函数中，ufd_modifier介入的地方如下所示。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">float</span> <span class="n">cUFDD</span><span class="o">::</span><span class="n">Prf</span><span class="p">(</span>
+        <span class="k">const</span> <span class="kt">float</span> <span class="n">force_pu_wid</span><span class="p">,</span>               <span class="c1">// [kn/mm_mton/mm_eton/in] rolling</span>
+                                                <span class="c1">//    force per unit piece width</span>
+        <span class="k">const</span> <span class="kt">float</span> <span class="n">force_bnd</span><span class="p">,</span>                  <span class="c1">// [kn_mton_eton] roll bending force    </span>
+        <span class="k">const</span> <span class="kt">float</span> <span class="n">pce_wr_crn</span><span class="p">,</span>                 <span class="c1">// [mm_mm_in] piece to work roll</span>
+                                                <span class="c1">//    stack crown                       </span>
+        <span class="k">const</span> <span class="kt">float</span> <span class="n">wr_br_crn</span>                  <span class="c1">// [mm_mm_in] work roll to backup</span>
+                                                <span class="c1">//    roll crown</span>
+        <span class="c1">//const float ufd_modifier                // [-] UFD (family,grt,wrt)tuning modifier</span>
+                <span class="p">)</span> <span class="k">const</span>                         <span class="c1">// [mm_mm_in] UFD roll gap profile</span>
+
+<span class="p">{</span>   <span class="c1">// Begin of PRF function</span>
+
+    <span class="k">return</span>
+        <span class="p">(</span> <span class="n">b_cof</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">2</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pce_wr_crn</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">3</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">4</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">5</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">6</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">7</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">8</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">9</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">10</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">11</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">12</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">13</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">14</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pce_wr_crn</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">15</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pce_wr_crn</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">16</span> <span class="p">]</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">17</span> <span class="p">]</span> <span class="p">)</span> <span class="o">*</span> <span class="n">ufd_modifier</span><span class="p">;</span>
+
+<span class="p">}</span>   <span class="c1">// End of PRF function</span>
+</pre></div>
+</td></tr></table>
+
+<p>ufd_modifier是作为一个乘数，乘到UFD辊缝凸度的返回值上。在包络线生成、分配计算、评估计算等阶段，均运用到了cUFDD::Prf函数。当ufd_modifier或ufd调整参数增大，cUFDD::Prf的计算结果增大；当ufd_modifier或ufd调整参数减小，cUFDD::Prf的计算结果减小。</p>
+<h4 id="cufddbnd_frc">cUFDD::Bnd_Frc<a class="headerlink" href="#cufddbnd_frc" title="Permanent link">&para;</a></h4>
+<p>cUFDD::Bnd_Frc此函数用来计算弯辊力，输入量为UFD辊缝凸度、单位宽度轧制力、带钢-工作辊凸度、工作辊-支撑辊凸度、弯辊力软极限（弯辊力软极限的调节系数在这里介入），输出量为计算的最终弯辊力force_bnd和实际需要的弯辊力force_bnd_des。如下所示。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="n">cUFDD</span><span class="o">::</span><span class="n">Bnd_Frc</span><span class="p">(</span>
+        <span class="k">const</span> <span class="kt">float</span>  <span class="n">ufd_prf</span><span class="p">,</span>                   <span class="c1">// [mm_mm_in] UFD roll gap profile</span>
+        <span class="k">const</span> <span class="kt">float</span>  <span class="n">force_pu_wid</span><span class="p">,</span>              <span class="c1">// [kn/mm_mton/mm_eton/in] rolling</span>
+                                                <span class="c1">//    force per unit piece width</span>
+        <span class="k">const</span> <span class="kt">float</span>  <span class="n">pce_wr_crn</span><span class="p">,</span>                <span class="c1">// [mm_mm_in] piece to work roll</span>
+                                                <span class="c1">//    stack crown                      </span>
+        <span class="k">const</span> <span class="kt">float</span>  <span class="n">wr_br_crn</span><span class="p">,</span>                 <span class="c1">// [mm_mm_in] work roll to backup</span>
+                                                <span class="c1">//    roll stack crown</span>
+        <span class="k">const</span> <span class="kt">float</span>  <span class="n">force_bnd_lim</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>          <span class="c1">// [mton_eton_kn] roll bending</span>
+                                                <span class="c1">//    soft limit (min,max)</span>
+              <span class="kt">float</span><span class="o">&amp;</span> <span class="n">force_bnd</span><span class="p">,</span>                 <span class="c1">// [mton_eton_kn] roll bending force</span>
+              <span class="kt">float</span><span class="o">&amp;</span> <span class="n">force_bnd_des</span>              <span class="c1">// [mton_eton_kn] desired roll</span>
+                                                <span class="c1">//    bending force</span>
+                   <span class="p">)</span> <span class="k">const</span>
+
+<span class="p">{</span>   <span class="c1">// Begin of BND_FRC function</span>
+
+    <span class="c1">//----------------------------------</span>
+    <span class="c1">// Calculate the roll bending force.</span>
+    <span class="c1">//----------------------------------</span>
+    <span class="n">force_bnd_des</span> <span class="o">=</span>
+        <span class="p">(</span> <span class="n">ufd_prf</span> <span class="o">/</span> <span class="n">ufd_modifier</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">2</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pce_wr_crn</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">3</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">4</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">8</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">9</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">11</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">12</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">14</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pce_wr_crn</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">15</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pce_wr_crn</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">16</span> <span class="p">]</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">17</span> <span class="p">]</span> <span class="p">)</span> <span class="o">/</span>
+        <span class="p">(</span> <span class="n">b_cof</span><span class="p">[</span> <span class="mi">5</span> <span class="p">]</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">6</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">7</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">10</span> <span class="p">]</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">13</span> <span class="p">]</span> <span class="p">);</span>
+
+    <span class="c1">//-------------------------------------------------------</span>
+    <span class="c1">// Restrict the roll bending force to within soft limits.</span>
+    <span class="c1">//-------------------------------------------------------</span>
+    <span class="n">force_bnd</span> <span class="o">=</span> <span class="n">cMathUty</span><span class="o">::</span>
+        <span class="n">Clamp</span><span class="p">(</span> <span class="n">force_bnd_des</span><span class="p">,</span>
+               <span class="n">force_bnd_lim</span><span class="p">[</span><span class="n">minl</span><span class="p">],</span>
+               <span class="n">force_bnd_lim</span><span class="p">[</span><span class="n">maxl</span><span class="p">]</span> <span class="p">);</span>
+
+<span class="p">}</span>   <span class="c1">// End of BND_FRC function</span>
+</pre></div>
+</td></tr></table>
+
+<p>在函数中，首先计算实际需要的弯辊力，如下图所示。在这个过程中，ufd_modifier作为除数参与弯辊力计算，从UFD辊缝凸度中除去。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="n">force_bnd_des</span> <span class="o">=</span>
+        <span class="p">(</span> <span class="n">ufd_prf</span> <span class="o">/</span> <span class="n">ufd_modifier</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">2</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pce_wr_crn</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">3</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">4</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">8</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">9</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">11</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">12</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">14</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pce_wr_crn</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">15</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pce_wr_crn</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">16</span> <span class="p">]</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">17</span> <span class="p">]</span> <span class="p">)</span> <span class="o">/</span>
+        <span class="p">(</span> <span class="n">b_cof</span><span class="p">[</span> <span class="mi">5</span> <span class="p">]</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">6</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">7</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">10</span> <span class="p">]</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">13</span> <span class="p">]</span> <span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="cufddfrc_pu_wid">cUFDD::Frc_PU_Wid<a class="headerlink" href="#cufddfrc_pu_wid" title="Permanent link">&para;</a></h4>
+<p>cUFDD::Frc_PU_Wid此函数用于计算单位宽度轧制力，输入量为UFD辊缝凸度、弯辊力、综合轧辊凸度，输出量为单位宽度轧制力。ufd_modifier在这里参与的是计算过程中被求导函数的常数项的计算。cof_4计算中，ufd_modifier从辊缝凸度中除去，对辊缝凸度进行修正。</p>
+<h4 id="cufddpce_wr_crn">cUFDD::Pce_WR_Crn<a class="headerlink" href="#cufddpce_wr_crn" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">float</span> <span class="n">cUFDD</span><span class="o">::</span><span class="n">Pce_WR_Crn</span><span class="p">(</span>
+        <span class="k">const</span> <span class="kt">float</span> <span class="n">ufd_prf</span><span class="p">,</span>                    <span class="c1">// [mm_mm_in] UFD roll gap profile             </span>
+        <span class="k">const</span> <span class="kt">float</span> <span class="n">force_pu_wid</span><span class="p">,</span>               <span class="c1">// [kn/mm_mton/mm_eton/in] rolling</span>
+                                                <span class="c1">//    force per unit piece width </span>
+        <span class="k">const</span> <span class="kt">float</span> <span class="n">force_bnd</span><span class="p">,</span>                  <span class="c1">// [kn_mton_eton] roll bending force       </span>
+        <span class="k">const</span> <span class="kt">float</span> <span class="n">wr_br_crn</span>                   <span class="c1">// [mm_mm_in] work roll to backup</span>
+                                                <span class="c1">//    roll stack crown</span>
+                       <span class="p">)</span> <span class="k">const</span>                  <span class="c1">// [mm_mm_in] piece to work roll</span>
+                                                <span class="c1">//    stack crown</span>
+
+<span class="p">{</span>   <span class="c1">// Begin of PCE_WR_CRN function</span>
+
+    <span class="k">return</span>
+        <span class="p">(</span> <span class="n">ufd_prf</span>  <span class="o">/</span> <span class="n">ufd_modifier</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">3</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">4</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">5</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">6</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">7</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">8</span> <span class="p">]</span> <span class="o">*</span> <span class="n">wr_br_crn</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">9</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">10</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">11</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_pu_wid</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">12</span> <span class="p">]</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span> <span class="n">force_pu_wid</span><span class="p">,</span> <span class="kt">float</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">13</span> <span class="p">]</span> <span class="o">*</span> <span class="n">force_bnd</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">16</span> <span class="p">]</span> <span class="o">-</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">17</span> <span class="p">]</span> <span class="p">)</span> <span class="o">/</span>
+        <span class="p">(</span> <span class="n">b_cof</span><span class="p">[</span> <span class="mi">2</span> <span class="p">]</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">14</span> <span class="p">]</span> <span class="o">+</span>
+          <span class="n">b_cof</span><span class="p">[</span> <span class="mi">15</span> <span class="p">]</span> <span class="p">);</span>
+
+<span class="p">}</span>   <span class="c1">// End of PCE_WR_CRN function</span>
+</pre></div>
+</td></tr></table>
+
+<p>cUFDD::Pce_WR_Crn函数在包络线生成和分配计算阶段进行调用，而在分配阶段仅调用一次。</p>
+<p>传入的UFD辊缝凸度对应的UFD单位凸度来自cLRGD-&gt;UFD_PU_Prf3，是利用入口有效凸度、出口有效凸度以及应变释放系数计算的结果，ufd_modifier是对这个UFD单位凸度对应的辊缝凸度进行修正。</p>
+<h4 id="cufddcrns">cUFDD::Crns<a class="headerlink" href="#cufddcrns" title="Permanent link">&para;</a></h4>
+<p>cUFDD::Crns是用来同时计算带钢-工作辊凸度和工作辊-支撑辊凸度的。输入量为UFD辊缝凸度、单位宽度轧制力和弯辊力。</p>
+<p>在这里ufd_modifier不直接参与cUFDD::Crns的补偿，但是在分配计算阶段，其输入量弯辊力是利用cUFDD::Bnd_Frc进行计算的结果。</p>
+<h2 id="_3">初始弯辊力<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">初始弯辊力在表中的位置<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>初始弯辊力调节值位于GSM的NormalBendForce.xlsb当中。按钢种组分类，针对每个宽度区间和厚度区间、针对每个道次，有一个初始弯辊力调节值，供工艺人员进行调节。如下图所示。</p>
+<p><img alt="NormalBendForce" src="../ctool_gsm/NormalBendForce.jpg" /></p>
+<h3 id="_5">初始弯辊力的初始化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>首先在cShapeSetupD::Init()的初始化过程，从sSPRP结构中将此参数psSPRP-&gt;bend_nom[passIdx]按制定的道次赋值给pcFSStd对象中的变量pcFSPassD-&gt;pcFSStdD[ iter]-&gt;pcFSStd-&gt;force_bnd_nom。</p>
+<p>在cfg_fsstd.txt中，前6道次机架的force_bnd_nom为1500kN，第七机架为1000kN。</p>
+<h3 id="_6">初始弯辊力的作用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="penv">PENV<a class="headerlink" href="#penv" title="Permanent link">&para;</a></h4>
+<p>在包络线计算过程中，force_bnd_nom主要参与UFD辊缝凸度对单位轧制力偏导数的计算。作为第二个参数传入。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>                <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcPEnvD</span><span class="o">-&gt;</span><span class="n">dprf_dfrcw</span> <span class="o">=</span> 
+                    <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSStdD</span><span class="p">[</span> <span class="n">iter</span> <span class="p">]</span><span class="o">-&gt;</span><span class="n">pcUFDD</span><span class="o">-&gt;</span><span class="n">Dprf_Dfrcw</span> <span class="p">(</span> 
+                                <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcPEnvD</span><span class="o">-&gt;</span><span class="n">force_pu_wid</span><span class="p">,</span>
+                                <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSStdD</span><span class="p">[</span> <span class="n">iter</span> <span class="p">]</span><span class="o">-&gt;</span><span class="n">pcFSStd</span><span class="o">-&gt;</span><span class="n">force_bnd_nom</span><span class="p">,</span>
+                                <span class="n">pce_wr_crn</span><span class="p">,</span>
+                                <span class="n">wr_br_crn</span>                           <span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="_7">分配计算<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>在分配计算阶段，force_bnd_nom参与SSU轧制力的计算。</p>
+<h2 id="_8">窜辊机构软极限调节值<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">调节值位置<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>窜辊机构软极限调节值位于GSM的ShiftActuatorLimit.xlsb当中。
+按钢种组分类，针对每个宽度区间和厚度区间、针对每个道次，有一组最大和最小窜辊软极限调节值，供工艺人员进行调节。</p>
+<h3 id="_10">窜辊机构软极限调节值的作用<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>在SSU初始设定阶段，窜辊机构软极限调节值主要是用来作为乘数，乘到窜辊硬极限上，用于修正和约束窜辊软极限。</p>
+<h3 id="_11">窜辊调节值参与过程<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>首先利用窜辊速度和卷卷带钢之间的间隙时间计算窜辊步长的最大变化量。默认的窜辊步长最大变化量为100mm，与计算值比较并取最小值。如果磨损存在异常，则从新按磨损异常的规则确立最大窜辊步长。之后计算窜辊的位置极限，原窜辊位置加上最大最小窜辊步长变化量求窜辊位置的软极限。</p>
+<h2 id="_12">弯辊机构软极限调节值<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">调节值位置<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>弯辊机构软极限调节值位于BendingActuatorLimit.xlsb中，针对每个钢种族，不同宽度与不同厚度、不同机架分别有最大最小两个调节值。</p>
+<h3 id="_14">调节值作用<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>psSPRP-&gt;min_bend_lmt参与计算弯辊力软极限。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">force_bnd_lim</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="o">=</span> <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">force_bnd_lim_org</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="o">=</span>
+    <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">pcFSStd</span><span class="o">-&gt;</span><span class="n">force_bnd_lim</span><span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="o">*</span>
+    <span class="n">psSPRP</span><span class="o">-&gt;</span><span class="n">min_bend_lmt</span><span class="p">[</span> <span class="n">pcFSStdDloc</span><span class="o">-&gt;</span><span class="n">pcFSStd</span><span class="o">-&gt;</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span> <span class="p">];</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="centerbuckletuningwavinesstuning">CenterBuckleTuning和WavinessTuning<a class="headerlink" href="#centerbuckletuningwavinesstuning" title="Permanent link">&para;</a></h2>
+<p>CTOOL中GSM模块中有CenterBuckleTuning和CenterBuckleTuning两张表，这两张表主要用来对屈曲判别标准的中浪和双边浪极限值进行调整。个人理解是用来调整在带钢约束条件下的死区极限范围。</p>
+<p>这两个表对于每个机架F1到F7分别有两个参数。一个是比例系数multiplier，作为乘数而存在，另一个是补偿值Offset，作为加数而存在。</p>
+<p>在模型代码中，用到参数表的地方主要在LPCE模块当中。</p>
+<p>参数表中的中浪和双边浪调节系数作为函数的参数参与LPce对象的初始化过程cLPceD::Init()，保存在bckl_mul和bckl_off中。参数表中的数据在<a href="">cLPceD::Crit_Bckl_Lim</a>中参与屈曲极限值的计算。首先建立屈曲极限的缓冲区并初始化为0值。中浪和双边浪的屈曲极限的原极限计算值是在cLPceD::Crit_Bckl()当中完成的，并存储于bckl_lim。如下图所示。需要用到带钢的宽度、厚度、带钢所受的机架张力和杨氏模量等进行计算。</p>
+<p>之后在cLPceD::Crit_Bckl_Lim中用调节系数进行修正，multiplier作为乘数，offset作为加数。值得注意的是，补偿计算极限值有一个**约束条件**，那就是在补偿计算后，双边浪的极限值必须大于中浪的极限值，也就是说必须保证死区的存在，否则返回中浪极限值和双边浪极限值的均值。如下图中的if条件分支所示。</p>
+<h2 id="_15">工作辊综合凸度补偿<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>综合凸度补偿的调节在WorkCrownOffsetTuning.xlsb当中，初始变量为psSLFG-&gt;wr_crn_off[ pass_idx ]，主要参与综合凸度的计算。</p>
+<p><img alt="wr_crn_off_adjust" src="../ctool_gsm/wr_crn_off_adjust.png" /></p>
+<p>在ShapeSetup初始化过程中，综合凸度的补偿值作为输入参数传入cCRLCD::Init()进行初始化。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>        <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSStdD</span><span class="p">[</span> <span class="n">seg</span> <span class="p">]</span><span class="o">-&gt;</span><span class="n">pcCRLCD</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span> 
+                  <span class="n">inhb_t_w_calc</span><span class="p">,</span>
+                  <span class="n">pce_wr_t_w_crn</span><span class="p">,</span>
+                  <span class="n">wr_br_t_w_crn</span><span class="p">,</span>
+                  <span class="n">psSAMP</span><span class="o">-&gt;</span><span class="n">wr_crn_vrn</span><span class="p">[</span> <span class="n">pass_idx</span> <span class="p">],</span>
+<span class="c1">//@@2ND-2(MAC014) begin</span>
+                  <span class="c1">//( psSLFG-&gt;wr_crn_off[ pass_idx ]  + psSPRP-&gt;wr_crn_off_adj[ pass_idx ]),</span>
+                  <span class="p">(</span> <span class="n">psSLFG</span><span class="o">-&gt;</span><span class="n">wr_crn_off</span><span class="p">[</span> <span class="n">pass_idx</span> <span class="p">]</span>  <span class="o">+</span> <span class="n">f_wr_crn_off_adj</span> <span class="p">),</span>
+<span class="c1">//@@2ND-2(MAC014) end</span>
+                  <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSStdD</span><span class="p">[</span> <span class="n">seg</span> <span class="p">]</span><span class="o">-&gt;</span><span class="n">pcEnPceD</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span>
+                  <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSPass</span><span class="o">-&gt;</span><span class="n">wr_crn_vrn_i_gn</span><span class="p">,</span>
+                  <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSPass</span><span class="o">-&gt;</span><span class="n">wr_crn_off_i_gn</span><span class="p">,</span>
+                  <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSPass</span><span class="o">-&gt;</span><span class="n">wr_crn_cor_i_gn</span><span class="p">,</span>
+                  <span class="n">pcFSPassD</span><span class="o">-&gt;</span><span class="n">pcFSStdD</span><span class="p">[</span> <span class="n">seg</span> <span class="p">]</span><span class="o">-&gt;</span><span class="n">pcStdRollPrD</span>
+                  <span class="c1">//psPDI-&gt;grt_idx </span>
+                  <span class="p">);</span>
+</pre></div>
+</td></tr></table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../cfg_parameters/" title="CFG模型参数梳理" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                CFG模型参数梳理
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../actual_combat/actual_combat_overview/" title="实战！" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                实战！
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 - 2018 王宇阳
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.a59e2a89.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+        <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

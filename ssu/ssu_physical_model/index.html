@@ -1,0 +1,1061 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="热轧板形模型的整体消化">
+      
+      
+        <link rel="canonical" href="https://nekohor.github.io/shape_model_cuisine/ssu/ssu_physical_model/">
+      
+      
+        <meta name="author" content="王宇阳">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.0">
+    
+    
+      
+        <title>板形物理模型 - 宇阳的板形模型私房菜</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.4f4f49e8.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://nekohor.github.io/shape_model_cuisine" title="宇阳的板形模型私房菜" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/favicon.ico" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                宇阳的板形模型私房菜
+              </span>
+              <span class="md-header-nav__topic">
+                板形物理模型
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="主页" class="md-tabs__link">
+        主页
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../ssu_overview/" title="板形设定模型" class="md-tabs__link md-tabs__link--active">
+          板形设定模型
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../allocation/allocation_overview/" title="凸度分配" class="md-tabs__link">
+          凸度分配
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../submodel/LPCE_model/" title="重难点模块与问题" class="md-tabs__link">
+          重难点模块与问题
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../smlc/smlc_overview/" title="板形自学习" class="md-tabs__link">
+          板形自学习
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../dynamic_control/dynamic_control_overview/" title="板形动态控制" class="md-tabs__link">
+          板形动态控制
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../parameters/parameters_overview/" title="参数和日志" class="md-tabs__link">
+          参数和日志
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../actual_combat/actual_combat_overview/" title="板形实战" class="md-tabs__link">
+          板形实战
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../img/favicon.ico" width="48" height="48">
+      
+    </span>
+    宇阳的板形模型私房菜
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      板形设定模型
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        板形设定模型
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_overview/" title="板形设定模型总览" class="md-nav__link">
+      板形设定模型总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_init/" title="板形模型初始化" class="md-nav__link">
+      板形模型初始化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_env/" title="包络线计算" class="md-nav__link">
+      包络线计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_alc/" title="凸度分配计算" class="md-nav__link">
+      凸度分配计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_elv/" title="板形评估" class="md-nav__link">
+      板形评估
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        板形物理模型
+      </label>
+    
+    <a href="./" title="板形物理模型" class="md-nav__link md-nav__link--active">
+      板形物理模型
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="带钢影响系数" class="md-nav__link">
+    带钢影响系数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="凸度削弱因子" class="md-nav__link">
+    凸度削弱因子
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="应变释放系数" class="md-nav__link">
+    应变释放系数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="板形恢复系数" class="md-nav__link">
+    板形恢复系数
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssu_xfer_func/" title="偏导数参数或增益" class="md-nav__link">
+      偏导数参数或增益
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      凸度分配
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        凸度分配
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/allocation_overview/" title="凸度分配和浪形的关系" class="md-nav__link">
+      凸度分配和浪形的关系
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/delivery_pass_targets/" title="道次出口目标计算" class="md-nav__link">
+      道次出口目标计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/roll_stack_crowns/" title="辊系凸度计算" class="md-nav__link">
+      辊系凸度计算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../allocation/UFD_calc/" title="UFD均载辊缝凸度计算" class="md-nav__link">
+      UFD均载辊缝凸度计算
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      重难点模块与问题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        重难点模块与问题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/LPCE_model/" title="LPCE横向带钢模型" class="md-nav__link">
+      LPCE横向带钢模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/LRG_model/" title="LRG横向辊缝模型" class="md-nav__link">
+      LRG横向辊缝模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/ALC_model/" title="ALC模块" class="md-nav__link">
+      ALC模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/CRLC_model/" title="CRLC模块" class="md-nav__link">
+      CRLC模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../submodel/cvc_roll_design/" title="CVC辊形设计" class="md-nav__link">
+      CVC辊形设计
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      板形自学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        板形自学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../smlc/smlc_overview/" title="SMLC板形自学习模型" class="md-nav__link">
+      SMLC板形自学习模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../smlc/flatness_adapt/" title="平直度自学习" class="md-nav__link">
+      平直度自学习
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      板形动态控制
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        板形动态控制
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dynamic_control/dynamic_control_overview/" title="板形动态控制总览" class="md-nav__link">
+      板形动态控制总览
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      参数和日志
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        参数和日志
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/parameters_overview/" title="参数和日志总览" class="md-nav__link">
+      参数和日志总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/ssu_log_checking_calculation/" title="SSU参数日志验算" class="md-nav__link">
+      SSU参数日志验算
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/ssu_log_FAQ/" title="SSU参数日志FAQ" class="md-nav__link">
+      SSU参数日志FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/cfg_parameters/" title="CFG模型参数梳理" class="md-nav__link">
+      CFG模型参数梳理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../parameters/ctool_gsm/" title="CTool参数梳理" class="md-nav__link">
+      CTool参数梳理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      板形实战
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        板形实战
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actual_combat/actual_combat_overview/" title="实战！" class="md-nav__link">
+      实战！
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../actual_combat/target_crown_change_has_influence_on_shape_model_references/" title="目标凸度变化影响板形模型设定" class="md-nav__link">
+      目标凸度变化影响板形模型设定
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="关于" class="md-nav__link">
+      关于
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="带钢影响系数" class="md-nav__link">
+    带钢影响系数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="凸度削弱因子" class="md-nav__link">
+    凸度削弱因子
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="应变释放系数" class="md-nav__link">
+    应变释放系数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="板形恢复系数" class="md-nav__link">
+    板形恢复系数
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">板形物理模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>板形模型的精度，需要一些板形理论参数支撑。比如带钢影响系数、应变释放系数等，本文进行简要说明。</p>
+<h2 id="_2">带钢影响系数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>金属的横向流动对板形和浪形的影响都很大。模型在这里运用了“带钢影响系数”来表征这一影响因素。</p>
+<p>带钢影响系数反映了入口比例凸度对出口比例凸度的影响，取值在0到1之间。如果带钢影响系数取值为0，说明带钢板形的变化不会造成带钢的延伸，如果带钢影响系数取值为1，说明带钢板形的变化完全影响了带钢的延伸，并且带钢在横向没有出现重新分配。</p>
+<h2 id="_3">凸度削弱因子<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>板形的变化会对自身的板形有印制作用。</p>
+<p>如果带钢的比例凸度增加，边部的带钢的压下率要明显高于中部带钢的压下率。因此，更高的轧制力导致了轧辊出现更大的压扁和偏斜，进而导致了边部的带钢更厚，从而对比例凸度造成抑制。在这里，这种现象和带钢的硬度紧密相关联。</p>
+<p>同时，带钢的比例凸度增加，会导致带钢在宽度方向上出现更不均匀的纵向延伸，边部的带钢受更大的压应力。因此，在带钢边部分布的单位轧制力更大，更高的轧制力导致了轧辊出现更大的压扁和偏斜，进而导致了边部的带钢更厚，从而对比例凸度造成抑制。在这里，这种现象和带钢所受的张力紧密相关联。</p>
+<p>针对以上现象，板形理论用“凸度削弱因子”来表征这种特性。在板形设定模型的评估阶段，如果修改弯辊力也无法满足临界浪形的要求，则重新计算凸度削弱因子，以改变双边浪和中浪的最大调整量。</p>
+<h2 id="_4">应变释放系数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>应变恢复系数用来描述带钢的塑性恢复和机架间带钢的二次变形。应变恢复系数是个经验系数，它和带钢温度和化学成分有关，在板形设定模型当中，这个值通过带钢机架出口温度插值计算获得。</p>
+<p>应变释放系数的取值在0和1之间。取值0说明应变不会释放，取值1说明应变完全释放。应变的释放与否和带钢的速度有很大关系。因为带钢的速度的背后，是轧制过程时间、带钢温度和化学成分对应变释放的影响。</p>
+<p>如下图所示是不同的钢种（不同的化学成分）对带钢应变释放系数的影响。一般来说，不锈钢相对于碳钢需要更长的时间进行应变恢复。</p>
+<p><img alt="strn_rlf_relationship" src="../ssu_physical_model/strn_rlf_relationship.png" /></p>
+<p>上一机架出口的带钢板形，到下一机架的入口前发生应变恢复。上一机架出口的应变差一般不等于下一机架入口的应变差，二者之间需要应变释放系数进行修正，如下面公式所示。其中<script type="math/tex">
+<script type="math/tex">f_{strn_rlf}</script>
+</script>为应变释放系数。
+$$
+\epsilon^{i+1}<em>{entry} = (1 - f</em>{strn_rlf}) \cdot \epsilon^{i}_{exit}
+$$</p>
+<h2 id="_5">板形恢复系数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>由于应变恢复，带钢的板形会出现一些微小的变化。因此我们用“板形恢复系数”来表征应变释放对板形变化的影响大小。因此各个机架的单位凸度改变量如下公式所示。
+$$
+\Delta Cp^{i} = f_{prf_recv} \cdot \Delta \epsilon^{i}<em>{exit} = f</em>{prf_recv} \cdot f_{strn_rlf} \cdot \epsilon<sup>{i}_{exit}
+$$
+下一机架入口的单位凸度如下公式所示。
+$$
+Cp</sup>{i+1}<em>{entry} =Cp^{i}</em>{exit} - \Delta Cp^{i} = Cp^{i}<em>{exit}  - f</em>{prf_recv} \cdot f_{strn_rlf} \cdot \epsilon^{i}_{exit}
+$$</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ssu_elv/" title="板形评估" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                板形评估
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ssu_xfer_func/" title="偏导数参数或增益" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                偏导数参数或增益
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 - 2018 王宇阳
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.a59e2a89.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+        <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,149 @@
+digraph G{  
+    //node [shape=plaintext, fontname="Microsoft Yahei、Inziu Iosevka SC"];
+    //graph [
+        //charset = "UTF-8";
+
+        // = "#343434",
+        //fontcolor = white,
+        //fontsize = 18,
+        //style = "filled",
+        rankdir = LR;
+        margin = 1.2;
+        //splines = spline,
+        //ranksep = 1.0,
+        //nodesep = 0.9
+        //fillcolor="#DA5A62"  // 红色
+    //];
+    //compound=true;
+    node [style="filled";
+          //colorscheme="greys4";
+          shape="box";
+          fontname = "Inziu Iosevka SC";
+          fontsize = 32,
+          fontcolor = "#FFFFFF",
+          color="#FFFFFF",
+          size="5,5";
+          fillcolor="#3AB882";
+          distortion=.7;
+    ];
+    edge [style="bold";
+          fontname = "Inziu Iosevka SC";
+          fontsize = 22;
+          fontcolor="#8699A3";
+          color="#8699A3";
+          //peripheries="3";
+    ];
+
+    GSM[label="GSM板形模型" shape="oval" fontcolor="white" fillcolor="#34495D"];
+
+    SSU[label="SSU板形设定模型" fillcolor="#FCB738" ];
+    SSU_init[label="板形模型初始化"];
+    SSU_env[label="包络线计算"];
+    SSU_alc[label="凸度分配计算"];
+    SSU_evl[label="板形评估"];
+    SSU_xfer_func[label="偏导数参数计算"];
+    SSU_physical_model[label="板形物理模型"];
+
+    {
+        SSU_delivery_pass_targets[label="道次出口目标计算"];
+        SSU_roll_stack_crowns[label="辊系凸度计算"];
+        SSU_UFD_calc[label="UFD均载辊缝凸度计算"];
+        SSU_roll_grnd_calc[label="CVC等效凸度计算"];
+        SSU_pos_shft_actuator[label="窜辊设定计算"];
+        SSU_bend_frc_actuator[label="弯辊设定计算"];
+        SSU_alc_cycle_calc[label="分配迭代计算"];
+        {
+            rank=same;
+            SSU_delivery_pass_targets->SSU_roll_stack_crowns;
+            SSU_roll_stack_crowns->SSU_UFD_calc;
+            SSU_UFD_calc->SSU_roll_grnd_calc;
+            SSU_roll_grnd_calc->SSU_pos_shft_actuator;
+            SSU_pos_shft_actuator->SSU_bend_frc_actuator;
+            SSU_bend_frc_actuator->SSU_alc_cycle_calc;
+        }
+
+    }
+
+    {
+        SSU_evl_initialize_first_pass_entry[label="评估的道次初始化"];
+        SSU_evaluate_strip[label="带钢起浪评估"];
+        SSU_evl_cycle_calc[label="评估迭代计算"];
+        {
+            rank="same";
+            SSU_evl_initialize_first_pass_entry->SSU_evaluate_strip;
+            SSU_evaluate_strip->SSU_evl_cycle_calc;
+        }
+        
+    }
+
+    {
+        unloaded_roll_gap_model[label="空载辊缝模型"];
+        loaded_roll_gap_model[label="承载辊缝模型"];
+        LPCE[label="LPCE横向带钢模型"];
+        LRG[label="LRG横向辊缝模型"];
+        critical_buckling_model[label="临界浪形模型"];
+    }
+
+
+
+
+    SMLC[label="SMLC板形自学习模型" fillcolor="#FCB738"];
+    adaptation_strategy[label="自学习策略"];
+    wr_crn_off_adj[label="辊系凸度补偿自学习"];
+    profile_adapt[label="凸度自学习"];
+    flatness_adapt[label="平直度自学习"];
+    pu_eff_profile_adapt[label="单位有效凸度自学习"];
+
+
+    ROP[label="ROP轧辊模型" fillcolor="#FCB738"];
+    ROP_wear[label="ROP轧辊磨损计算"];
+    ROP_thermal[label="ROP轧辊热胀计算"];
+
+    SCF[label="SCF平辊窜辊策略模型" fillcolor="#FCB738"];
+    SCF_normal[label="常规辊形窜辊"];
+    SCF_sin[label="正弦异步窜辊"];
+
+    SMDC[label="板形动态控制" fillcolor="#FCB738"  fillcolor="#DA5A62"];
+    ASPC[label="ASPC凸度反馈控制"];
+    ASFC[label="ASFC平直度反馈控制"];
+    FFC[label="FFC轧制力跟随控制"];
+    TCFC[label="TCFC热胀跟随控制"];
+
+    // global
+    GSM->{SSU SMLC ROP SCF SMDC}
+    SSU->{SSU_init SSU_env SSU_alc SSU_evl SSU_xfer_func SSU_physical_model};
+    SMLC->{
+
+            adaptation_strategy;
+            wr_crn_off_adj;
+            profile_adapt;
+            flatness_adapt;
+            pu_eff_profile_adapt;  
+    };
+    SSU_alc->SSU_delivery_pass_targets;
+    SSU_evl->SSU_evl_initialize_first_pass_entry;
+
+    {
+        rank=same
+        SSU_alc loaded_roll_gap_model
+    }
+    SSU_physical_model->{
+        unloaded_roll_gap_model
+        loaded_roll_gap_model
+        LPCE
+        LRG
+        critical_buckling_model
+    };
+
+    ROP->{ROP_wear ROP_thermal};
+    {
+        rank=same;
+        ROP_wear ROP_thermal SSU_roll_stack_crowns
+    }
+    SCF->{SCF_normal SCF_sin};
+    {
+        rank=same;
+        SCF_normal SCF_sin SSU_pos_shft_actuator
+    }    
+    SMDC->{ASPC ASFC FFC TCFC};
+}  
