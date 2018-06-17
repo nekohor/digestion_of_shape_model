@@ -109,8 +109,8 @@ $$
 当上下余量一致时。
 
 $$
-h_u - \delta + \Delta_1 + \Delta_2 + \Delta_3 - C + e_1 - h_a =  \\
-h_a - (h_d + \delta + \Delta_1 + \Delta_2 + \Delta_3 + C + e_2)  \\
+h_u - \delta + \Delta_1 + \Delta_2 + \Delta_3 - C + e_1 - h_a = 
+h_a - (h_d + \delta + \Delta_1 + \Delta_2 + \Delta_3 + C + e_2)  
 $$
 
 化简得：

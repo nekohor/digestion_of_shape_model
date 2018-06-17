@@ -114,7 +114,7 @@ $$
 如果出口应变差超出了浪形判别的极限，说明容易出现浪形，那么对相应机架的入口有效单位凸度需要按下式重新计算。
 
 $$
-Cp_{entry\_effect}^{i} ＝ Cp_{exit\_effect} ^{i} - \frac{ 1 - f_{prf\_recv} \cdot f_{strn\_rlf} \cdot K_{pce\_infl} }{ K_{pce\_infl} } \cdot \epsilon^{i}
+Cp_{entry\_effect}^{i} = Cp_{exit\_effect} ^{i} - \frac{ 1 - f_{prf\_recv} \cdot f_{strn\_rlf} \cdot K_{pce\_infl} }{ K_{pce\_infl} } \cdot \epsilon^{i}
 $$
 
 ### 计算弯窜辊设定值
