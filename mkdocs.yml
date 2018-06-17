@@ -4,56 +4,10 @@ site_author: 王宇阳
 site_url: https://nekohor.github.io/shape_model_cuisine
 copyright: 'Copyright &copy; 2017 - 2018 王宇阳'
 
-pages:
-- 主页: 'index.md'
-- 板形设定模型:
-  - 板形设定模型总览: 'ssu/ssu_overview.md'
-  - 板形模型初始化: 'ssu/ssu_init.md'
-  - 包络线计算: 'ssu/ssu_env.md'
-  - 凸度分配计算: 'ssu/ssu_alc.md'
-  - 板形评估: 'ssu/ssu_elv.md'
-  - 板形物理模型: 'ssu/ssu_physical_model.md'
-  - 偏导数参数或增益: 'ssu/ssu_xfer_func.md'
-
-- 凸度分配:
-  - 凸度分配和浪形的关系: 'allocation/allocation_overview.md'
-  - 道次出口目标计算: 'allocation/delivery_pass_targets.md'
-  - 辊系凸度计算: 'allocation/roll_stack_crowns.md'
-  - UFD均载辊缝凸度计算: 'allocation/UFD_calc.md'
-
-- 重难点模块与问题:
-  - LPCE横向带钢模型: 'submodel/LPCE_model.md'
-  - LRG横向辊缝模型: 'submodel/LRG_model.md'
-  - ALC模块: 'submodel/ALC_model.md'
-  - CRLC模块: 'submodel/CRLC_model.md'
-  - CVC辊形设计: 'submodel/cvc_roll_design.md'
-
-- 板形自学习:
-  - SMLC板形自学习模型: 'smlc/smlc_overview.md'
-  - 平直度自学习: 'smlc/flatness_adapt.md'
-
-- 板形动态控制:
-  - 板形动态控制总览: 'dynamic_control/dynamic_control_overview.md'
-
-
-- 参数和日志:
-  - 参数和日志总览: 'parameters/parameters_overview.md'
-  - SSU参数日志验算: 'parameters/ssu_log_checking_calculation.md'
-  - SSU参数日志FAQ: 'parameters/ssu_log_FAQ.md'
-  - CFG模型参数梳理: 'parameters/cfg_parameters.md'
-  - CTool参数梳理: 'parameters/ctool_gsm.md'
-
-
-- 板形实战:
-  - 实战！: 'actual_combat/actual_combat_overview.md'
-  - 目标凸度变化影响板形模型设定: 'actual_combat/target_crown_change_has_influence_on_shape_model_references.md'
-
-- 关于: 'about.md'
-
-
 
 
 theme:
+  # name: readthedocs
   name: material
   palette:
     primary: 'Blue Grey'
@@ -97,7 +51,73 @@ markdown_extensions:
 extra_javascript:
   - 'assets/js/extra.js'
   - 'https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+  # - 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
   # - 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js'
 
 extra_css:
   - "assets/css/extra.css"
+
+
+  
+pages:
+- 主页: 'index.md'
+- 板形设定模型:
+  - 板形设定模型总览: 'ssu/ssu_overview.md'
+  - 板形模型初始化: 'ssu/ssu_init.md'
+  - 包络线计算: 'ssu/ssu_env.md'
+  - 凸度分配和设定: 'ssu/ssu_alc.md'
+  - 板形评估: 'ssu/ssu_elv.md'
+  - 板形物理模型: 'ssu/ssu_physical_model.md'
+  - 偏导数参数或增益: 'ssu/ssu_xfer_func.md'
+
+- 凸度分配和机构设定:
+  - 凸度分配和浪形的关系: 'allocation/allocation_overview.md'
+  - 道次出口目标计算: 'allocation/delivery_pass_targets.md'
+  - 辊系凸度计算: 'allocation/roll_stack_crowns.md'
+  - UFD均载辊缝凸度计算: 'allocation/UFD_calc.md'
+
+- 重难点模块与问题:
+  - 重难点模块与问题总览: 'submodel/submodel_overview.md'
+  - LPCE横向带钢模型: 'submodel/LPCE_model.md'
+  - LRG横向辊缝模型: 'submodel/LRG_model.md'
+  - ALC模块: 'submodel/ALC_model.md'
+  - CRLC模块: 'submodel/CRLC_model.md'
+  - CVC辊形设计: 'submodel/cvc_roll_design.md'
+
+- 板形自学习:
+  - 板形自学习模型总览: 'smlc/smlc_overview.md'
+  - 平直度自学习: 'smlc/flatness_adapt.md'
+
+- 轧辊模型:
+  - 轧辊模型总览: 'rop/rop_overview.md'
+  # - ROP磨损: 'rop/rop_wear.md'
+  # - ROP热胀: 'rop/rop_thermal.md'
+
+- SCF:
+  - SCF平辊窜辊策略模型: 'scf/scf_overview.md'
+  # - 常规辊形窜辊: 'scf/scf_normal.md'
+  # - 正弦异步窜辊: 'scf/scf_sin.md'
+
+- 板形动态控制:
+  - 板形动态控制总览: 'dynamic_control/dynamic_control_overview.md'
+  # - ASPC凸度反馈控制: 'dynamic_control/aspc.md'
+  # - ASFC浪形反馈控制: 'dynamic_control/asfc.md'
+  # - FFC轧制力跟随控制: 'dynamic_control/ffc.md'
+  # - TCFC热胀跟随控制: 'dynamic_control/tcfc.md'
+
+- 参数和日志:
+  - 参数和日志总览: 'parameters/parameters_overview.md'
+  - SSU参数日志验算: 'parameters/ssu_log_checking_calculation.md'
+  - SSU参数日志FAQ: 'parameters/ssu_log_FAQ.md'
+  - CFG模型参数梳理: 'parameters/cfg_parameters.md'
+  - CTool参数梳理: 'parameters/ctool_gsm.md'
+
+- 板形实战:
+  - 实战！: 'actual_combat/actual_combat_overview.md'
+  - 目标凸度变化影响板形模型设定: 'actual_combat/target_crown_change_has_influence_on_shape_model_references.md'
+  - 酸洗板厚度和边降能力设计: 'actual_combat/pickled_plate_thick_ability_design.md'
+  - 板形能力校核: 'actual_combat/shape_ability_checking.md'
+  - 机架间对称浪形的调整方式: 'actual_combat/interstand_sym_flatness_adjust.md'
+
+- 关于我: 'about.md'
+

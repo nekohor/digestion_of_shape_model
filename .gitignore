@@ -1,4 +1,5 @@
 node_modules/
 _book/
-site/
 book.pdf
+pdf_old/
+site/

@@ -99,11 +99,11 @@ digraph G{
     ROP_wear[label="ROP轧辊磨损计算"];
     ROP_thermal[label="ROP轧辊热胀计算"];
 
-    SCF[label="SCF平辊窜辊策略模型" fillcolor="#FCB738"];
+    SCF[label="SCF平辊窜辊策略模型" fillcolor="#FCB738" fillcolor="#DA5A62"];
     SCF_normal[label="常规辊形窜辊"];
     SCF_sin[label="正弦异步窜辊"];
 
-    SMDC[label="板形动态控制" fillcolor="#FCB738"  fillcolor="#DA5A62"];
+    SMDC[label="板形动态控制" fillcolor="#FCB738"];
     ASPC[label="ASPC凸度反馈控制"];
     ASFC[label="ASFC平直度反馈控制"];
     FFC[label="FFC轧制力跟随控制"];

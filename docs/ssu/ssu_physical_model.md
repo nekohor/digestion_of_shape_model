@@ -28,18 +28,24 @@
 
 ![strn_rlf_relationship](ssu_physical_model/strn_rlf_relationship.png)
 
-上一机架出口的带钢板形，到下一机架的入口前发生应变恢复。上一机架出口的应变差一般不等于下一机架入口的应变差，二者之间需要应变释放系数进行修正，如下面公式所示。其中$$f_{strn_rlf}$$为应变释放系数。
+上一机架出口的带钢板形，到下一机架的入口前发生应变恢复。上一机架出口的应变差一般不等于下一机架入口的应变差，二者之间需要应变释放系数进行修正，如下面公式所示。其中$f_{strn\_rlf}$为应变释放系数。
+
 $$
 \epsilon^{i+1}_{entry} = (1 - f_{strn\_rlf}) \cdot \epsilon^{i}_{exit}
 $$
 
+
 ## 板形恢复系数
 
 由于应变恢复，带钢的板形会出现一些微小的变化。因此我们用“板形恢复系数”来表征应变释放对板形变化的影响大小。因此各个机架的单位凸度改变量如下公式所示。
+
 $$
 \Delta Cp^{i} = f_{prf\_recv} \cdot \Delta \epsilon^{i}_{exit} = f_{prf\_recv} \cdot f_{strn\_rlf} \cdot \epsilon^{i}_{exit}
 $$
+
 下一机架入口的单位凸度如下公式所示。
+
 $$
 Cp^{i+1}_{entry} =Cp^{i}_{exit} - \Delta Cp^{i} = Cp^{i}_{exit}  - f_{prf\_recv} \cdot f_{strn\_rlf} \cdot \epsilon^{i}_{exit}
 $$
+
