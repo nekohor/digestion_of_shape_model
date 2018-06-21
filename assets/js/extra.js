@@ -33,11 +33,20 @@ footnote[0].textContent = copyright[0].textContent;
 console.log(footnote[0].textContent)
 
 
-// baidu analysis
+// baidu analysis of shape model cuisine
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?e8974cc1ccbffca8da44e7f0ab490a1c";
+  hm.src = "https://hm.baidu.com/hm.js?bed7b653b4f6c50ba186a560ef0b7411";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
+
+// baidu analysis of nekohor.com
+// var _hmt = _hmt || [];
+// (function() {
+//   var hm = document.createElement("script");
+//   hm.src = "https://hm.baidu.com/hm.js?e8974cc1ccbffca8da44e7f0ab490a1c";
+//   var s = document.getElementsByTagName("script")[0]; 
+//   s.parentNode.insertBefore(hm, s);
+// })();
