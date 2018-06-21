@@ -10,8 +10,6 @@ CVC是Continuously Variable Crown的缩写，中文意思为连续可变凸度�
 
 ![attr](cvc_roll_design/attr.jpg)
 
-!!! note  "CVC"
-    bucudwdwdwdwdwdwdwdwdwo
 
 CVC的曲线函数一般是一个最高次项为奇数的多项式。如下式所示。其中$y_{u}(x)$和$y_{b}(x)$分别表示上辊和下辊的辊形曲线。$a_{0}$到$a_{n}$为多项式系数，或称为辊形系数。$n$为曲线的最高次幂，$2L$为辊身长度，$s$为窜辊值。
 $$
