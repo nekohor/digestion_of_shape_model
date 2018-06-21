@@ -2,172 +2,172 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/ssu/ssu_overview/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/ssu/ssu_init/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/ssu/ssu_env/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/ssu/ssu_alc/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/ssu/ssu_elv/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/ssu/ssu_physical_model/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/ssu/ssu_xfer_func/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/allocation/allocation_overview/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/allocation/delivery_pass_targets/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/allocation/roll_stack_crowns/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/allocation/UFD_calc/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/submodel/submodel_overview/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/submodel/LPCE_model/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/submodel/LRG_model/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/submodel/ALC_model/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/submodel/CRLC_model/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/submodel/cvc_roll_design/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/smlc/smlc_overview/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/smlc/flatness_adapt/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/rop/rop_overview/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/scf/scf_overview/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/dynamic_control/dynamic_control_overview/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/parameters/parameters_overview/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/parameters/ssu_log_checking_calculation/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/parameters/ssu_log_FAQ/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/parameters/cfg_parameters/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/parameters/ctool_gsm/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/actual_combat/actual_combat_overview/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/actual_combat/target_crown_change_has_influence_on_shape_model_references/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/actual_combat/pickled_plate_thick_ability_design/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/actual_combat/shape_ability_checking/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/actual_combat/interstand_sym_flatness_adjust/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://nekohor.github.io/shape_model_cuisine/about/</loc>
-     <lastmod>2018-06-17</lastmod>
+     <lastmod>2018-06-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -427,6 +427,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" title="板形的评估" class="md-nav__link">
+    板形的评估
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1087,6 +1094,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" title="板形的评估" class="md-nav__link">
+    板形的评估
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1189,7 +1203,7 @@ Cp _{entry\_effect} ^{i} = Cp _{entry\_effect} ^{i} - \frac{ \Delta Cp }{ \sum_{
 </script>
 <p>如果出口应变差超出了浪形判别的极限，说明容易出现浪形，那么对相应机架的入口有效单位凸度需要按下式重新计算。</p>
 <script type="math/tex; mode=display">
-Cp_{entry\_effect}^{i} ＝ Cp_{exit\_effect} ^{i} - \frac{ 1 - f_{prf\_recv} \cdot f_{strn\_rlf} \cdot K_{pce\_infl} }{ K_{pce\_infl} } \cdot \epsilon^{i}
+Cp_{entry\_effect}^{i} = Cp_{exit\_effect} ^{i} - \frac{ 1 - f_{prf\_recv} \cdot f_{strn\_rlf} \cdot K_{pce\_infl} }{ K_{pce\_infl} } \cdot \epsilon^{i}
 </script>
 <h3 id="_7">计算弯窜辊设定值<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>单位凸度分配结束后，板形模型根据各个机架的板形控制能力计算板形执行机构（弯辊和窜辊）的设定值。弯窜辊的设定值，从F7机架开始从后往前计算。</p>
@@ -1208,6 +1222,8 @@ Cp_{ufd\_target} = Cp_{entry\_effect} +
 F_{bnd} = \frac{C_{ufd\_target} - C_{ufd}}{B_{6} + B_{7} \cdot P + B_{8} \cdot p^{2} + B_{11} + B_{14}}
 </script>
 <p>弯窜辊设定完后，重新计算UFD均载辊缝单位凸度。如果重计算的UFD均载辊缝单位凸度和目标UFD均载辊缝单位凸度之间的差值仍然不能满足板形质量要求，说明超出了板形执行机构的控制能力，容易出现凸度不命中或批量浪形等板形缺陷。必要的情况下，重新进行载荷分配。</p>
+<h3 id="_8">板形的评估<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>当已知带钢的入口状态和板形执行机构的设定值后，带钢的出口状态随之确定。这时，板形模型从F1开始往后依次评估每个道次的板形状态。当带钢的出口应变差超过了临界浪形极限的范围，板形模型利用弯辊机构对带钢的浪形进行调整，如果弯辊机构不能满足浪形调整的需求，则模型重新计算凸度削弱因子。</p>
                 
                   
                 
