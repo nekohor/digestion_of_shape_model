@@ -90,7 +90,7 @@ pages:
 
 - 轧辊模型:
   - 轧辊模型总览: 'rop/rop_overview.md'
-  # - ROP磨损: 'rop/rop_wear.md'
+  - ROP磨损: 'rop/rop_wear.md'
   # - ROP热胀: 'rop/rop_thermal.md'
 
 - SCF:
