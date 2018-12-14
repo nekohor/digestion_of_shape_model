@@ -75,6 +75,7 @@ pages:
   - 道次出口目标计算: 'allocation/delivery_pass_targets.md'
   - 辊系凸度计算: 'allocation/roll_stack_crowns.md'
   - UFD均载辊缝凸度计算: 'allocation/UFD_calc.md'
+  - 凸度分配迭代计算: 'docs/allocation/alc_cycle_calc.md'
 
 - 重难点模块与问题:
   - 重难点模块与问题总览: 'submodel/submodel_overview.md'
@@ -92,6 +93,7 @@ pages:
   - 轧辊模型总览: 'rop/rop_overview.md'
   - ROP磨损: 'rop/rop_wear.md'
   # - ROP热胀: 'rop/rop_thermal.md'
+  - 实战！热胀与批量热胀: 'docs/rop/thermal_combat_batch_buckle.md'
 
 - SCF:
   - SCF平辊窜辊策略模型: 'scf/scf_overview.md'
@@ -118,6 +120,7 @@ pages:
   - 酸洗板厚度和边降能力设计: 'actual_combat/pickled_plate_thick_ability_design.md'
   - 板形能力校核: 'actual_combat/shape_ability_checking.md'
   - 机架间对称浪形的调整方式: 'actual_combat/interstand_sym_flatness_adjust.md'
+  - 酸洗板的凸度命中: 'docs/actual_combat/p_steel_crown_aim.md'
 
 - 关于我: 'about.md'
 

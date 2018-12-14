@@ -19,7 +19,7 @@
     <!-- * [2.4 CVC等效凸度计算](docs/allocation/roll_grnd_calc.md) -->
     <!-- * [2.5 窜辊设定计算](docs/allocation/pos_shft_actuator.md) -->
     <!-- * [2.6 弯辊设定计算](docs/allocation/bend_frc_actuator.md) -->
-    <!-- * [2.7 凸度分配迭代计算](docs/allocation/alc_cycle_calc.md) -->
+    * [凸度分配迭代计算](docs/allocation/alc_cycle_calc.md)
 
 ## 重难点模块与问题
 * [重难点模块与问题总览](docs/submodel/submodel_overview.md)
@@ -43,8 +43,9 @@
 
 ## 轧辊模型
 * [轧辊模型总览](docs/rop/rop_overview.md)
-    <!-- * [ROP磨损](docs/rop/rop_wear.md) -->
+    * [ROP磨损](docs/rop/rop_wear.md)
     <!-- * [ROP热胀](docs/rop/rop_thermal.md) -->
+    * [实战！热胀与批量热胀](docs/rop/thermal_combat_batch_buckle.md)
 
 ## SCF
 * [SCF平辊窜辊策略模型](docs/scf/scf_overview.md)
@@ -71,6 +72,7 @@
     * [酸洗板厚度和边降能力设计](docs/actual_combat/pickled_plate_thick_ability_design.md)
     * [板形能力校核](docs/actual_combat/shape_ability_checking.md)
     * [机架间对称浪形的调整方式](docs/actual_combat/interstand_sym_flatness_adjust.md)
+    * [酸洗板的凸度命中](docs/actual_combat/p_steel_crown_aim.md)
 
     <!-- * [正弦异步窜辊策略的调整](docs/actual_combat/正弦异步窜辊策略的调整.md) -->
     <!-- * [热轧目标凸度对硅钢同板差的影响](docs/actual_combat/热轧目标凸度对硅钢同板差的影响.md) -->
